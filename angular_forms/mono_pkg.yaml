@@ -1,4 +1,4 @@
-dart:
+sdk:
 # Hitting https://github.com/dart-lang/sdk/issues/46183
 # Waiting for github.com/dart-lang/sdk/commit/8eba520115
 # to land in stable!
