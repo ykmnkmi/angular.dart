@@ -4,9 +4,6 @@ sdk:
   - 2.17.0
 
 stages:
-  - analyze:
-      - format
-      - analyze
   - build:
       - command: dart run build_runner build --fail-on-severe
   - unit_test:
