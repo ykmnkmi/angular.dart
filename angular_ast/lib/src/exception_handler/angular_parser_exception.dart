@@ -19,17 +19,15 @@ class AngularParserException extends Error {
   );
 
   @override
-  bool operator ==(Object o) {
-    if (o is AngularParserException) {
-      return errorCode == o.errorCode &&
-          length == o.length &&
-          offset == o.offset;
-    }
-    return false;
+  bool operator ==(Object? other) {
+    return other is AngularParserException &&
+        errorCode == other.errorCode &&
+        length == other.length &&
+        offset == other.offset;
   }
 
   @override
-  int get hashCode => hash3(errorCode, length, offset);
+  int get hashCode => Object.hash(errorCode, length, offset);
 
   @override
   String toString() => 'AngularParserException{$errorCode}';

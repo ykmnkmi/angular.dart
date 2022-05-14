@@ -2,7 +2,6 @@ import 'package:collection/collection.dart';
 import 'package:meta/meta.dart';
 
 import '../../ast.dart';
-import '../../hash.dart';
 
 final _listEquals = const ListEquality<dynamic>();
 
@@ -21,17 +20,16 @@ class NgMicroAst {
   });
 
   @override
-  bool operator ==(Object o) {
-    if (o is NgMicroAst) {
-      return _listEquals.equals(letBindings, o.letBindings) &&
-          _listEquals.equals(properties, o.properties);
-    }
-    return false;
+  bool operator ==(Object? other) {
+    return other is NgMicroAst &&
+        _listEquals.equals(letBindings, other.letBindings) &&
+        _listEquals.equals(properties, other.properties);
   }
 
   @override
   int get hashCode {
-    return hash2(_listEquals.hash(letBindings), _listEquals.hash(properties));
+    return Object.hash(
+        _listEquals.hash(letBindings), _listEquals.hash(properties));
   }
 
   @override
