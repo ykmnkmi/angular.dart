@@ -1,12 +1,13 @@
 sdk:
-#- 2.12.0
-- dev
+  - dev
+  - stable
+  - 2.17.0
 
 stages:
-- analyze:
-  # Not running with --fatal-infos on dev due to some weird null checks
-  - analyze
-- build:
-  - command: dart run build_runner build --fail-on-severe
-- unit_test:
-  - command: dart run build_runner test --fail-on-severe -- -P ci
+  - analyze:
+      # TODO: add --fata-infos once analysis issues have been resolved
+      - analyze
+  - build:
+      - command: dart run build_runner build --fail-on-severe
+  - unit_test:
+      - command: dart run build_runner test --fail-on-severe -- -P ci

@@ -1,14 +1,15 @@
 sdk:
-#- 2.12.0
-- dev
+  - dev
+  - stable
+  - 2.17.0
 
 stages:
-- analyze:
-  - group:
-    - analyze #: --fatal-infos
-    sdk: dev
-#  - group:
-#    - analyze
-#    sdk: 2.12.0
-- build:
-  - command: dart run build_runner build --fail-on-severe
+  - analyze:
+      - group:
+          - analyze #: --fatal-infos
+        sdk: dev
+      - group:
+        - analyze
+        sdk: stable
+  - build:
+      - command: dart run build_runner build --fail-on-severe
