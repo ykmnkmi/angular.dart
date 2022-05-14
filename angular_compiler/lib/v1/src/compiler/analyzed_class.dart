@@ -52,8 +52,8 @@ DartType getExpressionType(ast.AST expression, AnalyzedClass analyzedClass) {
 /// Returns null otherwise.
 DartType? getIterableElementType(DartType dartType, LibraryElement lib) =>
     dartType is InterfaceType
-    ? dartType.lookUpGetter2('single', lib)?.returnType
-    : null;
+        ? dartType.lookUpGetter2('single', lib)?.returnType
+        : null;
 
 /// Returns an int type using the [analyzedClass]'s context.
 DartType intType(AnalyzedClass analyzedClass) =>
@@ -190,9 +190,7 @@ ast.ASTWithSource rewriteTearOff(
   if (unwrappedExpression is ast.PropertyRead) {
     // Find the method, either on "this." or "super.".
     final method = analyzedClass.classElement.thisType.lookUpMethod2(
-      unwrappedExpression.name,
-        analyzedClass.classElement.library
-    );
+        unwrappedExpression.name, analyzedClass.classElement.library);
 
     // If not found, we do not perform any re-write.
     if (method == null) {
@@ -366,8 +364,8 @@ class _TypeResolver extends ast.AstVisitor<DartType, dynamic> {
   /// Returns dynamic if [receiverType] has no [getterName].
   DartType _lookupGetterReturnType(DartType receiverType, String getterName) {
     if (receiverType is InterfaceType) {
-      var getter = receiverType.lookUpGetter2(getterName,
-      receiverType.element.library);
+      var getter =
+          receiverType.lookUpGetter2(getterName, receiverType.element.library);
       if (getter != null) return getter.returnType;
     }
     return _dynamicType;
@@ -378,8 +376,8 @@ class _TypeResolver extends ast.AstVisitor<DartType, dynamic> {
   /// Returns dynamic if [receiverType] has no [methodName].
   DartType _lookupMethodReturnType(DartType receiverType, String methodName) {
     if (receiverType is InterfaceType) {
-      var method = receiverType.lookUpMethod2(methodName,
-          receiverType.element.library);
+      var method =
+          receiverType.lookUpMethod2(methodName, receiverType.element.library);
       if (method != null) return method.returnType;
     }
     return _dynamicType;

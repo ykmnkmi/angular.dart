@@ -64,15 +64,14 @@ void _typeNgForLocals(
     return;
   }
   final clazz = component.analyzedClass!;
-  final ngForOfType =
-      getExpressionType(ngForOfValue.expression.ast, clazz);
+  final ngForOfType = getExpressionType(ngForOfValue.expression.ast, clazz);
   // Augment locals set by `NgFor` with type information.
   for (var variable in variables) {
     switch (variable.value) {
       case r'$implicit':
         // This local is the generic type of the `Iterable` bound to [ngForOf].
-        variable.dartType = getIterableElementType(ngForOfType,
-            clazz.classElement.library);
+        variable.dartType =
+            getIterableElementType(ngForOfType, clazz.classElement.library);
         break;
       case 'index':
       case 'count':
