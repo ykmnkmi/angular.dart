@@ -76,16 +76,16 @@ void main() {
   });
 
   group('for linking', () {
-    late Set<String> fakeInputs;
-    late Set<String> fakeIsLibrary;
+    late Set<String> _fakeInputs;
+    late Set<String> _fakeIsLibrary;
     late ReflectableReader reader;
 
     setUp(() {
-      fakeInputs = <String>{};
-      fakeIsLibrary = <String>{};
+      _fakeInputs = <String>{};
+      _fakeIsLibrary = <String>{};
       reader = ReflectableReader(
-        hasInput: fakeInputs.contains,
-        isLibrary: (lib) async => fakeIsLibrary.contains(lib),
+        hasInput: _fakeInputs.contains,
+        isLibrary: (lib) async => _fakeIsLibrary.contains(lib),
       );
     });
 
@@ -105,7 +105,7 @@ void main() {
     });
 
     test('should link to a file that has a .template.dart on disk', () async {
-      fakeIsLibrary.add('foo.template.dart');
+      _fakeIsLibrary.add('foo.template.dart');
       final testLib = await resolveLibrary(r'''
         import 'foo.dart';
         import 'bar.dart';
@@ -120,7 +120,7 @@ void main() {
     });
 
     test('should link to a file that will have a .template.dart', () async {
-      fakeInputs.add('foo.dart');
+      _fakeInputs.add('foo.dart');
       final testLib = await resolveLibrary(r'''
         import 'foo.dart';
         import 'bar.dart';

@@ -48,15 +48,11 @@ void main() {
       var fixture = await testBed.create();
       expect(fixture.text, '(, B)');
       await fixture.update((LightDomChangeTest component) {
-        for (var d in component.viewports!) {
-          d.show();
-        }
+        component.viewports!.forEach((d) => d.show());
       });
       expect(fixture.text, '(A1, B)');
       await fixture.update((LightDomChangeTest component) {
-        for (var d in component.viewports!) {
-          d.hide();
-        }
+        component.viewports!.forEach((d) => d.hide());
       });
       expect(fixture.text, '(, B)');
     });

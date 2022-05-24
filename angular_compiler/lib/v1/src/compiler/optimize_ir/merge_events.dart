@@ -5,17 +5,17 @@ import 'package:angular_compiler/v1/src/compiler/ir/model.dart' as ir;
 /// In the case that multiple bindings on a directive or element target the same
 /// event name, we can merge these handlers into a single method.
 List<ir.Binding> mergeEvents(List<ir.Binding> events) {
-  final visitedEvents = <String, ir.Binding>{};
+  final _visitedEvents = <String, ir.Binding>{};
   for (var event in events) {
     var eventName = (event.target as ir.BoundEvent).name;
-    var handler = visitedEvents[eventName];
+    var handler = _visitedEvents[eventName];
     if (handler == null) {
-      visitedEvents[eventName] = event;
+      _visitedEvents[eventName] = event;
       continue;
     }
-    visitedEvents[eventName] = _merge(handler, event);
+    _visitedEvents[eventName] = _merge(handler, event);
   }
-  return visitedEvents.values.toList();
+  return _visitedEvents.values.toList();
 }
 
 ir.Binding _merge(ir.Binding handler, ir.Binding event) => ir.Binding(

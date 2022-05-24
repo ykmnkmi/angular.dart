@@ -429,5 +429,22 @@ String iterableChangesAsString({
   List<Object> removals = const [],
   List<Object> identityChanges = const [],
 }) {
-  return 'collection: ${collection.join(', ')}\nprevious: ${previous.join(', ')}\nadditions: ${additions.join(', ')}\nmoves: ${moves.join(', ')}\nremovals: ${removals.join(', ')}\nidentityChanges: ${identityChanges.join(', ')}\n';
+  return 'collection: ' +
+      collection.join(', ') +
+      '\n' +
+      'previous: ' +
+      previous.join(', ') +
+      '\n' +
+      'additions: ' +
+      additions.join(', ') +
+      '\n' +
+      'moves: ' +
+      moves.join(', ') +
+      '\n' +
+      'removals: ' +
+      removals.join(', ') +
+      '\n' +
+      'identityChanges: ' +
+      identityChanges.join(', ') +
+      '\n';
 }

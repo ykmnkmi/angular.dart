@@ -212,11 +212,13 @@ class DependencyInvocation<E extends Element?> {
       const MapEquality<Object, Object>().hash(named);
 
   @override
-  String toString() => 'DependencyInvocation ${{
+  String toString() =>
+      'DependencyInvocation ' +
+      {
         'bound': '${urlOf(bound)}',
         'positional': '$positional',
         'named': '$named',
-      }}';
+      }.toString();
 }
 
 /// Statically analyzed information necessary to satisfy a dependency.
@@ -271,12 +273,14 @@ class DependencyElement {
       skipSelf.hashCode;
 
   @override
-  String toString() => 'DependencyElement ${{
+  String toString() =>
+      'DependencyElement ' +
+      {
         'token': token,
         'type': type,
         'host': host,
         'optional': optional,
         'self': self,
         'skipSelf': skipSelf,
-      }}';
+      }.toString();
 }

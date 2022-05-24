@@ -33,9 +33,8 @@ class ComponentVisitorExceptionHandler {
     if (_warnings.isNotEmpty) {
       final buildWarnings = await Future.wait(
           _warnings.map((warning) => warning.resolve(resolver)));
-      for (var buildWarning in buildWarnings) {
-        logWarning(buildWarning.toString());
-      }
+      buildWarnings
+          .forEach((buildWarning) => logWarning(buildWarning.toString()));
     }
     if (_errors.isEmpty) {
       return;

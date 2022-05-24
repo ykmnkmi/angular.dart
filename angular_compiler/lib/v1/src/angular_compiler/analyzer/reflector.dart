@@ -252,11 +252,13 @@ class ReflectableOutput {
       _list.hash(registerFunctions);
 
   @override
-  String toString() => 'ReflectableOutput ${{
+  String toString() =>
+      'ReflectableOutput ' +
+      {
         'urlsNeedingInitReflector': urlsNeedingInitReflector,
         'registerClasses': registerClasses,
         'registerFunctions': registerFunctions,
-      }}';
+      }.toString();
 }
 
 class ReflectableClass {
@@ -292,9 +294,11 @@ class ReflectableClass {
       factory.hashCode ^ name.hashCode ^ registerComponentFactory.hashCode;
 
   @override
-  String toString() => 'ReflectableClass${{
+  String toString() =>
+      'ReflectableClass' +
+      {
         'factory': factory,
         'name': name,
         'registerComponentFactory': registerComponentFactory,
-      }}';
+      }.toString();
 }
