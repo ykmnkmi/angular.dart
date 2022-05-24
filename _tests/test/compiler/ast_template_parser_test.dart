@@ -77,6 +77,7 @@ void main() {
       type: CompileTypeMetadata(moduleUrl: someModuleUrl, name: 'Root'),
       metadataType: CompileDirectiveMetadataType.Component);
 
+  // ignore: no_leading_underscores_for_local_identifiers
   ParseTemplate _parse;
 
   List<TemplateAst> parse(
@@ -2634,7 +2635,7 @@ CompileDirectiveMetadata createCompileDirectiveMetadata({
 }) {
   final inputsMap = <String, String>{};
   final inputTypeMap = <String, CompileTypeMetadata>{};
-  inputs?.forEach((input) {
+  for (var input in inputs) {
     final inputParts = input.split(';');
     final inputName = inputParts[0];
     final bindingParts = splitAtColon(inputName, [inputName, inputName]);
@@ -2642,13 +2643,13 @@ CompileDirectiveMetadata createCompileDirectiveMetadata({
     if (inputParts.length > 1) {
       inputTypeMap[bindingParts[0]] = CompileTypeMetadata(name: inputParts[1]);
     }
-  });
+  }
 
   final outputsMap = <String, String>{};
-  outputs?.forEach((output) {
+  for (var output in outputs) {
     final bindingParts = splitAtColon(output, [output, output]);
     outputsMap[bindingParts[0]] = bindingParts[1];
-  });
+  }
 
   return CompileDirectiveMetadata(
     type: type,

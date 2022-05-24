@@ -608,7 +608,7 @@ class NgForFirstTest {
 @Component(
   selector: 'ng-for-last-test',
   template: '<div><copy-me *ngFor="let item of items; '
-      'let isLast=last\">{{isLast.toString()}}</copy-me></div>',
+      'let isLast=last">{{isLast.toString()}}</copy-me></div>',
   directives: [
     CopyMe,
     NgFor,
@@ -621,7 +621,7 @@ class NgForLastTest {
 @Component(
   selector: 'ng-for-even-test',
   template: '<div><copy-me *ngFor="let item of items; '
-      'let isEven=even\">{{isEven.toString()}}</copy-me></div>',
+      'let isEven=even">{{isEven.toString()}}</copy-me></div>',
   directives: [
     CopyMe,
     NgFor,
@@ -788,7 +788,7 @@ class ObjectEditorComponent {
   }
 
   void mutateItem(int index) {
-    entities![index] = 'z' + entities![index];
+    entities![index] = 'z${entities![index]}';
   }
 }
 

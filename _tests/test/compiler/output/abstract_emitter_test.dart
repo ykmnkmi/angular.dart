@@ -8,16 +8,16 @@ void main() {
   group('AbstractEmitter', () {
     group('escapeSingleQuoteString', () {
       test('should escape single quotes', () {
-        expect(escapeSingleQuoteString("'", false), "\'\\\'\'");
+        expect(escapeSingleQuoteString("'", false), "'\\''");
       });
       test('should escape backslash', () {
-        expect(escapeSingleQuoteString('\\', false), "\'\\\\\'");
+        expect(escapeSingleQuoteString('\\', false), "'\\\\'");
       });
       test('should escape newlines', () {
-        expect(escapeSingleQuoteString('\n', false), "\'\\n\'");
+        expect(escapeSingleQuoteString('\n', false), "'\\n'");
       });
       test('should escape carriage returns', () {
-        expect(escapeSingleQuoteString('\r', false), "\'\\r\'");
+        expect(escapeSingleQuoteString('\r', false), "'\\r'");
       });
       test('should escape \$', () {
         expect(escapeSingleQuoteString('\$', true), "'\\\$'");
