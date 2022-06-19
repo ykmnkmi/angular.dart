@@ -3,7 +3,7 @@ import 'dart:io';
 import 'dart:math';
 
 import 'package:path/path.dart' as p;
-import 'package:ngast/angular_ast.dart';
+import 'package:ngast/ngast.dart';
 import 'package:ngast/src/token/tokens.dart';
 
 final int generationCount = 10000;

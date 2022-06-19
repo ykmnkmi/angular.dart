@@ -1,5 +1,5 @@
 import 'package:test/test.dart';
-import 'package:ngast/angular_ast.dart';
+import 'package:ngast/ngast.dart';
 import 'package:ngast/src/expression/micro/ast.dart';
 import 'package:ngast/src/expression/micro/parser.dart';
 
