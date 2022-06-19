@@ -21,10 +21,10 @@ dev_dependencies:
   test: ^1.16.0
 
 # added for local builds
-dependency_overrides:
-  ngdart:
-    path: ../ngdart
-  ngcompiler:
-    path: ../ngcompiler
-  ngast:
-    path: ../ngast
+# dependency_overrides:
+#   ngdart:
+#     path: ../ngdart
+#   ngcompiler:
+#     path: ../ngcompiler
+#   ngast:
+#     path: ../ngast

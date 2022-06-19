@@ -41,9 +41,9 @@ dev_dependencies:
   build_runner: ^2.0.0
 
 
-dependency_overrides:
-  ngcompiler:
-    path: ../ngcompiler
-  ngast:
-    path: ../ngast
+# dependency_overrides:
+#   ngcompiler:
+#     path: ../ngcompiler
+#   ngast:
+#     path: ../ngast
 #  analyzer: ^4.0.0
