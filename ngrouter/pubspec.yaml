@@ -23,14 +23,3 @@ dev_dependencies:
   mockito: ^5.0.0
   pedantic: ^1.10.0
   test: ^1.16.0
-
-# added for local builds
-# dependency_overrides:
-#   ngdart:
-#     path: ../ngdart
-#   ngcompiler:
-#     path: ../ngcompiler
-#   ngtest:
-#     path: ../ngtest
-#   ngast:
-#     path: ../ngast
