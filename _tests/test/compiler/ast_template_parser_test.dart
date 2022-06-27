@@ -2622,7 +2622,8 @@ void main() {
 
 CompileDirectiveMetadata createCompileDirectiveMetadata({
   CompileTypeMetadata type,
-  CompileDirectiveMetadataType metadataType,
+  CompileDirectiveMetadataType metadataType =
+      CompileDirectiveMetadataType.Directive,
   String selector,
   String exportAs,
   List<String> inputs,
@@ -2652,7 +2653,7 @@ CompileDirectiveMetadata createCompileDirectiveMetadata({
 
   return CompileDirectiveMetadata(
     type: type,
-    metadataType: metadataType ?? CompileDirectiveMetadataType.Directive,
+    metadataType: metadataType,
     selector: selector,
     exportAs: exportAs,
     inputs: inputsMap,

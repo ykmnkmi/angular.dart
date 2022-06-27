@@ -1,5 +1,3 @@
-// @dart=2.9
-
 import 'dart:io';
 
 import 'package:build/build.dart';
@@ -56,9 +54,9 @@ final _ngFiles = Glob('lib/**.dart');
 Future<void> _testBuilder(
   Builder builder,
   Map<String, String> sourceAssets, {
-  List<AssetId> runBuilderOn,
-  void Function(LogRecord) onLog,
-  String rootPackage,
+  List<AssetId>? runBuilderOn,
+  required void Function(LogRecord) onLog,
+  String? rootPackage,
 }) async {
   // Setup the readers/writers for assets.
   final sources = InMemoryAssetReader(rootPackage: rootPackage);
@@ -135,13 +133,13 @@ Future<void> _testBuilder(
 /// Note that `package:ngdart/**.dart` is always included.
 Future<void> compilesExpecting(
   String input, {
-  String inputSource,
-  Set<AssetId> runBuilderOn,
-  Map<String, String> include,
-  Object /*Matcher|Iterable<Matcher>*/ errors,
-  Object /*Matcher|Iterable<Matcher>*/ warnings,
-  Object /*Matcher|Iterable<Matcher>*/ notices,
-  Object /*Matcher|Map<String, Matcher>*/ outputs,
+  String? inputSource,
+  Set<AssetId>? runBuilderOn,
+  Map<String, String>? include,
+  Object? /*Matcher|Iterable<Matcher>*/ errors,
+  Object? /*Matcher|Iterable<Matcher>*/ warnings,
+  Object? /*Matcher|Iterable<Matcher>*/ notices,
+  Object? /*Matcher|Map<String, Matcher>*/ outputs,
 }) async {
   // Default values.
   //
@@ -177,7 +175,7 @@ Future<void> compilesExpecting(
   }
 }
 
-void expectLogRecords(List<LogRecord> logs, matcher, String reasonPrefix) {
+void expectLogRecords(List<LogRecord>? logs, matcher, String reasonPrefix) {
   if (matcher == null) {
     return;
   }
@@ -200,9 +198,9 @@ String formattedLogMessage(LogRecord record) {
 /// An alias [compilesExpecting] with `errors` and `warnings` asserting empty.
 Future<void> compilesNormally(
   String input, {
-  String inputSource,
-  Map<String, String> include,
-  Set<AssetId> runBuilderOn,
+  String? inputSource,
+  Map<String, String>? include,
+  Set<AssetId>? runBuilderOn,
 }) =>
     compilesExpecting(
       input,
