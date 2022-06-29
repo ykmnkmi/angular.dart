@@ -82,10 +82,10 @@ class CompileElement extends CompileNode implements ProviderResolverHost {
   final _directiveInstances = <o.Expression>[];
 
   CompileElement(
-    CompileElement? parent,
-    CompileView? view,
-    int? nodeIndex,
-    NodeReference renderNode,
+    super.parent,
+    super.view,
+    super.nodeIndex,
+    super.renderNode,
     this.sourceAst,
     this.component,
     this._directives,
@@ -96,7 +96,7 @@ class CompileElement extends CompileNode implements ProviderResolverHost {
     this.componentView,
     this.hasTemplateRefQuery = false,
     this.isHtmlElement = false,
-  }) : super(parent, view, nodeIndex, renderNode) {
+  }) {
     _providers = ProviderResolver(this, parent?._providers);
     if (references.isNotEmpty) {
       for (final reference in references) {
@@ -116,7 +116,7 @@ class CompileElement extends CompileNode implements ProviderResolverHost {
     _providers.add(Identifiers.ElementToken, renderNode.toReadExpr());
     _providers.add(Identifiers.HtmlElementToken, renderNode.toReadExpr());
     var readInjectorExpr =
-        o.InvokeMemberMethodExpr('injector', [o.literal(this.nodeIndex)]);
+        o.InvokeMemberMethodExpr('injector', [o.literal(nodeIndex)]);
     _providers.add(Identifiers.InjectorToken, readInjectorExpr);
 
     if (hasViewContainer || hasEmbeddedView) {
