@@ -1,7 +1,7 @@
 import 'dart:convert';
 import 'dart:io';
 
-import 'package:ngast/angular_ast.dart';
+import 'package:ngast/ngast.dart';
 
 RecoveringExceptionHandler exceptionHandler = RecoveringExceptionHandler();
 Iterable<NgToken> tokenize(String html) {

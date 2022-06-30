@@ -1,7 +1,7 @@
 import 'dart:io';
 
 import 'package:path/path.dart' as p;
-import 'package:ngast/angular_ast.dart';
+import 'package:ngast/ngast.dart';
 
 RecoveringExceptionHandler exceptionHandler = RecoveringExceptionHandler();
 

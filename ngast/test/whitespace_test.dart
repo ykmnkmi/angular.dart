@@ -1,4 +1,4 @@
-import 'package:ngast/angular_ast.dart';
+import 'package:ngast/ngast.dart';
 import 'package:test/test.dart';
 
 void main() {

@@ -1,6 +1,6 @@
 import 'package:collection/collection.dart' show IterableExtension;
 import 'package:source_span/source_span.dart';
-import 'package:ngast/angular_ast.dart' as ast;
+import 'package:ngast/ngast.dart' as ast;
 import 'package:ngcompiler/v1/cli.dart';
 import 'package:ngcompiler/v1/src/compiler/chars.dart';
 import 'package:ngcompiler/v1/src/compiler/compile_metadata.dart';

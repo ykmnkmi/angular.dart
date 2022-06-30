@@ -1,0 +1,21 @@
+name: angular
+repository: https://github.com/angulardart-community/angular
+
+packages:
+   - "**"
+  # - ngast
+  # - ngcompiler
+  # - ngdart
+  # - ngforms
+  # - ngrouter
+  # - ngtest
+
+ignore:
+  # - _tests
+  - examples
+  - goldens
+  - tests
+
+command:
+  bootstrap:
+    usePubspecOverrides: true

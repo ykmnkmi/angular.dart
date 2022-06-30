@@ -1,5 +1,5 @@
 import 'package:source_span/source_span.dart' show SourceSpan;
-import 'package:ngast/angular_ast.dart';
+import 'package:ngast/ngast.dart';
 import 'package:ngcompiler/v2/context.dart';
 
 const i18nDescription = 'i18n';
