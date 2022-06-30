@@ -1,4 +1,4 @@
-## 8.0.0
+## 7.1.0
 Renaming forked by AngularDart Community packages to be able publish and use them on pub.dev
 Resolving builds and tests. Fix complained test analyzis. 
 New package names:
