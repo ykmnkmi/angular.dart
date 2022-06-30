@@ -1,3 +1,8 @@
+## 2.1.0
+
+- Bump minimum SDK version to 2.17.
+- Fix various static analysis warnings.
+
 ## 2.0.2
 
 - Update `README.md`.
