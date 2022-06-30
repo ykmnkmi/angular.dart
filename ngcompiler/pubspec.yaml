@@ -8,9 +8,11 @@ environment:
 
 dependencies:
   analyzer: ^4.0.0
+  # ngdart doesn't need a tight version constraint, since it is ngdart that
+  # depends on ngcompiler.
+  ngdart: ^7.0.0
   # Allowing a tiny bit of wiggle here to allow publishing minor updates
-  ngdart: ^8.0.0
-  ngast: ^2.1.3
+  ngast: "^2.1.3 <2.2.0"
   args: ^2.0.0
   build: ^2.0.0
   build_test: ^2.0.0
