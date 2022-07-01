@@ -3,7 +3,7 @@ import 'dart:js_util' as js_util;
 
 import 'package:test/test.dart';
 import 'package:ngdart/angular.dart';
-import 'package:ngforms/angular_forms.dart';
+import 'package:ngforms/ngforms.dart';
 import 'package:ngtest/angular_test.dart';
 
 import 'accessor_test.template.dart' as ng;

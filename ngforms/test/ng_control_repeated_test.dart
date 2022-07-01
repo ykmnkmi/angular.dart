@@ -1,7 +1,7 @@
 import 'dart:async';
 
 import 'package:ngdart/angular.dart';
-import 'package:ngforms/angular_forms.dart';
+import 'package:ngforms/ngforms.dart';
 import 'package:ngtest/angular_test.dart';
 import 'package:test/test.dart';
 

@@ -2,7 +2,7 @@ import 'dart:html';
 
 import 'package:test/test.dart';
 import 'package:ngdart/angular.dart';
-import 'package:ngforms/angular_forms.dart';
+import 'package:ngforms/ngforms.dart';
 import 'package:ngtest/angular_test.dart';
 
 import 'ng_control_name_test.template.dart' as ng;

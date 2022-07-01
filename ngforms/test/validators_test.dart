@@ -1,5 +1,5 @@
 import 'package:test/test.dart';
-import 'package:ngforms/angular_forms.dart';
+import 'package:ngforms/ngforms.dart';
 
 void main() {
   // ignore: prefer_function_declarations_over_variables
