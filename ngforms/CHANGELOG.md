@@ -2,6 +2,7 @@
 
 - Require Dart >=2.17.0
 - Update `pubspec.yaml` to improve pub score.
+- Rename the main export file from `angular_forms.dart` to `ngforms.dart`.
 
 ## 4.0.1
 
