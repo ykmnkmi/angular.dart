@@ -1,7 +1,7 @@
 name: ngcompiler
 repository: https://github.com/angulardart-community/angular
 description: Compiler for AngularDart.
-version: 2.1.0
+version: 2.1.1
 
 environment:
   sdk: '>=2.17.0 <3.0.0'

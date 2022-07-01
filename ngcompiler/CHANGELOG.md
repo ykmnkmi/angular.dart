@@ -1,3 +1,7 @@
+## 2.1.1
+
+- Re-bootstrap against the new `ngdart` 7.1.0.
+
 ## 2.1.0
 
 - Bump minimum SDK version to 2.17.
