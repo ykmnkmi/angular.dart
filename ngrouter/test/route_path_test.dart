@@ -1,6 +1,6 @@
 import 'package:test/test.dart';
 import 'package:ngdart/angular.dart';
-import 'package:ngrouter/angular_router.dart';
+import 'package:ngrouter/ngrouter.dart';
 
 import 'route_path_test.template.dart' as ng;
 

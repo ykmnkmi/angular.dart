@@ -18,7 +18,7 @@ import 'platform_location.dart' show PlatformLocation;
 ///
 /// ```
 /// import 'package:ngdart/angular.dart';
-/// import 'package:ngrouter/angular_router.dart';
+/// import 'package:ngrouter/ngrouter.dart';
 ///
 /// @Component(
 ///   // Should only be provided at the root.

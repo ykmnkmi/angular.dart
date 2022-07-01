@@ -1,6 +1,6 @@
 /// Maps application URLs into application states, to support deep-linking and
 /// navigation.
-library angular_router;
+library ngrouter;
 
 export 'src/constants.dart'
     show

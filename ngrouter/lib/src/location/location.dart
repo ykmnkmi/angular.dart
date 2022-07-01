@@ -25,7 +25,7 @@ import 'location_strategy.dart' show LocationStrategy;
 ///
 /// ```
 /// import 'package:ngdart/angular.dart';
-/// import 'package:ngrouter/angular_router.dart';
+/// import 'package:ngrouter/ngrouter.dart';
 ///
 /// @Component(
 ///   // Should only be provided at the root.

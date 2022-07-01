@@ -5,7 +5,7 @@ import 'dart:html';
 import 'package:mockito/mockito.dart';
 import 'package:test/test.dart';
 import 'package:ngdart/angular.dart';
-import 'package:ngrouter/angular_router.dart';
+import 'package:ngrouter/ngrouter.dart';
 import 'package:ngtest/angular_test.dart';
 
 import '748_hash_location_strategy_test.template.dart' as ng;

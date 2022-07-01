@@ -3,7 +3,7 @@ import 'dart:html';
 
 import 'package:test/test.dart';
 import 'package:ngdart/angular.dart';
-import 'package:ngrouter/angular_router.dart';
+import 'package:ngrouter/ngrouter.dart';
 import 'package:ngrouter/testing.dart';
 
 import '1354_routing_state_crash_test.template.dart' as ng;

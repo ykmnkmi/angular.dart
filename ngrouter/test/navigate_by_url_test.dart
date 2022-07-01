@@ -3,7 +3,7 @@
 import 'package:collection/collection.dart';
 import 'package:mockito/mockito.dart';
 import 'package:test/test.dart';
-import 'package:ngrouter/angular_router.dart';
+import 'package:ngrouter/ngrouter.dart';
 import 'package:ngrouter/src/router/router_impl.dart';
 import 'package:ngrouter/testing.dart';
 import 'package:ngtest/angular_test.dart';
