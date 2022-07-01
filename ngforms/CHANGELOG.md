@@ -1,3 +1,8 @@
+## 4.1.0
+
+- Require Dart >=2.17.0
+- Update `pubspec.yaml` to improve pub score.
+
 ## 4.0.1
 
 - Update `README.md`.
