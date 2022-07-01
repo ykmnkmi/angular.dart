@@ -1,0 +1,14 @@
+blank_issues_enabled: true
+contact_links:
+  # - name: Security issue disclosure
+  #   url: https://angular.io/guide/security#report-issues
+  #   about: Report a security issue in Angular Framework, CDK, Material, or CLI
+  - name: AngularDart CLI
+    url: https://github.com/angulardart-community/ngdart/issues/new/choose
+    about: Issues and feature requests for the AngularDart CLI
+  - name: Angular Components
+    url: https://github.com/angulardart-community/angular_components/issues/new/choose
+    about: Issues and feature requests for Angular Material
+  - name: Support Request
+    url: https://github.com/angular/angular/blob/main/CONTRIBUTING.md#question
+    about: Questions and requests for support
