@@ -1,6 +1,11 @@
+## 2.1.1+0
+
+- Update `pubspec.yaml` to improve pub score.
+- Add an empty example to improve pub score.
+
 ## 2.1.1
 
-- Re-bootstrap against the new `ngdart` 7.1.0.
+- Bootstrap against the new `ngdart` 7.1.0.
 
 ## 2.1.0
 
