@@ -2,6 +2,7 @@
 
 - Require Dart >=2.17.0.
 - Update `pubspec.yaml` to improve pub score.
+- Rename the main export file from `angular_router.dart` to `ngrouter.dart`.
 
 ## 3.0.1
 
