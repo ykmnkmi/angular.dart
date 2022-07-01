@@ -24,7 +24,7 @@ dependencies:
 
   # Allowing a tiny bit of wiggle here to allow publishing minor updates
   ngast: ">=2.1.3 <2.2.0"
-  ngcompiler: ">=2.1.0 <2.3.0"
+  ngcompiler: ^2.1.1+0
   ##########################################################################
 
   build: ^2.0.0
