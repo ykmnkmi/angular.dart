@@ -11,10 +11,16 @@ import 'package:ngcompiler/v2/context.dart';
 
 import '../src/resolve.dart';
 
+final formatter = DartFormatter().format;
+
+/// Format the given source code and remove all comments.
+String dartfmt(String source, {dynamic uri}) {
+	return formatter(source, uri: uri).replaceAll(RegExp('//.*'), '').trim();
+}
+
 void main() {
   CompileContext.overrideForTesting();
 
-  final dartfmt = DartFormatter().format;
   final angular = 'package:ngdart';
   final libReflection = '$angular/src/core/reflection/reflection.dart';
 
