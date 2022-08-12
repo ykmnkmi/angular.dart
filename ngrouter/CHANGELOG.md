@@ -1,3 +1,8 @@
+## 3.1.1
+
+ - **REFACTOR**: use the new super initializers in Dart 2.17.
+ - **FIX**: bring back original import file for compatibility.
+
 # 3.1.0
 
 - Require Dart >=2.17.0.

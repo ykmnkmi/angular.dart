@@ -1,5 +1,5 @@
 name: ngdart
-version: 7.1.0
+version: 7.1.1
 description: >-
   Fast and productive web framework by Google.
   Separate, but similar to the JavaScript framework with a similar name.
@@ -20,8 +20,8 @@ dependencies:
   stream_transform: ^2.0.0
 
   # Allowing a tiny bit of wiggle here to allow publishing minor updates
-  ngast: ">=2.1.3 <2.2.0"
-  ngcompiler: ">=2.1.0 <2.3.0"
+  ngast: ^2.1.4
+  ngcompiler: ^2.1.2
   ##########################################################################
 
   build: ^2.0.0

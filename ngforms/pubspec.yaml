@@ -2,19 +2,19 @@ name: ngforms
 repository: https://github.com/angulardart-community/angular
 description: |
   Forms framework for AngularDart. Easily create forms to accept input from users.
-version: 4.1.0
+version: 4.1.1
 
 environment:
   sdk: '>=2.17.0 <3.0.0'
 
 dependencies:
-  ngdart: ^7.0.0
+  ngdart: ^7.1.1
   meta: ^1.3.0
 
 dev_dependencies:
   analyzer: ^4.2.0
   lints: ^2.0.0
-  ngtest: ^4.1.0
+  ngtest: ^4.1.1
   build_runner: ^2.0.0
   build_test: ^2.0.0
   build_web_compilers: ^3.0.0

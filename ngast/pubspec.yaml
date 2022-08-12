@@ -1,7 +1,7 @@
 name: ngast
 repository: https://github.com/angulardart-community/angular
 description: Parser and utilities for AngularDart templates
-version: 2.1.3
+version: 2.1.4
 
 environment:
   sdk: '>=2.17.0 <3.0.0'

@@ -1,3 +1,8 @@
+## 7.1.1
+
+ - **REFACTOR**: use the new super initializers in Dart 2.17.
+ - **DOCS**: add notices to improve pub score.
+
 ## 7.1.0
 Renaming forked by AngularDart Community packages to be able publish and use them on pub.dev
 Resolving builds and tests. Fix complained test analyzis. 

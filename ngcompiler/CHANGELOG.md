@@ -1,3 +1,7 @@
+## 2.1.2
+
+ - **REFACTOR**: use the new super initializers in Dart 2.17.
+
 ## 2.1.1+0
 
 - Update `pubspec.yaml` to improve pub score.
