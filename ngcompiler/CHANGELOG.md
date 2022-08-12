@@ -1,3 +1,7 @@
+## 2.1.2+0
+
+ - **FIX**: move analyzer to dependencies.
+
 ## 2.1.2
 
  - **REFACTOR**: use the new super initializers in Dart 2.17.
