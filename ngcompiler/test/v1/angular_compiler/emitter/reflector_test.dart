@@ -15,7 +15,7 @@ final formatter = DartFormatter().format;
 
 /// Format the given source code and remove all comments.
 String dartfmt(String source, {dynamic uri}) {
-	return formatter(source, uri: uri).replaceAll(RegExp('//.*'), '').trim();
+  return formatter(source, uri: uri).replaceAll(RegExp('//.*'), '').trim();
 }
 
 void main() {
