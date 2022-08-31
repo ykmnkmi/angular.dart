@@ -290,6 +290,10 @@ class _ComponentVisitor
     bool isGetter = false,
     bool isSetter = false,
   }) {
+    if (_directiveClassElement == null) {
+      return;
+    }
+
     for (var annotationIndex = 0;
         annotationIndex < element.metadata.length;
         annotationIndex++) {
