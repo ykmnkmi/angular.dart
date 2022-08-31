@@ -4,17 +4,20 @@ See https://github.com/angulardart-community for current updates on this project
 
 ## Packages
 
-- [ngdart](https://github.com/angulardart-community/angular/tree/master/ngdart) 
-- [ngforms](https://github.com/angulardart-community/angular/tree/master/ngforms) 
-- [ngrouter](https://github.com/angulardart-community/angular/tree/master/ngrouter) 
-- [ngtest](https://github.com/angulardart-community/angular/tree/master/ngtest) 
-- [ngast](https://github.com/angulardart-community/angular/tree/master/ngast) 
-- [ngcompiler](https://github.com/angulardart-community/angular/tree/master/ngcompiler)
+| Source code    | Published Version                                                                                      |
+|----------------|:------------------------------------------------------------------------------------------------------:|
+| [ngdart]       | [![Pub Package](https://img.shields.io/pub/v/ngdart.svg)](https://pub.dev/packages/ngdart)             |
+| [ngforms]      | [![Pub Package](https://img.shields.io/pub/v/ngforms.svg)](https://pub.dev/packages/ngforms)           |
+| [ngrouter]     | [![Pub Package](https://img.shields.io/pub/v/ngrouter.svg)](https://pub.dev/packages/ngrouter)         |
+| [ngtest]       | [![Pub Package](https://img.shields.io/pub/v/ngtest.svg)](https://pub.dev/packages/ngtest)             |
+| [ngcomponents] | [![Pub Package](https://img.shields.io/pub/v/ngcomponents.svg)](https://pub.dev/packages/ngcomponents) |
+| [ngast]        | [![Pub Package](https://img.shields.io/pub/v/ngast.svg)](https://pub.dev/packages/ngast)               |
+| [ngcompiler]   | [![Pub Package](https://img.shields.io/pub/v/ngcompiler.svg)](https://pub.dev/packages/ngcompiler)     |
 
 The following packages are in an external repository:
 
-- [ngdart_cli](https://github.com/angulardart-community/ngdart_cli) 
-- [ngcomponents](https://github.com/angulardart-community/angular_components)
+- [ngdart_cli]: [![Pub Package](https://img.shields.io/pub/v/ngdart_cli.svg)](https://pub.dev/packages/ngdart_cli)
+- [ngcomponents]: [![Pub Package](https://img.shields.io/pub/v/ngdart_cli.svg)](https://pub.dev/packages/ngdart_cli)
 
 ## Resources
 
@@ -50,3 +53,12 @@ Included for completeness._
 [angular_forms]: https://github.com/angulardart/angular/tree/master/angular_forms
 [angular_router]: https://github.com/angulardart/angular/tree/master/angular_router
 [angular_test]: https://github.com/angulardart/angular/tree/master/angular_test
+[ngdart]: https://github.com/angulardart-community/angular/tree/master/ngdart 
+[ngforms]: https://github.com/angulardart-community/angular/tree/master/ngforms 
+[ngrouter]: https://github.com/angulardart-community/angular/tree/master/ngrouter 
+[ngtest]: https://github.com/angulardart-community/angular/tree/master/ngtest 
+[ngast]: https://github.com/angulardart-community/angular/tree/master/ngast 
+[ngcompiler]: https://github.com/angulardart-community/angular/tree/master/ngcompiler
+[ngdart_cli]: https://github.com/angulardart-community/ngdart_cli
+[ngcomponents]: https://github.com/angulardart-community/angular_components
+
