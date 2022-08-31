@@ -1,3 +1,7 @@
+## 2.1.3
+
+ - **FIX**: ensure find_components work properly in Dart 2.18.
+
 ## 2.1.2+0
 
  - **FIX**: move analyzer to dependencies.
