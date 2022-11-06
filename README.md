@@ -10,14 +10,13 @@ See https://github.com/angulardart-community for current updates on this project
 | [ngforms]      | [![Pub Package](https://img.shields.io/pub/v/ngforms.svg)](https://pub.dev/packages/ngforms)           |
 | [ngrouter]     | [![Pub Package](https://img.shields.io/pub/v/ngrouter.svg)](https://pub.dev/packages/ngrouter)         |
 | [ngtest]       | [![Pub Package](https://img.shields.io/pub/v/ngtest.svg)](https://pub.dev/packages/ngtest)             |
-| [ngcomponents] | [![Pub Package](https://img.shields.io/pub/v/ngcomponents.svg)](https://pub.dev/packages/ngcomponents) |
 | [ngast]        | [![Pub Package](https://img.shields.io/pub/v/ngast.svg)](https://pub.dev/packages/ngast)               |
 | [ngcompiler]   | [![Pub Package](https://img.shields.io/pub/v/ngcompiler.svg)](https://pub.dev/packages/ngcompiler)     |
 
 The following packages are in an external repository:
 
 - [ngdart_cli]: [![Pub Package](https://img.shields.io/pub/v/ngdart_cli.svg)](https://pub.dev/packages/ngdart_cli)
-- [ngcomponents]: [![Pub Package](https://img.shields.io/pub/v/ngdart_cli.svg)](https://pub.dev/packages/ngdart_cli)
+- [ngcomponents]: [![Pub Package](https://img.shields.io/pub/v/ngcomponents.svg)](https://pub.dev/packages/ngcomponents)
 
 ## Resources
 
