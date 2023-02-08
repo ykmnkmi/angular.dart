@@ -1,5 +1,5 @@
 #!/bin/bash
-# Created with package:mono_repo v6.3.0
+# Created with package:mono_repo v6.4.3
 
 # Support built in commands on windows out of the box.
 # When it is a flutter repo (check the pubspec.yaml for "sdk: flutter")
@@ -88,6 +88,10 @@ for PKG in ${PKGS}; do
         dart run build_runner test --fail-on-severe -- -P browser || EXIT_CODE=$?
         ;;
       command_3)
+        echo 'dart test -P ci'
+        dart test -P ci || EXIT_CODE=$?
+        ;;
+      command_4)
         echo 'dart run build_runner test --fail-on-severe -- -P ci'
         dart run build_runner test --fail-on-severe -- -P ci || EXIT_CODE=$?
         ;;
