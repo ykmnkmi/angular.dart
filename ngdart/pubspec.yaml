@@ -18,7 +18,7 @@ dependencies:
   intl: ^0.18.0
   js: ^0.6.5
   meta: ^1.8.0
-  ngast: ^2.1.4
+  ngast: ^3.0.0-dev.0
   ngcompiler: ^3.0.0-dev.0
   stream_transform: ^2.1.0
 
