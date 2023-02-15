@@ -1,3 +1,9 @@
+## 5.0.0-dev.0
+
+> Note: This release has breaking changes.
+
+ - **BREAKING** **REFACTOR**: remove SlowComponentLoader and ReflectiveInjector ([#26](https://github.com/angulardart-community/angular/issues/26)).
+
 ## 4.1.1
 
  - **FIX**: bring back original import file for compatibility.

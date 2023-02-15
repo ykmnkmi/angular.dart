@@ -1,3 +1,11 @@
+## 3.0.0-dev.0
+
+> Note: This release has breaking changes.
+
+ - **FIX**: should compile components with mixins ([#38](https://github.com/angulardart-community/angular/issues/38)).
+ - **DOCS**: cleanup old references to pkg:angular things ([#30](https://github.com/angulardart-community/angular/issues/30)).
+ - **BREAKING** **REFACTOR**: remove SlowComponentLoader and ReflectiveInjector ([#26](https://github.com/angulardart-community/angular/issues/26)).
+
 ## 2.1.4-dev
 
 - Fix link in readme.

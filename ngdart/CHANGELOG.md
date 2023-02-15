@@ -1,3 +1,11 @@
+## 8.0.0-dev.0
+
+> Note: This release has breaking changes.
+
+ - **DOCS**: fix typo in comments for Directive.
+ - **BREAKING** **REFACTOR**: remove Testabiliy and TestabilityRegistry from minimal application and make it injectable ([#28](https://github.com/angulardart-community/angular/issues/28)).
+ - **BREAKING** **REFACTOR**: remove SlowComponentLoader and ReflectiveInjector ([#26](https://github.com/angulardart-community/angular/issues/26)).
+
 ## 7.1.1
 
  - **REFACTOR**: use the new super initializers in Dart 2.17.
