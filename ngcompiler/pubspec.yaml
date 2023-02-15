@@ -21,12 +21,12 @@ dependencies:
   logging: ^1.1.0
   meta: ^1.8.0
   ngast: ^3.0.0-dev.0
+  ngdart: any
   package_config: ^2.1.0
   path: ^1.8.3
   source_gen: ^1.2.6
   source_span: ^1.9.1
 
 dev_dependencies:
-  ngdart: ^8.0.0-dev.0
   lints: ^2.0.1
   test: ^1.22.2
