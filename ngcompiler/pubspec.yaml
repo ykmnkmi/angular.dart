@@ -30,9 +30,3 @@ dependencies:
 dev_dependencies:
   lints: ^2.0.1
   test: ^1.22.2
-
-dependency_overrides:
-  ngast:
-    path: ../ngast
-  ngdart:
-    path: ../ngdart
