@@ -1,3 +1,7 @@
+## 3.0.0-dev.0
+
+ - Migrate to Analyzer v5 and bump minimum SDK to 2.18
+
 ## 2.1.4
 
  - **FIX**: bring back original import file for compatibility.
