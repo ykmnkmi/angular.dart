@@ -2,7 +2,7 @@ import 'dart:html' show Element;
 
 import 'package:meta/dart2js.dart' as dart2js;
 import 'package:meta/meta.dart';
-import 'package:ngdart/src/core/change_detection/change_detector_ref.dart';
+import 'package:ngdart/src/core/change_detection/change_detection.dart';
 import 'package:ngdart/src/core/change_detection/host.dart';
 import 'package:ngdart/src/di/errors.dart';
 import 'package:ngdart/src/di/injector.dart';
@@ -250,7 +250,7 @@ abstract class ViewData {
 
   /// Tracks this view's [ChangeDetectorState].
   // TODO(b/132122866): host views only need an error bit.
-  int get changeDetectorState;
+  ChangeDetectorState get changeDetectorState;
 
   /// Whether this view has been destroyed.
   bool get destroyed;
