@@ -134,7 +134,7 @@ abstract class ComponentView<T extends Object> extends RenderView {
 
   @override
   bool get firstCheck =>
-      _data.changeDetectorState == ChangeDetectorState.NeverChecked;
+      _data.changeDetectorState == ChangeDetectorState.neverChecked;
 
   @override
   void detectChangesDeprecated() {
@@ -164,7 +164,7 @@ abstract class ComponentView<T extends Object> extends RenderView {
     }
 
     // Set the state to already checked at least once.
-    _data.changeDetectorState = ChangeDetectorState.CheckedBefore;
+    _data.changeDetectorState = ChangeDetectorState.checkedBefore;
   }
 
   /// Generated code that is called by hosts.
@@ -174,7 +174,7 @@ abstract class ComponentView<T extends Object> extends RenderView {
 
   @override
   void disableChangeDetection() {
-    _data.changeDetectorState = ChangeDetectorState.Errored;
+    _data.changeDetectorState = ChangeDetectorState.errored;
   }
 
   /// Marks this view to be checked during change detection.
@@ -281,9 +281,9 @@ class _ComponentViewData implements RenderViewData {
   }
 
   @override
-  int get changeDetectorState => _changeDetectorState;
-  int _changeDetectorState = ChangeDetectorState.NeverChecked;
-  set changeDetectorState(int state) {
+  ChangeDetectorState get changeDetectorState => _changeDetectorState;
+  ChangeDetectorState _changeDetectorState = ChangeDetectorState.neverChecked;
+  set changeDetectorState(ChangeDetectorState state) {
     if (_changeDetectorState != state) {
       _changeDetectorState = state;
       _updateShouldSkipChangeDetection();
@@ -313,6 +313,6 @@ class _ComponentViewData implements RenderViewData {
     _shouldSkipChangeDetection =
         _changeDetectionMode == ChangeDetectionStrategy.Checked ||
             _changeDetectionMode == ChangeDetectionStrategy.Detached ||
-            _changeDetectorState == ChangeDetectorState.Errored;
+            _changeDetectorState == ChangeDetectorState.errored;
   }
 }

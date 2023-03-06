@@ -56,7 +56,7 @@ abstract class HostView<T extends Object> extends View implements DynamicView {
   // TODO(b/132122866): this could just return `componentView.firstCheck`.
   @override
   bool get firstCheck =>
-      _data.changeDetectorState == ChangeDetectorState.NeverChecked;
+      _data.changeDetectorState == ChangeDetectorState.neverChecked;
 
   @override
   int? get parentIndex => null;
@@ -148,7 +148,7 @@ abstract class HostView<T extends Object> extends View implements DynamicView {
     }
 
     // Set the state to already checked at least once.
-    _data.changeDetectorState = ChangeDetectorState.CheckedBefore;
+    _data.changeDetectorState = ChangeDetectorState.checkedBefore;
   }
 
   @override
@@ -184,7 +184,7 @@ abstract class HostView<T extends Object> extends View implements DynamicView {
 
   @override
   void disableChangeDetection() {
-    _data.changeDetectorState = ChangeDetectorState.Errored;
+    _data.changeDetectorState = ChangeDetectorState.errored;
   }
 
   @override
@@ -267,9 +267,9 @@ class _HostViewData implements DynamicViewData {
   }
 
   @override
-  int get changeDetectorState => _changeDetectorState;
-  int _changeDetectorState = ChangeDetectorState.NeverChecked;
-  set changeDetectorState(int state) {
+  ChangeDetectorState get changeDetectorState => _changeDetectorState;
+  ChangeDetectorState _changeDetectorState = ChangeDetectorState.neverChecked;
+  set changeDetectorState(ChangeDetectorState state) {
     if (_changeDetectorState != state) {
       _changeDetectorState = state;
       _updateShouldSkipChangeDetection();
@@ -304,6 +304,6 @@ class _HostViewData implements DynamicViewData {
   void _updateShouldSkipChangeDetection() {
     _shouldSkipChangeDetection =
         _changeDetectionMode == ChangeDetectionStrategy.Detached ||
-            _changeDetectorState == ChangeDetectorState.Errored;
+            _changeDetectorState == ChangeDetectorState.errored;
   }
 }
