@@ -6,6 +6,7 @@ import 'dom_sanitization_service.dart';
 
 /// Converts [stringOrSafeOrBypass] into a `String` safe to use within the DOM.
 String? sanitizeHtml(Object? stringOrSafeOrBypass) {
+  print('Sanitizing $stringOrSafeOrBypass');
   if (stringOrSafeOrBypass == null) {
     return null;
   }
@@ -20,7 +21,7 @@ String? sanitizeStyle(Object? stringOrSafeOrBypass) {
   return DomSanitizationService().sanitizeStyle(stringOrSafeOrBypass);
 }
 
-/// Converts [stringOrSafeOrBypass] into a `String` safe to use within the DOM.
+/// Converts [stringOrSafeOrBypass] into a [String] safe to use within the DOM.
 String? sanitizeUrl(Object? stringOrSafeOrBypass) {
   if (stringOrSafeOrBypass == null) {
     return null;
