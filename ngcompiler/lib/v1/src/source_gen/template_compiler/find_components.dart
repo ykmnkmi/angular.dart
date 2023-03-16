@@ -683,7 +683,7 @@ class _ComponentVisitor
     final bool isChangeDetectionLink = // ignore: omit_local_variable_types
         linkInfo != null;
     if (isChangeDetectionLink &&
-        !(isComponent && changeDetection == ChangeDetectionStrategy.OnPush)) {
+        !(isComponent && changeDetection == ChangeDetectionStrategy.onPush)) {
       _exceptionHandler.handle(ErrorMessageForAnnotation(linkInfo,
           'Only supported on components that use "OnPush" change detection'));
     }
@@ -819,11 +819,13 @@ class _ComponentVisitor
         defaultTo: ViewEncapsulation.Emulated,
       );
 
-  int _changeDetection(ClassElement clazz, DartObject? value) {
-    return coerceInt(
+  ChangeDetectionStrategy _changeDetection(
+      ClassElement clazz, DartObject? value) {
+    return coerceEnum(
       value,
       'changeDetection',
-      defaultTo: ChangeDetectionStrategy.Default,
+      ChangeDetectionStrategy.values,
+      defaultTo: ChangeDetectionStrategy.checkAlways,
     );
   }
 

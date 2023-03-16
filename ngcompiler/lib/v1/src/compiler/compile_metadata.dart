@@ -451,7 +451,7 @@ class CompileDirectiveMetadata implements CompileMetadataWithType {
   final CompileDirectiveMetadataType metadataType;
   final String? selector;
   final String? exportAs;
-  final int? changeDetection;
+  final ChangeDetectionStrategy? changeDetection;
   final Map<String, String> inputs;
   final Map<String, CompileTypeMetadata> inputTypes;
   final Map<String, String> outputs;
@@ -529,13 +529,13 @@ class CompileDirectiveMetadata implements CompileMetadataWithType {
       name = name.substring(0, name.length - 4);
     }
     return '$name in ${type.moduleUrl} '
-        '(changeDetection: ${ChangeDetectionStrategy.toPrettyString(changeDetection!)})';
+        '(changeDetection: ${changeDetection!.name})';
   }
 
   bool get isComponent =>
       metadataType == CompileDirectiveMetadataType.Component;
 
-  bool get isOnPush => changeDetection == ChangeDetectionStrategy.OnPush;
+  bool get isOnPush => changeDetection == ChangeDetectionStrategy.onPush;
 
   /// Whether the directive requires a change detector class to be generated.
   ///
@@ -625,7 +625,7 @@ CompileDirectiveMetadata createHostComponentMeta(
         styles: const [],
         styleUrls: const [],
         ngContentSelectors: const []),
-    changeDetection: ChangeDetectionStrategy.Default,
+    changeDetection: ChangeDetectionStrategy.checkAlways,
     analyzedClass: analyzedClass,
     inputs: const {},
     inputTypes: const {},
