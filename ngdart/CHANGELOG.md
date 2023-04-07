@@ -1,3 +1,12 @@
+## 8.0.0-dev.1
+
+> Note: This release has breaking changes.
+
+ - **FEAT**(ngdart): bring back DomSanitizationService. ([f1b65727](https://github.com/angulardart-community/angular/commit/f1b657276387021557bdd4987e47be960e1e1eed))
+ - **BREAKING** **REFACTOR**(ngdart): migrate ViewEncapsulation to enum. ([2e15858b](https://github.com/angulardart-community/angular/commit/2e15858b6f32a14f9874bf3f95a3daf2c930a290))
+ - **BREAKING** **REFACTOR**(ngdart): rename and remove deprecated values from ChangeDetectionStrategy and APP_ID ([#41](https://github.com/angulardart-community/angular/issues/41)). ([3c5523a0](https://github.com/angulardart-community/angular/commit/3c5523a089d323789f1dec6dd294b735d8a28066))
+ - **BREAKING** **REFACTOR**(ngdart): migrate ChangeDetectorState to enum. ([598cae20](https://github.com/angulardart-community/angular/commit/598cae207148fee962db9d4a6e62c90a817be443))
+
 ## 8.0.0-dev.0
 
 > Note: This release has breaking changes.

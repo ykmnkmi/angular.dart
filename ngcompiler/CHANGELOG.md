@@ -1,3 +1,11 @@
+## 3.0.0-dev.1
+
+> Note: This release has breaking changes.
+
+ - **FIX**(ngcompiler): declare types to be X instead of XImpl. ([51bd17b3](https://github.com/angulardart-community/angular/commit/51bd17b3abaa1feac82e13ce6df231106649a231))
+ - **BREAKING** **REFACTOR**(ngdart): migrate ViewEncapsulation to enum. ([2e15858b](https://github.com/angulardart-community/angular/commit/2e15858b6f32a14f9874bf3f95a3daf2c930a290))
+ - **BREAKING** **REFACTOR**(ngdart): rename and remove deprecated values from ChangeDetectionStrategy and APP_ID ([#41](https://github.com/angulardart-community/angular/issues/41)). ([3c5523a0](https://github.com/angulardart-community/angular/commit/3c5523a089d323789f1dec6dd294b735d8a28066))
+
 ## 3.0.0-dev.0
 
 > Note: This release has breaking changes.

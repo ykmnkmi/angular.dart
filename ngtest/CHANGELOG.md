@@ -1,3 +1,7 @@
+## 5.0.0-dev.1
+
+ - Update a dependency to the latest release.
+
 ## 5.0.0-dev.0
 
 > Note: This release has breaking changes.

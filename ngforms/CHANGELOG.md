@@ -1,3 +1,9 @@
+## 5.0.0-dev.1
+
+> Note: This release has breaking changes.
+
+ - **BREAKING** **REFACTOR**(ngdart): rename and remove deprecated values from ChangeDetectionStrategy and APP_ID ([#41](https://github.com/angulardart-community/angular/issues/41)). ([3c5523a0](https://github.com/angulardart-community/angular/commit/3c5523a089d323789f1dec6dd294b735d8a28066))
+
 ## 5.0.0-dev.0
 
 > Note: This release has breaking changes.
