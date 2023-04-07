@@ -150,7 +150,7 @@ class _NormalizedComponentVisitor extends RecursiveElementVisitor<void> {
       // template parsing in a similar way to #1, but a user will look at the
       // code and not see a problem potentially.
       final annotationImpl = annotation as ElementAnnotationImpl;
-      for (final argument
+      for (final Expression argument
           in annotationImpl.annotationAst.arguments!.arguments) {
         if (argument is NamedExpression && argument.name.label.name == field) {
           if (argument.expression is! ListLiteral) {
@@ -796,7 +796,7 @@ class _ComponentVisitor
             .annotationAst
             .arguments
             ?.arguments
-            .firstWhereOrNull((argument) =>
+            .firstWhereOrNull((Expression argument) =>
                 argument is NamedExpression &&
                 argument.name.label.name == 'template') as NamedExpression?;
     if (templateExpression != null) {

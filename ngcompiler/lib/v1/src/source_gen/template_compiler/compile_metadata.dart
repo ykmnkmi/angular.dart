@@ -364,7 +364,7 @@ class CompileTypeMetadataVisitor
 
   CompileTokenMetadata _annotationToToken(ElementAnnotationImpl annotation) {
     String name;
-    final id = annotation.annotationAst.arguments!.arguments.first;
+    final Expression id = annotation.annotationAst.arguments!.arguments.first;
     if (id is Identifier) {
       if (id is PrefixedIdentifier) {
         name = id.identifier.name;
