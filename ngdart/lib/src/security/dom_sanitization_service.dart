@@ -76,19 +76,21 @@ class DomSanitizationService implements SanitizationService {
   // Const to enforce statelessness.
   const DomSanitizationService._();
 
+  // TODO(GZGavinZhao): remove these commented debug lines once I figure how
+  // to get through interpolation without killing the safe HTMLs.
   @override
   String? sanitizeHtml(value) {
     if (value == null) return null;
     if (value is SafeHtml) {
-      print(
-          'Value is SafeHtml! Allowing ${value.changingThisWillBypassSecurityTrust}');
+      // print(
+      //     'Value is SafeHtml! Allowing ${value.changingThisWillBypassSecurityTrust}');
       return value.changingThisWillBypassSecurityTrust;
     }
     if (value is SafeValue) {
       throw UnsupportedError(
           'Unexpected SecurityContext $value, expecting html');
     }
-    print('Uh oh, falling back to internal sanitizing...');
+    // print('Uh oh, falling back to internal sanitizing...');
     return sanitizeHtmlInternal(unsafeCast(value));
   }
 
