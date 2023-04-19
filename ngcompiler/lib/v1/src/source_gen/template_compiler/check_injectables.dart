@@ -1,9 +1,6 @@
 import 'package:analyzer/dart/element/element.dart';
-import 'package:build/build.dart';
 import 'package:ngcompiler/v2/context.dart';
-import 'package:path/path.dart' as p;
 import 'package:ngcompiler/v1/angular_compiler.dart';
-import 'package:ngcompiler/v1/cli.dart';
 
 const DependencyReader dependencyReader = DependencyReader();
 
