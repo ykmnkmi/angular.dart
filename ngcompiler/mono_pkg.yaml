@@ -5,6 +5,6 @@ sdk:
 stages:
   - analyze:
       - format
-      - analyze
+      - analyze: --fatal-infos
   - unit_test:
       - command: dart test -P ci
