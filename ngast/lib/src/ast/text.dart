@@ -7,7 +7,7 @@ import '../visitor.dart';
 /// Represents a block of static text (i.e. not bound to a directive).
 ///
 /// Clients should not extend, implement, or mix-in this class.
-abstract class TextAst implements StandaloneTemplateAst {
+abstract mixin class TextAst implements StandaloneTemplateAst {
   /// Create a new synthetic [TextAst] with a string [value].
   factory TextAst(String value) = _SyntheticTextAst;
 
@@ -59,5 +59,5 @@ class _SyntheticTextAst extends SyntheticTemplateAst with TextAst {
 
   _SyntheticTextAst(this.value);
 
-  _SyntheticTextAst.from(TemplateAst origin, this.value) : super.from(origin);
+  _SyntheticTextAst.from(TemplateAst super.origin, this.value) : super.from();
 }

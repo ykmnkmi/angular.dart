@@ -5,7 +5,7 @@ import '../ast.dart';
 import '../token/tokens.dart';
 import '../visitor.dart';
 
-const _listEquals = ListEquality<dynamic>();
+const _listEquals = ListEquality();
 
 /// Represents an embedded template (i.e. is not directly rendered in DOM).
 ///
@@ -14,7 +14,7 @@ const _listEquals = ListEquality<dynamic>();
 /// [references].
 ///
 /// Clients should not extend, implement, or mix-in this class.
-abstract class EmbeddedTemplateAst implements StandaloneTemplateAst {
+abstract mixin class EmbeddedTemplateAst implements StandaloneTemplateAst {
   factory EmbeddedTemplateAst({
     List<AnnotationAst> annotations,
     List<AttributeAst> attributes,
@@ -222,7 +222,7 @@ class _SyntheticEmbeddedTemplateAst extends SyntheticTemplateAst
   }) : closeComplement = CloseElementAst('template');
 
   _SyntheticEmbeddedTemplateAst.from(
-    TemplateAst origin, {
+    TemplateAst super.origin, {
     this.annotations = const [],
     this.attributes = const [],
     this.childNodes = const [],
@@ -231,7 +231,7 @@ class _SyntheticEmbeddedTemplateAst extends SyntheticTemplateAst
     this.references = const [],
     this.letBindings = const [],
   })  : closeComplement = CloseElementAst('template'),
-        super.from(origin);
+        super.from();
 
   @override
   final List<AnnotationAst> annotations;

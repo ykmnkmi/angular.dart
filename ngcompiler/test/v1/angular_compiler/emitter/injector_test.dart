@@ -72,6 +72,7 @@ void main() {
             this.get(Dep1),
             this.get(Dep2),
           );
+
           @override
           Object injectFromSelfOptional(
             Object token, [
@@ -104,6 +105,7 @@ void main() {
           FooInjector._(Injector parent) : super(parent);
 
           Foo _getExisting$0() => this.get(Foo);
+
           @override
           Object injectFromSelfOptional(
             Object token, [
@@ -145,6 +147,7 @@ void main() {
             this.get(Dep1),
             this.get(Dep2),
           );
+
           @override
           Object injectFromSelfOptional(
             Object token, [
@@ -177,6 +180,7 @@ void main() {
           FooInjector._(Injector parent) : super(parent);
 
           Foo _getFoo$0() => const Foo();
+
           @override
           Object injectFromSelfOptional(
             Object token, [
@@ -226,7 +230,9 @@ void main() {
           FooInjector._(Injector parent) : super(parent);
 
           int _getint$0() => 1;
+
           int _getint$1() => 2;
+
           @override
           Object injectFromSelfOptional(
             Object token, [

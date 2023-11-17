@@ -181,10 +181,9 @@ class ClassProvider<T extends Object> extends Provider<T> {
 
   // Prevents extending this class.
   const ClassProvider._(
-    Object token, {
+    super.token, {
     Type? useClass,
   }) : super._(
-          token,
           useClass: useClass ?? token as Type,
         );
 }
@@ -208,10 +207,9 @@ class ExistingProvider<T extends Object> extends Provider<T> {
 
   // Prevents extending this class.
   const ExistingProvider._(
-    Object token,
+    super.token,
     Object useExisting,
   ) : super._(
-          token,
           useExisting: useExisting,
         );
 }
@@ -235,13 +233,11 @@ class FactoryProvider<T extends Object> extends Provider<T> {
 
   // Prevents extending this class.
   const FactoryProvider._(
-    Object token,
+    super.token,
     Function useFactory, {
-    List<Object>? deps,
+    super.deps,
   }) : super._(
-          token,
           useFactory: useFactory,
-          deps: deps,
         );
 }
 
@@ -272,10 +268,9 @@ class ValueProvider<T extends Object> extends Provider<T> {
 
   // Prevents extending this class.
   const ValueProvider._(
-    Object token,
+    super.token,
     T useValue,
   ) : super._(
-          token,
           useValue: useValue,
         );
 }

@@ -180,9 +180,9 @@ class ComponentStyles {
 
 class _UnscopedComponentStyles extends ComponentStyles {
   _UnscopedComponentStyles(
-    List<Object> styles,
-    String? componentUrl,
-  ) : super._(styles, componentUrl);
+    super.styles,
+    super.componentUrl,
+  ) : super._();
 
   @override
   void addContentShimClass(Element element) {

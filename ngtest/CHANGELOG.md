@@ -1,16 +1,20 @@
+## 5.0.0-dev.2
+
+- Migrate to Analyzer v6 and Dart 3.0.
+
 ## 5.0.0-dev.1
 
- - Update a dependency to the latest release.
+- Update a dependency to the latest release.
 
 ## 5.0.0-dev.0
 
 > Note: This release has breaking changes.
 
- - **BREAKING** **REFACTOR**: remove SlowComponentLoader and ReflectiveInjector ([#26](https://github.com/angulardart-community/angular/issues/26)).
+- **BREAKING** **REFACTOR**: remove SlowComponentLoader and ReflectiveInjector ([#26](https://github.com/angulardart-community/angular/issues/26)).
 
 ## 4.1.1
 
- - **FIX**: bring back original import file for compatibility.
+- **FIX**: bring back original import file for compatibility.
 
 ## 4.1.0
 

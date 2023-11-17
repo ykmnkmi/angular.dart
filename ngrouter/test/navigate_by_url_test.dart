@@ -1,6 +1,5 @@
-// @dart=2.9
-
 import 'package:collection/collection.dart';
+import 'package:mockito/annotations.dart';
 import 'package:mockito/mockito.dart';
 import 'package:test/test.dart';
 import 'package:ngrouter/ngrouter.dart';
@@ -8,88 +7,65 @@ import 'package:ngrouter/src/router/router_impl.dart';
 import 'package:ngrouter/testing.dart';
 import 'package:ngtest/angular_test.dart';
 
+@GenerateMocks([Router])
+import 'navigate_by_url_test.mocks.dart';
+
 void main() {
   tearDown(disposeAnyRunningTest);
 
   group('navigateByUrl', () {
-    Router mockRouter;
-    Router router;
+    late MockRouter mockRouter;
+    late Router router;
 
     setUp(() {
       mockRouter = MockRouter();
       router = DelegatingRouter(mockRouter);
     });
 
+    tearDown(() {
+      reset(mockRouter);
+    });
+
     test('invokes navigate', () {
+      when(mockRouter.navigate('/to/path', any))
+          .thenAnswer((_) => Future.value(NavigationResult.success));
       router.navigateByUrl('/to/path');
-      expect(
-        verify(mockRouter.navigate(
-          captureAny,
-          captureAny,
-        )).captured,
-        ['/to/path', navigationParams()],
-      );
+      verify(mockRouter.navigate('/to/path', argThat(navigationParams())));
     });
 
     test('invokes navigate with query parameters', () {
+      when(mockRouter.navigate('/to/path', any))
+          .thenAnswer((_) => Future.value(NavigationResult.success));
       router.navigateByUrl('/to/path?q=hello%20world');
-      expect(
-        verify(mockRouter.navigate(
-          captureAny,
-          captureAny,
-        )).captured,
-        [
-          '/to/path',
-          navigationParams(queryParameters: {'q': 'hello world'}),
-        ],
-      );
+      verify(mockRouter.navigate('/to/path',
+          argThat(navigationParams(queryParameters: {'q': 'hello world'}))));
     });
 
     test('invokes navigate with fragment identifier', () {
+      when(mockRouter.navigate('/to/path', any))
+          .thenAnswer((_) => Future.value(NavigationResult.success));
       router.navigateByUrl('/to/path#with-fragment');
-      expect(
-        verify(mockRouter.navigate(
-          captureAny,
-          captureAny,
-        )).captured,
-        [
-          '/to/path',
-          navigationParams(fragment: 'with-fragment'),
-        ],
-      );
+      verify(mockRouter.navigate(
+          '/to/path', argThat(navigationParams(fragment: 'with-fragment'))));
     });
 
     test('invokes navigate with reload', () {
+      when(mockRouter.navigate('/to/path', any))
+          .thenAnswer((_) => Future.value(NavigationResult.success));
       router.navigateByUrl('/to/path', reload: true);
-      expect(
-        verify(mockRouter.navigate(
-          captureAny,
-          captureAny,
-        )).captured,
-        [
-          '/to/path',
-          navigationParams(reload: true),
-        ],
-      );
+      verify(mockRouter.navigate(
+          '/to/path', argThat(navigationParams(reload: true))));
     });
 
     test('invokes navigate with replace', () {
+      when(mockRouter.navigate('/to/path', any))
+          .thenAnswer((_) => Future.value(NavigationResult.success));
       router.navigateByUrl('/to/path', replace: true);
-      expect(
-        verify(mockRouter.navigate(
-          captureAny,
-          captureAny,
-        )).captured,
-        [
-          '/to/path',
-          navigationParams(replace: true),
-        ],
-      );
+      verify(mockRouter.navigate(
+          '/to/path', argThat(navigationParams(replace: true))));
     });
   });
 }
-
-class MockRouter extends Mock implements Router {}
 
 class DelegatingRouter extends RouterImpl {
   final Router _delegate;
@@ -100,7 +76,7 @@ class DelegatingRouter extends RouterImpl {
   @override
   Future<NavigationResult> navigate(
     String path, [
-    NavigationParams navigationParams,
+    NavigationParams? navigationParams,
   ]) =>
       _delegate.navigate(path, navigationParams);
 }
@@ -144,7 +120,7 @@ class NavigationParamsMatcher extends Matcher {
   Description describeMismatch(
     item,
     Description mismatchDescription,
-    Map<Object, Object> matchState,
+    Map<Object?, Object?> matchState,
     bool verbose,
   ) {
     if (item is NavigationParams) {

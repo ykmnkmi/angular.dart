@@ -63,9 +63,9 @@ class RealTimeNgZoneStabilizer extends BaseNgZoneStabilizer<_ObservedTimer> {
   }
 
   RealTimeNgZoneStabilizer._(
-    NgZone ngZone,
-    PriorityQueue<_ObservedTimer> pendingTimers,
-  ) : super(ngZone, pendingTimers);
+    super.ngZone,
+    super.pendingTimers,
+  );
 
   @override
   bool get isStable => super.isStable && pendingTimers.isEmpty;

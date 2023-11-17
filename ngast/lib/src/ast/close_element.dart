@@ -7,7 +7,7 @@ import '../visitor.dart';
 /// Represents the closing DOM element that was parsed.
 ///
 /// Clients should not extend, implement, or mix-in this class.
-abstract class CloseElementAst implements TemplateAst {
+abstract mixin class CloseElementAst implements TemplateAst {
   /// Creates a synthetic close element AST.
   factory CloseElementAst(
     String name,
@@ -78,9 +78,9 @@ class _SyntheticCloseElementAst extends SyntheticTemplateAst
   );
 
   _SyntheticCloseElementAst.from(
-    TemplateAst origin,
+    TemplateAst super.origin,
     this.name,
-  ) : super.from(origin);
+  ) : super.from();
 
   @override
   final String name;

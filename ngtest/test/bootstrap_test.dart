@@ -1,14 +1,14 @@
 import 'dart:html';
 
-import 'package:test/test.dart';
 import 'package:ngdart/angular.dart';
 import 'package:ngtest/src/bootstrap.dart';
+import 'package:test/test.dart';
 
 import 'bootstrap_test.template.dart' as ng_generated;
 
-void main() {
-  Injector noopInjector(Injector i) => i;
+Injector noopInjector(Injector i) => i;
 
+void main() {
   test('should create a new component in the DOM', () async {
     final host = Element.div();
     final test = await bootstrapForTest<NewComponentInDom>(

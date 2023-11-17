@@ -74,11 +74,10 @@ class FakeTimeNgZoneStabilizer extends BaseNgZoneStabilizer<_FakeTimer> {
   final int _maxIterations;
 
   FakeTimeNgZoneStabilizer._(
-    NgZone ngZone,
-    PriorityQueue<_FakeTimer> pendingTimers, {
+    super.ngZone,
+    super.pendingTimers, {
     int? maxIterations,
-  })  : _maxIterations = maxIterations ?? defaultMaxIterations,
-        super(ngZone, pendingTimers);
+  }) : _maxIterations = maxIterations ?? defaultMaxIterations;
 
   /// The amount of time since construction that [elapse] has executed on.
   var _lastElapse = Duration.zero;

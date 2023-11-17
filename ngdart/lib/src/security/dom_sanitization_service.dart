@@ -18,23 +18,19 @@ abstract class SafeValue {
 }
 
 class SafeHtml extends SafeValue {
-  SafeHtml(String changingThisWillBypassSecurityTrust)
-      : super(changingThisWillBypassSecurityTrust);
+  SafeHtml(super.changingThisWillBypassSecurityTrust);
 }
 
 class SafeStyle extends SafeValue {
-  SafeStyle(String changingThisWillBypassSecurityTrust)
-      : super(changingThisWillBypassSecurityTrust);
+  SafeStyle(super.changingThisWillBypassSecurityTrust);
 }
 
 class SafeUrl extends SafeValue {
-  SafeUrl(String changingThisWillBypassSecurityTrust)
-      : super(changingThisWillBypassSecurityTrust);
+  SafeUrl(super.changingThisWillBypassSecurityTrust);
 }
 
 class SafeResourceUrl extends SafeValue {
-  SafeResourceUrl(String changingThisWillBypassSecurityTrust)
-      : super(changingThisWillBypassSecurityTrust);
+  SafeResourceUrl(super.changingThisWillBypassSecurityTrust);
 }
 
 /// DomSanitizationService helps preventing Cross Site Scripting Security bugs

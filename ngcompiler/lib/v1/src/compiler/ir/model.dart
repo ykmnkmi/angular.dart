@@ -735,7 +735,7 @@ class ComplexEventHandler extends EventHandler {
       visitor.visitComplexEventHandler(this, context);
 }
 
-abstract class BindingTargetVisitor<R, C> {
+abstract mixin class BindingTargetVisitor<R, C> {
   R visitTextBinding(TextBinding textBinding, [C? context]);
   R visitHtmlBinding(HtmlBinding htmlBinding, [C? context]);
   R visitClassBinding(ClassBinding classBinding, [C? context]);
@@ -749,7 +749,7 @@ abstract class BindingTargetVisitor<R, C> {
   R visitDirectiveOutput(DirectiveOutput directiveOutput, [C? context]);
 }
 
-abstract class BindingSourceVisitor<R, C> {
+abstract mixin class BindingSourceVisitor<R, C> {
   R visitBoundI18nMessage(BoundI18nMessage boundI18nMessage, [C? context]);
   R visitStringLiteral(StringLiteral stringLiteral, [C? context]);
   R visitBoundExpression(BoundExpression boundExpression, [C? context]);

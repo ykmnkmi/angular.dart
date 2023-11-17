@@ -10,7 +10,7 @@ import '../../visitor.dart';
 /// useful for tooling, but not useful for compilers).
 ///
 /// Clients should not extend, implement, or mix-in this class.
-abstract class BananaAst implements TemplateAst {
+abstract mixin class BananaAst implements TemplateAst {
   /// Create a new synthetic [BananaAst] with a string [field].
   factory BananaAst(
     String name, [
@@ -142,8 +142,8 @@ class _SyntheticBananaAst extends SyntheticTemplateAst with BananaAst {
   _SyntheticBananaAst(this.name, [this.value]);
 
   _SyntheticBananaAst.from(
-    TemplateAst origin,
+    TemplateAst super.origin,
     this.name, [
     this.value,
-  ]) : super.from(origin);
+  ]) : super.from();
 }

@@ -186,8 +186,8 @@ class NodeReference {
 /// This is used in DirectiveChangeDetector.
 class _ParameterNodeReference extends NodeReference {
   _ParameterNodeReference(
-      CompileViewStorage storage, o.OutputType? type, String name)
-      : super._parameter(storage, type, name);
+      CompileViewStorage super.storage, super.type, super.name)
+      : super._parameter();
 
   @override
   o.Expression toReadExpr() => o.ReadVarExpr(_name);
@@ -198,8 +198,8 @@ class _ParameterNodeReference extends NodeReference {
 
 // Wraps references to HTML Text nodes in a [TextBinding] helper class.
 class TextBindingNodeReference extends NodeReference {
-  TextBindingNodeReference(CompileViewStorage storage, int nodeIndex)
-      : super._textBindingNode(storage, nodeIndex);
+  TextBindingNodeReference(CompileViewStorage super.storage, super.nodeIndex)
+      : super._textBindingNode();
 
   @override
   o.Expression toReadExpr() => ReadNodeReferenceExpr(this).prop('element');

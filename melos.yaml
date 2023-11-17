@@ -2,7 +2,7 @@ name: angular
 repository: https://github.com/angulardart-community/angular
 
 packages:
-   - "**"
+  # - "**"
   # - ngast
   # - ngcompiler
   # - ngdart
@@ -13,8 +13,3 @@ packages:
 ignore:
   # - _tests
   - examples
-  - tests
-
-command:
-  bootstrap:
-    usePubspecOverrides: true

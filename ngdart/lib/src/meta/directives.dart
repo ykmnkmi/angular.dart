@@ -392,14 +392,9 @@ class ContentChildren extends _Query {
 })
 class ContentChild extends _Query {
   const ContentChild(
-    Object selector, {
-    Object? read,
-  }) : super(
-          selector,
-          descendants: true,
-          first: true,
-          read: read,
-        );
+    super.selector, {
+    super.read,
+  }) : super(descendants: true, first: true);
 }
 
 abstract class _ViewQuery extends _Query {
@@ -590,13 +585,9 @@ abstract class _ViewQuery extends _Query {
 })
 class ViewChildren extends _ViewQuery {
   const ViewChildren(
-    Object selector, {
-    Object? read,
-  }) : super(
-          selector,
-          descendants: true,
-          read: read,
-        );
+    super.selector, {
+    super.read,
+  }) : super(descendants: true);
 }
 
 /// Declares a reference to a single child node in a component's template.
@@ -630,14 +621,9 @@ class ViewChildren extends _ViewQuery {
 })
 class ViewChild extends _ViewQuery {
   const ViewChild(
-    Object selector, {
-    Object? read,
-  }) : super(
-          selector,
-          descendants: true,
-          first: true,
-          read: read,
-        );
+    super.selector, {
+    super.read,
+  }) : super(descendants: true, first: true);
 }
 
 /// Declares a data-bound input property.

@@ -1,9 +1,9 @@
 import 'dart:html';
 
-import 'package:test/test.dart';
 import 'package:ngdart/angular.dart';
 import 'package:ngtest/angular_test.dart';
 import 'package:ngtest/compatibility.dart';
+import 'package:test/test.dart';
 
 import 'compatibility_test.template.dart' as ng;
 
@@ -70,7 +70,7 @@ void main() {
 
       test('should handle asynchronous fn with delayed future', () async {
         final fixture = await testBed.create(beforeComponentCreated: (i) async {
-          await Future.delayed(Duration(milliseconds: 200));
+          await Future<void>.delayed(Duration(milliseconds: 200));
           testService = i.provideType(TestService);
           testService!.value = 'New value';
         }, beforeChangeDetection: (_) {
