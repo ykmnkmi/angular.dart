@@ -33,6 +33,7 @@ linter:
   rules:
     - always_declare_return_types
     - prefer_single_quotes
+    - directives_ordering
     - unawaited_futures
     - unsafe_html
     - use_super_parameters

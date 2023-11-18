@@ -77,14 +77,11 @@ class NgModel extends NgControl implements AfterChanges, OnInit {
   dynamic viewModel;
 
   NgModel(
-      @Optional()
-      @Self()
-      @Inject(ngValidators)
-          List<Object>? validators,
+      @Optional() @Self() @Inject(ngValidators) List<Object>? validators,
       @Optional()
       @Self()
       @Inject(ngValueAccessor)
-          List<ControlValueAccessor<dynamic>>? valueAccessors)
+      List<ControlValueAccessor<dynamic>>? valueAccessors)
       : super(valueAccessors, validators) {
     _init(valueAccessors);
   }

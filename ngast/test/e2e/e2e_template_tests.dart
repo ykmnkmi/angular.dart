@@ -1,8 +1,8 @@
 import 'dart:io';
 
+import 'package:ngast/ngast.dart';
 import 'package:path/path.dart' as p;
 import 'package:test/test.dart';
-import 'package:ngast/ngast.dart';
 
 void main() {
   var parse = const NgParser().parse;

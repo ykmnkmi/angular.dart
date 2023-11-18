@@ -1,5 +1,5 @@
-import 'package:test/test.dart';
 import 'package:ngast/ngast.dart';
+import 'package:test/test.dart';
 
 void main() {
   List<StandaloneTemplateAst> parse(String template) {

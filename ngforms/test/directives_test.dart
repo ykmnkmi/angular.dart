@@ -1,9 +1,9 @@
 import 'dart:html';
 
 import 'package:mockito/annotations.dart';
-import 'package:test/test.dart';
 import 'package:ngforms/ngforms.dart';
 import 'package:ngforms/src/directives/shared.dart';
+import 'package:test/test.dart';
 
 @GenerateMocks([ControlValueAccessor])
 import 'directives_test.mocks.dart';

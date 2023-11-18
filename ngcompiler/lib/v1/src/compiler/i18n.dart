@@ -1,6 +1,6 @@
-import 'package:source_span/source_span.dart';
 import 'package:ngast/ngast.dart' as ast;
 import 'package:ngcompiler/v2/context.dart';
+import 'package:source_span/source_span.dart';
 
 import 'i18n/builder.dart';
 import 'i18n/message.dart';

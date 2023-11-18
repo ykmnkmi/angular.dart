@@ -2,15 +2,14 @@ import 'dart:html';
 
 import 'package:mockito/annotations.dart';
 import 'package:mockito/mockito.dart';
-import 'package:test/test.dart';
 import 'package:ngdart/angular.dart';
 import 'package:ngrouter/ngrouter.dart';
 import 'package:ngtest/angular_test.dart';
-
-import 'hash_location_strategy_test.template.dart' as ng;
+import 'package:test/test.dart';
 
 @GenerateNiceMocks([MockSpec<BrowserPlatformLocation>()])
 import 'hash_location_strategy_test.mocks.dart';
+import 'hash_location_strategy_test.template.dart' as ng;
 
 final platformLocation = MockBrowserPlatformLocation();
 

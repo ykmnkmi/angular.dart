@@ -1,6 +1,6 @@
-import 'package:test/test.dart';
 import 'package:ngdart/angular.dart';
 import 'package:ngrouter/src/route_definition.dart';
+import 'package:test/test.dart';
 
 import 'route_definition_test.template.dart'
     as ng; // ignore: uri_has_not_been_generated

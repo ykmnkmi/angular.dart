@@ -1,7 +1,7 @@
 import 'package:mockito/annotations.dart';
 import 'package:mockito/mockito.dart';
-import 'package:test/test.dart';
 import 'package:ngrouter/ngrouter.dart';
+import 'package:test/test.dart';
 
 @GenerateMocks([PlatformLocation])
 import 'empty_hash_test.mocks.dart';

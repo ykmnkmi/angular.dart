@@ -1,5 +1,5 @@
-import 'package:test/test.dart';
 import 'package:ngast/ngast.dart';
+import 'package:test/test.dart';
 
 final recoveringExceptionHandler = RecoveringExceptionHandler();
 

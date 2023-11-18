@@ -1,6 +1,6 @@
-import 'package:ngcompiler/v2/context.dart';
 import 'package:build/build.dart';
 import 'package:dart_style/dart_style.dart';
+import 'package:ngcompiler/v2/context.dart';
 import 'package:source_gen/source_gen.dart';
 
 import 'flags.dart';

@@ -1,5 +1,5 @@
-import 'package:test/test.dart';
 import 'package:ngrouter/src/location/testing/mock_location_strategy.dart';
+import 'package:test/test.dart';
 
 void main() {
   group('$MockLocationStrategy', () {

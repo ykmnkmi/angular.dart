@@ -2,7 +2,7 @@ name: angular
 repository: https://github.com/angulardart-community/angular
 
 packages:
-  # - "**"
+  - "**"
   # - ngast
   # - ngcompiler
   # - ngdart
@@ -11,5 +11,5 @@ packages:
   # - ngtest
 
 ignore:
-  # - _tests
+  - _tests
   - examples

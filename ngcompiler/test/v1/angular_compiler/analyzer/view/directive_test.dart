@@ -1,5 +1,5 @@
-import 'package:test/test.dart';
 import 'package:ngcompiler/v1/angular_compiler.dart';
+import 'package:test/test.dart';
 
 import '../../src/compile.dart';
 

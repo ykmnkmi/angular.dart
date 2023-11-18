@@ -2,10 +2,10 @@ import 'package:analyzer/dart/constant/value.dart';
 import 'package:analyzer/dart/element/element.dart';
 import 'package:code_builder/code_builder.dart';
 import 'package:meta/meta.dart' hide literal;
-import 'package:path/path.dart' as p;
-import 'package:source_gen/source_gen.dart';
 import 'package:ngcompiler/v1/cli.dart';
 import 'package:ngcompiler/v2/context.dart';
+import 'package:path/path.dart' as p;
+import 'package:source_gen/source_gen.dart';
 
 import '../link.dart';
 import '../types.dart';

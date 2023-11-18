@@ -1,7 +1,7 @@
 import 'package:analyzer/dart/element/type.dart';
-import 'package:source_span/source_span.dart';
 import 'package:ngcompiler/v1/src/compiler/output/convert.dart';
 import 'package:ngcompiler/v1/src/compiler/selector.dart';
+import 'package:source_span/source_span.dart';
 
 import 'compile_metadata.dart'
     show

@@ -1,5 +1,7 @@
 import 'dart:io';
 
+final packageFolderRe = RegExp('(_|ng)');
+
 final packageEntryRe = RegExp('^  (\\w+): (.+)\$', multiLine: true);
 
 void main() {
@@ -27,7 +29,7 @@ void main() {
   Directory.current.listSync().whereType<Directory>().forEach((directory) {
     var directoryName = directory.path.substring(offset);
 
-    if (directoryName.startsWith('ng')) {
+    if (directoryName.startsWith(packageFolderRe)) {
       var pubspecFile = File.fromUri(directory.uri.resolve('pubspec.yaml'));
 
       if (pubspecFile.existsSync()) {

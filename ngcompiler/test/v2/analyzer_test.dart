@@ -1,7 +1,7 @@
 import 'package:analyzer/dart/element/element.dart';
 import 'package:analyzer/dart/element/type.dart';
-import 'package:test/test.dart';
 import 'package:ngcompiler/v2/analyzer.dart';
+import 'package:test/test.dart';
 
 import 'testing/runtime_source_resolution.dart';
 

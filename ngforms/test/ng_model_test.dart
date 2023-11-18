@@ -1,8 +1,8 @@
-import 'package:test/test.dart';
 import 'package:ngdart/angular.dart';
 import 'package:ngdart/src/runtime/check_binding.dart';
 import 'package:ngforms/ngforms.dart';
 import 'package:ngtest/angular_test.dart';
+import 'package:test/test.dart';
 
 import 'ng_model_test.template.dart' as ng;
 

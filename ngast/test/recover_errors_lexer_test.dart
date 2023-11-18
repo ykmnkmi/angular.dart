@@ -1,8 +1,8 @@
-import 'package:test/test.dart';
 import 'package:ngast/ngast.dart';
 import 'package:ngast/src/parser/reader.dart';
 import 'package:ngast/src/scanner.dart';
 import 'package:ngast/src/token/tokens.dart';
+import 'package:test/test.dart';
 
 const ThrowingExceptionHandler throwingException = ThrowingExceptionHandler();
 RecoveringExceptionHandler recoveringException = RecoveringExceptionHandler();

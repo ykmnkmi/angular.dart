@@ -1,10 +1,10 @@
 import 'dart:async';
 
-import 'package:test/test.dart';
 import 'package:ngdart/angular.dart';
 import 'package:ngrouter/ngrouter.dart';
 import 'package:ngrouter/testing.dart';
 import 'package:ngtest/angular_test.dart';
+import 'package:test/test.dart';
 
 // ignore: uri_has_not_been_generated
 import 'navigation_queue_test.template.dart' as ng;

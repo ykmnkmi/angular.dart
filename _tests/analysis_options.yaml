@@ -4,6 +4,7 @@ analyzer:
   errors:
     # False positives related to missing .template.dart files
     argument_type_not_assignable: ignore
+    implementation_imports: ignore
     invalid_assignment: ignore
-    return_of_invalid_type: ignore
     non_bool_condition: ignore
+    return_of_invalid_type: ignore

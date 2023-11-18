@@ -1,8 +1,8 @@
 import 'package:analyzer/dart/constant/value.dart';
 import 'package:analyzer/dart/element/element.dart';
 import 'package:analyzer/error/error.dart';
-import 'package:source_gen/source_gen.dart';
 import 'package:ngcompiler/v1/angular_compiler.dart';
+import 'package:source_gen/source_gen.dart';
 
 import 'component_visitor_exceptions.dart';
 

@@ -2,10 +2,10 @@ import 'dart:async';
 
 import 'package:build/build.dart';
 import 'package:meta/meta.dart';
-import 'package:source_gen/source_gen.dart';
-import 'package:ngdart/src/utilities.dart';
 import 'package:ngcompiler/v1/src/angular_compiler/cli/messages.dart';
 import 'package:ngcompiler/v2/asset.dart';
+import 'package:ngdart/src/utilities.dart';
+import 'package:source_gen/source_gen.dart';
 
 import 'src/context/build_error.dart';
 

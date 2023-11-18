@@ -1,5 +1,4 @@
 import 'package:collection/collection.dart' show IterableExtension;
-import 'package:ngdart/src/meta.dart';
 import 'package:ngcompiler/v1/cli.dart';
 import 'package:ngcompiler/v1/src/compiler/analyzed_class.dart';
 import 'package:ngcompiler/v1/src/compiler/compile_metadata.dart'
@@ -21,6 +20,7 @@ import 'package:ngcompiler/v1/src/compiler/view_compiler/bound_value_converter.d
 import 'package:ngcompiler/v1/src/compiler/view_compiler/update_statement_visitor.dart';
 import 'package:ngcompiler/v1/src/compiler/view_type.dart';
 import 'package:ngcompiler/v2/context.dart';
+import 'package:ngdart/src/meta.dart';
 
 import 'compile_element.dart' show CompileElement, CompileNode;
 import 'compile_view.dart';

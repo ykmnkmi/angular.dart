@@ -1,5 +1,5 @@
-import 'package:test/test.dart';
 import 'package:ngast/src/token/tokens.dart';
+import 'package:test/test.dart';
 
 void main() => group('$NgToken', _testNgToken);
 

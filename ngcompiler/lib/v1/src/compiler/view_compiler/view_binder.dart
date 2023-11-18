@@ -1,4 +1,3 @@
-import 'package:source_span/source_span.dart';
 import 'package:ngcompiler/v1/src/compiler/expression_parser/ast.dart' as ast;
 import 'package:ngcompiler/v1/src/compiler/ir/model.dart' as ir;
 import 'package:ngcompiler/v1/src/compiler/output/output_ast.dart' as o;
@@ -8,6 +7,7 @@ import 'package:ngcompiler/v1/src/compiler/semantic_analysis/element_converter.d
 import 'package:ngcompiler/v1/src/compiler/template_ast.dart';
 import 'package:ngcompiler/v1/src/compiler/template_parser.dart';
 import 'package:ngcompiler/v1/src/compiler/view_type.dart';
+import 'package:source_span/source_span.dart';
 
 import 'bound_value_converter.dart';
 import 'compile_element.dart' show CompileElement;
