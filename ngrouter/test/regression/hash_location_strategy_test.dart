@@ -8,9 +8,11 @@ import 'package:ngtest/angular_test.dart';
 import 'package:test/test.dart';
 
 @GenerateNiceMocks([MockSpec<BrowserPlatformLocation>()])
-import 'hash_location_strategy_test.mocks.dart';
+import 'hash_location_strategy_test.mocks.dart'; // ignore: uri_does_not_exist
+
 import 'hash_location_strategy_test.template.dart' as ng;
 
+// ignore: undefined_function
 final platformLocation = MockBrowserPlatformLocation();
 
 void main() {

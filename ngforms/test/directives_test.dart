@@ -6,7 +6,7 @@ import 'package:ngforms/src/directives/shared.dart';
 import 'package:test/test.dart';
 
 @GenerateMocks([ControlValueAccessor])
-import 'directives_test.mocks.dart';
+import 'directives_test.mocks.dart'; // ignore: uri_does_not_exist
 
 class DummyControlValueAccessor implements ControlValueAccessor<dynamic> {
   dynamic writtenValue;
@@ -67,6 +67,7 @@ void main() {
           throwsWith('More than one built-in value accessor matches'));
     });
     test('should return custom accessor when provided', () {
+      // ignore: undefined_function
       var customAccessor = MockControlValueAccessor();
       var checkboxAccessor = CheckboxControlValueAccessor(InputElement());
       expect(
@@ -75,6 +76,7 @@ void main() {
           customAccessor);
     });
     test('should throw when more than one custom accessor is provided', () {
+      // ignore: undefined_function
       var customAccessor = MockControlValueAccessor();
       expect(() => selectValueAccessor([customAccessor, customAccessor]),
           throwsWith('More than one custom value accessor matches'));

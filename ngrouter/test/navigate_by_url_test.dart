@@ -8,16 +8,18 @@ import 'package:ngtest/angular_test.dart';
 import 'package:test/test.dart';
 
 @GenerateMocks([Router])
-import 'navigate_by_url_test.mocks.dart';
+import 'navigate_by_url_test.mocks.dart'; // ignore: uri_does_not_exist
 
 void main() {
   tearDown(disposeAnyRunningTest);
 
   group('navigateByUrl', () {
+    // ignore: undefined_class
     late MockRouter mockRouter;
     late Router router;
 
     setUp(() {
+      // ignore: undefined_function
       mockRouter = MockRouter();
       router = DelegatingRouter(mockRouter);
     });
