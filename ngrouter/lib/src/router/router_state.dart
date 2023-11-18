@@ -22,15 +22,14 @@ class RouterState extends Url {
   late final routePath = RoutePath.fromRoutes(routes);
 
   RouterState(
-    String path,
+    super.path,
     List<RouteDefinition>? routes, {
     Map<String, String>? parameters,
-    String fragment = '',
-    Map<String, String>? queryParameters,
+    String super.fragment = '',
+    super.queryParameters,
     this.fromPopState = false,
   })  : parameters = Map.unmodifiable(parameters ?? {}),
-        routes = List.unmodifiable(routes ?? []),
-        super(path, queryParameters: queryParameters, fragment: fragment);
+        routes = List.unmodifiable(routes ?? []);
 
   @override
   String toString() => '#$RouterState {${super.toString()}}';
