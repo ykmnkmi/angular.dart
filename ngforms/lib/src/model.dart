@@ -420,8 +420,7 @@ class Control<T> extends AbstractControl<T> {
   Function? _onChange;
   String? _rawValue;
 
-  Control([dynamic value, super.validator])
-      : super(value: value);
+  Control([dynamic value, super.validator]) : super(value: value);
 
   /// Set the value of the control to `value`.
   ///
