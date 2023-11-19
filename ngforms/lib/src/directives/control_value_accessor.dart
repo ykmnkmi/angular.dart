@@ -1,5 +1,7 @@
 import 'package:ngdart/angular.dart';
 
+import 'default_value_accessor.dart';
+
 /// A bridge between a control and a native element.
 ///
 /// A `ControlValueAccessor` abstracts the operations of writing a new value to a

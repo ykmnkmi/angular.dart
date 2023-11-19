@@ -7,16 +7,16 @@ version: 3.0.0-dev.2
 repository: https://github.com/angulardart-community/angular
 
 environment:
-  sdk: ">=3.1.0 <4.0.0"
+  sdk: ">=3.0.0 <4.0.0"
 
 dependencies:
-  analyzer: ^6.0.0
+  analyzer: ^5.11.0
   args: ^2.4.2
   build: ^2.4.1
   code_builder: ^4.7.0
   collection: ^1.18.0
   csslib: ^1.0.0
-  dart_style: ^2.3.3
+  dart_style: ^2.3.2
   logging: ^1.2.0
   meta: ^1.11.0
   ngast: ^3.0.0-dev.1

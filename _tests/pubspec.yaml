@@ -3,7 +3,7 @@ description: Tests for AngularDart.
 publish_to: none
 
 environment:
-  sdk: ">=3.1.0 <4.0.0"
+  sdk: ">=3.0.0 <4.0.0"
 
 dependencies:
   build: ^2.4.1
@@ -20,13 +20,13 @@ dependencies:
   test: ^1.24.4
 
 dev_dependencies:
-  analyzer: ^6.0.0
+  analyzer: ^5.11.0
   build_runner: ^2.4.6
   build_web_compilers: ^4.0.4
   csslib: ^1.0.0
   lints: ^2.1.0
   meta: ^1.11.0
-  mockito: ^5.4.3
+  mockito: ^5.4.2
   package_config: ^2.1.0
   source_span: ^1.10.0
   term_glyph: ^1.2.1
