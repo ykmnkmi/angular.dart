@@ -1,6 +1,6 @@
-sdk: ">=3.0.0 <4.0.0"
+sdk: ">=3.1.0 <4.0.0"
 
-analyzer: ^5.11.0
+analyzer: ^6.0.0
 args: ^2.4.2
 async: ^2.11.0
 build: ^2.4.1
@@ -21,7 +21,7 @@ js: ^0.6.7
 logging: ^1.2.0
 lints: ^2.1.0
 meta: ^1.11.0
-mockito: ^5.4.2
+mockito: ^5.4.3
 ngast: ^3.0.0-dev.1
 ngcompiler: ^3.0.0-dev.2
 ngdart: ^8.0.0-dev.3
