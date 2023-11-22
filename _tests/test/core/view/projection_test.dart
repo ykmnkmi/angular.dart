@@ -1,9 +1,9 @@
 import 'dart:html';
 
-import 'package:test/test.dart';
 import 'package:_tests/matchers.dart';
 import 'package:ngdart/angular.dart';
 import 'package:ngtest/angular_test.dart';
+import 'package:test/test.dart';
 
 import 'projection_test.template.dart' as ng;
 

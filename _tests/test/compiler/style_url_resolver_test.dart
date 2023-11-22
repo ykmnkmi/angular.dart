@@ -1,9 +1,7 @@
-
-
-import 'package:test/test.dart';
 import 'package:ngcompiler/v1/angular_compiler.dart';
 import 'package:ngcompiler/v1/src/compiler/style_url_resolver.dart'
     show extractStyleUrls, isStyleUrlResolvable;
+import 'package:test/test.dart';
 
 void main() {
   group('extractStyleUrls', () {

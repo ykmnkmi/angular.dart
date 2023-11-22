@@ -1,9 +1,7 @@
-
-
-import 'package:term_glyph/term_glyph.dart' as term_glyph;
-import 'package:test/test.dart';
 import 'package:_tests/compiler.dart';
 import 'package:ngcompiler/v2/context.dart';
+import 'package:term_glyph/term_glyph.dart' as term_glyph;
+import 'package:test/test.dart';
 
 void main() {
   setUpAll(() {

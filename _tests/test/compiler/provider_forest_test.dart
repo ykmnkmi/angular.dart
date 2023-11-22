@@ -1,8 +1,6 @@
-
-
-import 'package:test/test.dart';
 import 'package:ngcompiler/v1/src/compiler/output/output_ast.dart' as o;
 import 'package:ngcompiler/v1/src/compiler/view_compiler/provider_forest.dart';
+import 'package:test/test.dart';
 
 void main() {
   final a = ProviderInstance([], o.nullExpr);

@@ -6,9 +6,9 @@ import 'package:build_resolvers/build_resolvers.dart';
 import 'package:build_test/build_test.dart' hide testBuilder;
 import 'package:glob/glob.dart';
 import 'package:logging/logging.dart';
-import 'package:test/test.dart';
-import 'package:ngdart/src/build.dart';
 import 'package:ngcompiler/v2/context.dart';
+import 'package:ngdart/src/build.dart';
+import 'package:test/test.dart';
 
 /// A 'test' build process (similar to the normal one).
 final Builder _testAngularBuilder = MultiplexingBuilder([

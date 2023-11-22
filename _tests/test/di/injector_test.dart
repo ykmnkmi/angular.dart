@@ -1,11 +1,11 @@
 // ignore_for_file: invalid_use_of_protected_member
 
-import 'package:test/test.dart';
 import 'package:_tests/matchers.dart';
 import 'package:ngdart/angular.dart';
 import 'package:ngdart/experimental.dart';
 import 'package:ngdart/src/di/injector.dart';
 import 'package:ngtest/angular_test.dart';
+import 'package:test/test.dart';
 
 import 'injector_test.template.dart' as ng;
 
@@ -306,7 +306,7 @@ void main() {
   });
 
   group('root Injector overrides', () {
-    void _testOverrideExceptionHandler(Injector appInjector) {
+    void testOverrideExceptionHandler(Injector appInjector) {
       // Normally errors here are forwarded to the ExceptionHandler.
       //
       // In the case of #1227, we accidentally always used the default
@@ -323,7 +323,7 @@ void main() {
 
     // This is relied on by internal clients until we introduce a sharding API.
     test('rootInjector should allow overriding ExceptionHandler', () {
-      _testOverrideExceptionHandler(
+      testOverrideExceptionHandler(
         rootInjector((parent) {
           return Injector.map({
             ExceptionHandler: _CustomExceptionHandler(),

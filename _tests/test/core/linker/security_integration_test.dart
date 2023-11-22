@@ -2,10 +2,10 @@
 
 import 'dart:html';
 
-import 'package:ngtest/angular_test.dart';
-import 'package:ngdart/src/security/dom_sanitization_service.dart';
-import 'package:test/test.dart';
 import 'package:ngdart/angular.dart';
+import 'package:ngdart/src/security/dom_sanitization_service.dart';
+import 'package:ngtest/angular_test.dart';
+import 'package:test/test.dart';
 
 import 'security_integration_test.template.dart' as ng;
 

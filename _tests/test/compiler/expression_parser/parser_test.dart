@@ -1,6 +1,3 @@
-
-
-import 'package:test/test.dart';
 import 'package:_tests/test_util.dart';
 import 'package:ngcompiler/v1/src/compiler/compile_metadata.dart'
     show CompileIdentifierMetadata;
@@ -9,6 +6,7 @@ import 'package:ngcompiler/v1/src/compiler/expression_parser/ast.dart'
 import 'package:ngcompiler/v1/src/compiler/expression_parser/parser.dart'
     show ParseException, ExpressionParser;
 import 'package:ngcompiler/v2/context.dart';
+import 'package:test/test.dart';
 
 import 'unparser.dart' show Unparser;
 

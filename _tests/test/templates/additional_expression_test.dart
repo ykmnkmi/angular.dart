@@ -1,6 +1,6 @@
-import 'package:test/test.dart';
 import 'package:ngdart/angular.dart';
 import 'package:ngtest/angular_test.dart';
+import 'package:test/test.dart';
 
 import 'additional_expression_lib.dart' as lib;
 import 'additional_expression_test.template.dart' as ng;
@@ -13,8 +13,7 @@ void main() {
 
   test('should parse identifiers from prefixed exports', () async {
     final fixture = await NgTestBed<TestPrefixedExports>(
-            ng.createTestPrefixedExportsFactory()
-                as ComponentFactory<TestPrefixedExports>)
+            ng.createTestPrefixedExportsFactory())
         .create();
     expect(
       fixture.text,
@@ -32,8 +31,7 @@ void main() {
 
     setUp(() async {
       fixture = await NgTestBed<TestNonRootAssignment>(
-              ng.createTestNonRootAssignmentFactory()
-                  as ComponentFactory<TestNonRootAssignment>)
+              ng.createTestNonRootAssignmentFactory())
           .create();
     });
 
@@ -74,8 +72,7 @@ void main() {
 
   test('should parse null-aware method invocations', () async {
     final fixture = await NgTestBed<TestNullAwareFunctions>(
-            ng.createTestNullAwareFunctionsFactory()
-                as ComponentFactory<TestNullAwareFunctions>)
+            ng.createTestNullAwareFunctionsFactory())
         .create();
     expect(
       fixture.text,

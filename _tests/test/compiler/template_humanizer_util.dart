@@ -1,5 +1,3 @@
-
-
 import 'package:ngcompiler/v1/src/compiler/output/dart_emitter.dart';
 import 'package:ngcompiler/v1/src/compiler/template_ast.dart';
 

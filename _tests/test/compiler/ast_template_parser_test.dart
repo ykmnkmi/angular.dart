@@ -1,11 +1,7 @@
-
-
 import 'dart:async';
 
-import 'package:logging/logging.dart';
-import 'package:term_glyph/term_glyph.dart' as term_glyph;
-import 'package:test/test.dart';
 import 'package:_tests/test_util.dart';
+import 'package:logging/logging.dart';
 import 'package:ngcompiler/v1/cli.dart';
 import 'package:ngcompiler/v1/src/compiler/analyzed_class.dart';
 import 'package:ngcompiler/v1/src/compiler/compile_metadata.dart';
@@ -20,6 +16,8 @@ import 'package:ngcompiler/v1/src/compiler/schema/element_schema_registry.dart'
 import 'package:ngcompiler/v1/src/compiler/template_ast.dart';
 import 'package:ngcompiler/v1/src/compiler/template_parser/ast_template_parser.dart';
 import 'package:ngcompiler/v2/context.dart';
+import 'package:term_glyph/term_glyph.dart' as term_glyph;
+import 'package:test/test.dart';
 
 import 'schema_registry_mock.dart' show MockSchemaRegistry;
 import 'template_humanizer_util.dart';
