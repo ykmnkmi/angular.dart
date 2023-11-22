@@ -101,8 +101,7 @@ Future<T> runWithContext<T>(
 ///
 /// When the compiler or components of the compiler are running in a _test_ it
 /// is required to statically initialize one by using [overrideForTesting].
-@sealed
-abstract class CompileContext {
+abstract final class CompileContext {
   /// Overrides [CompileContext.current] to return [context].
   ///
   /// This can be done once during `main()` or `setUpAll(() => ...)`:
@@ -128,7 +127,6 @@ abstract class CompileContext {
   static void overrideForTesting([
     CompileContext context = const _TestCompileContext(),
   ]) {
-    ArgumentError.checkNotNull(context, 'context');
     _overrideForTesting = context;
   }
 
@@ -186,11 +184,9 @@ abstract class CompileContext {
     required Map<String, Set<String>> policyExceptions,
     required Map<String, Set<String>> policyExceptionsInPackages,
     required bool enableDevTools,
-    required bool isNullSafe,
   }) {
     return _LibraryCompileContext(
       enableDevTools: enableDevTools,
-      isNullSafe: isNullSafe,
       path: libraryPath.toRelativeUrl(),
       policyExceptionsPerFiles: policyExceptions,
       policyExceptionsPerPackages: policyExceptionsInPackages,
@@ -210,7 +206,6 @@ abstract class CompileContext {
   /// **NOTE**: [reportAndRecover] simply uses `throw` in this configuration.
   @visibleForTesting
   const factory CompileContext.forTesting({
-    bool emitNullSafeCode,
     bool isDevToolsEnabled,
     bool validateMissingDirectives,
   }) = _TestCompileContext;
@@ -241,13 +236,6 @@ abstract class CompileContext {
   /// The buffer of previous errors is cleared as a result.
   void throwRecoverableErrors();
 
-  /// Whether to emit code that supports https://dart.dev/null-safety.
-  ///
-  /// This is based on a combination of:
-  /// 1. The library and/or package being opted-in to null safety.
-  /// 2. The library being added to the appropriate allow-list.
-  bool get emitNullSafeCode;
-
   /// Whether to emit code that supports developer tooling.
   ///
   /// There are two ways to enable this flag:
@@ -261,7 +249,7 @@ abstract class CompileContext {
   bool get validateMissingDirectives;
 }
 
-class _LibraryCompileContext implements CompileContext {
+final class _LibraryCompileContext implements CompileContext {
   /// See `CompilerFlags.policyExceptions`.
   final Map<String, Set<String>> policyExceptionsPerFiles;
 
@@ -274,15 +262,11 @@ class _LibraryCompileContext implements CompileContext {
   /// Whether `--define=ENABLE_DEVTOOLS=true` was passed during compilation.
   final bool enableDevTools;
 
-  /// Whether the library being compiled is opted-in to null-safety.
-  final bool isNullSafe;
-
   _LibraryCompileContext({
     required this.path,
     required this.policyExceptionsPerFiles,
     required this.policyExceptionsPerPackages,
     required this.enableDevTools,
-    required this.isNullSafe,
   });
 
   final _recoverableErrors = <BuildError>[];
@@ -343,9 +327,6 @@ class _LibraryCompileContext implements CompileContext {
   }
 
   @override
-  bool get emitNullSafeCode => isNullSafe;
-
-  @override
   bool get isDevToolsEnabled {
     return enableDevTools || hasPolicyException('FORCE_DEVTOOLS_ENABLED');
   }
@@ -356,10 +337,7 @@ class _LibraryCompileContext implements CompileContext {
   }
 }
 
-class _TestCompileContext implements CompileContext {
-  @override
-  final bool emitNullSafeCode;
-
+final class _TestCompileContext implements CompileContext {
   @override
   final bool isDevToolsEnabled;
 
@@ -367,7 +345,6 @@ class _TestCompileContext implements CompileContext {
   final bool validateMissingDirectives;
 
   const _TestCompileContext({
-    this.emitNullSafeCode = true,
     this.isDevToolsEnabled = false,
     this.validateMissingDirectives = true,
   });

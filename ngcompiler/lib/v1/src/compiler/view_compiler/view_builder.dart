@@ -926,18 +926,7 @@ o.Expression _maybeFilterSubscriptions(CompileView view) {
   if (view.subscriptions.isEmpty) {
     return o.nullExpr;
   }
-  final subscriptionsExpr = o.literalArr(view.subscriptions);
-  if (view.subscribesToMockLike) {
-    // Mock-like directives may have null subscriptions which must be
-    // filtered out to prevent an exception when they are later cancelled.
-    return subscriptionsExpr.callMethod('where', [
-      o.FunctionExpr(
-        [o.FnParam('i')],
-        [o.ReturnStatement(o.variable('i').notEquals(o.nullExpr))],
-      )
-    ]).callMethod('toList', []);
-  }
-  return subscriptionsExpr;
+  return o.literalArr(view.subscriptions);
 }
 
 /// Writes shared event handler wiring for events that are directly defined

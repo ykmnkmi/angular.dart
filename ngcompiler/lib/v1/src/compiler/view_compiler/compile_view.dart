@@ -5,7 +5,6 @@ import 'package:ngcompiler/v1/src/compiler/ir/model.dart' as ir;
 import 'package:ngcompiler/v1/src/compiler/view_type.dart';
 import 'package:ngcompiler/v1/src/source_gen/common/url_resolver.dart'
     show toTemplateExtension;
-import 'package:ngcompiler/v2/context.dart';
 import 'package:ngdart/src/meta.dart';
 
 import '../compile_metadata.dart'
@@ -419,7 +418,6 @@ class CompileView {
   List<o.ClassMethod> methods = [];
   List<o.ClassGetter> getters = [];
   List<o.Expression> subscriptions = [];
-  bool subscribesToMockLike = false;
   late CompileView componentView;
   var purePipes = <String, CompilePipe>{};
   List<CompilePipe> pipes = [];
@@ -1079,13 +1077,10 @@ class CompileView {
     }
   }
 
-  NodeReference createSubscription({bool isMockLike = false}) {
+  NodeReference createSubscription() {
     final subscription =
         NodeReference._subscription('subscription_${subscriptions.length}');
     subscriptions.add(subscription.toReadExpr());
-    if (isMockLike) {
-      subscribesToMockLike = true;
-    }
     return subscription;
   }
 
@@ -1268,64 +1263,21 @@ class CompileView {
         return localVar;
       }
     } else {
-      // We don't have to eagerly initialize this object. Add an uninitialized
-      // class field and provide a getter to construct the provider on demand.
-      final cachedType = providerHasChangeDetector ? changeDetectorType! : type;
-
       if (providerHasChangeDetector) {
         resolvedProviderValueExpr =
             o.importExpr(changeDetectorClass).instantiate(changeDetectorParams);
       }
 
-      if (CompileContext.current.emitNullSafeCode) {
-        // If null-safety is enabled, use `late` to implement a lazily
-        // initialized field.
-        final field = storage.allocate(
-          propName,
-          // TODO(b/190556639) - Use final.
-          modifiers: const [o.StmtModifier.lateStmt],
-          outputType: type,
-          initializer: resolvedProviderValueExpr,
-        );
-        return storage.buildReadExpr(field);
-      }
-
-      // If null-safety is disabled, manually implement a lazily initialized
-      // field.
-      final internalField = storage.allocate(
-        '_$propName',
-        outputType: cachedType.asNullable(),
-        modifiers: const [o.StmtModifier.privateStmt],
+      // If null-safety is enabled, use `late` to implement a lazily
+      // initialized field.
+      final field = storage.allocate(
+        propName,
+        // TODO(b/190556639) - Use final.
+        modifiers: const [o.StmtModifier.lateStmt],
+        outputType: type,
+        initializer: resolvedProviderValueExpr,
       );
-
-      final getter = CompileMethod()
-        ..addStmts([
-          o.DeclareVarStmt(
-            'result',
-            storage.buildReadExpr(internalField),
-          ),
-          o.IfStmt(
-            o.ReadVarExpr('result').equals(o.nullExpr),
-            [
-              storage
-                  .buildWriteExpr(
-                    internalField,
-                    o.WriteVarExpr('result', resolvedProviderValueExpr),
-                  )
-                  .toStmt(),
-            ],
-          ),
-          o.ReturnStatement(
-            o.ReadVarExpr('result'),
-          ),
-        ]);
-      getters.add(
-        o.ClassGetter(
-          propName,
-          getter.finish(),
-          providerHasChangeDetector ? changeDetectorType : type,
-        ),
-      );
+      return storage.buildReadExpr(field);
     }
     return o.ReadClassMemberExpr(propName, type);
   }

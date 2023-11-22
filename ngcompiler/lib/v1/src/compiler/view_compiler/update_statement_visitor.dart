@@ -10,7 +10,6 @@ import 'package:ngcompiler/v1/src/compiler/view_compiler/compile_view.dart'
 import 'package:ngcompiler/v2/context.dart';
 
 import 'devtools.dart';
-import 'interpolation_utils.dart';
 
 /// Returns statements that update a [binding].
 List<o.Statement> bindingToUpdateStatements(
@@ -70,19 +69,8 @@ class _UpdateStatementsVisitor
       // b/171226440: Avoid using "setAttribute" for conditionals, because we
       // try to use a (ternary) nullable-string, which is invalid. We either
       // need more plumbing in order to use "setAttribute" safely.
-      if (CompileContext.current.emitNullSafeCode) {
-        useSetAttributeIfImmutable = false;
-      }
+      useSetAttributeIfImmutable = false;
       renderValue = renderValue!.conditional(o.literal(''), o.nullExpr);
-    } else if (attributeBinding.securityContext ==
-            TemplateSecurityContext.none &&
-        !isInterpolation(bindingSource) &&
-        !bindingSource.isString) {
-      // Convert to string if necessary.
-      // Sanitized and interpolated bindings always return a string, so we only
-      // check if values that don't require sanitization or interpolation need
-      // to be converted to a string.
-      renderValue = _convertAttributeRenderValue(renderValue, bindingSource);
     }
     if (attributeBinding.hasNamespace) {
       return o.importExpr(DomHelpers.updateAttributeNS).callFn([
@@ -104,27 +92,6 @@ class _UpdateStatementsVisitor
         renderValue!,
       ],
     ).toStmt();
-  }
-
-  static o.Expression? _convertAttributeRenderValue(
-    o.Expression? renderValue,
-    ir.BindingSource bindingSource,
-  ) {
-    if (CompileContext.current.emitNullSafeCode) {
-      // New behavior: Do nothing. We accept a "String?" (only) as a type and
-      // Dart's compilers will emit a compile-time error (i.e. something like
-      // "cannot assign int to String?") on another value type.
-      return renderValue;
-    } else {
-      // Legacy behavior: Allow a non-String `[attr.foo]="baz"` binding. We
-      // coerce it into a String (or null) by transforming "baz" into
-      // "baz?.toString()".
-      return renderValue!.callMethod(
-        'toString',
-        const [],
-        checked: bindingSource.isNullable,
-      );
-    }
   }
 
   @override
@@ -271,8 +238,7 @@ class _UpdateStatementsVisitor
           [o.Expression? renderValue]) =>
       renderNode!.toWriteStmt(appViewInstance!
           .prop(directiveOutput.name)
-          .callMethod(o.BuiltinMethod.subscribeObservable, [renderValue!],
-              checked: directiveOutput.isMockLike));
+          .callMethod(o.BuiltinMethod.subscribeObservable, [renderValue!]));
 
   @override
   o.Statement visitNativeEvent(ir.NativeEvent nativeEvent,

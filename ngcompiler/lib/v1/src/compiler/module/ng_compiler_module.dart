@@ -12,7 +12,6 @@ import 'package:ngcompiler/v1/src/compiler/template_compiler.dart';
 import 'package:ngcompiler/v1/src/compiler/template_parser/ast_template_parser.dart';
 import 'package:ngcompiler/v1/src/compiler/view_compiler/directive_compiler.dart';
 import 'package:ngcompiler/v1/src/compiler/view_compiler/view_compiler.dart';
-import 'package:ngcompiler/v2/context.dart';
 
 /// Creates the elements necessary to parse HTML templates and compile them.
 AngularCompiler createTemplateCompiler(
@@ -29,9 +28,7 @@ AngularCompiler createTemplateCompiler(
       DirectiveCompiler(),
       StyleCompiler(flags),
       ViewCompiler(flags, parser, schemaRegistry),
-      DartEmitter(
-        emitNullSafeSyntax: CompileContext.current.emitNullSafeCode,
-      ),
+      DartEmitter(emitNullSafeSyntax: true),
     ),
     AstDirectiveNormalizer(NgAssetReader.fromBuildStep(buildStep)),
     DirectiveConverter(schemaRegistry),
