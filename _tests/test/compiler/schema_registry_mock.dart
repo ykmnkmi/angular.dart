@@ -1,4 +1,4 @@
-// @dart=2.9
+
 
 import 'package:ngcompiler/v1/src/compiler/schema/element_schema_registry.dart';
 import 'package:ngcompiler/v1/src/compiler/security.dart';

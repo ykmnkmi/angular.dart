@@ -1,6 +1,3 @@
-// @dart=2.9
-
-import 'package:meta/meta.dart';
 import 'package:test/test.dart';
 import 'package:ngcompiler/v2/context.dart';
 
@@ -13,7 +10,7 @@ void main() {
     ));
   });
 
-  void mockLikeTests({@required bool nullSafe}) {
+  void mockLikeTests({required bool nullSafe}) {
     setUp(() {
       if (nullSafe) {
         CompileContext.overrideForTesting(CompileContext.forTesting(
@@ -21,7 +18,7 @@ void main() {
         ));
       }
     });
-    final libHeader = nullSafe ? '' : '// @dart=2.9';
+    final libHeader = nullSafe ? '' : '';
     test("with 'noSuchMethod' implementation", () async {
       final normalizedComponent = await resolveAndFindComponent(
         '''
@@ -32,7 +29,8 @@ void main() {
         }''',
       );
 
-      final isMockLike = normalizedComponent.component.analyzedClass.isMockLike;
+      final isMockLike =
+          normalizedComponent.component.analyzedClass?.isMockLike;
       if (nullSafe) {
         expect(isMockLike, false);
       } else {
@@ -52,7 +50,8 @@ void main() {
         class MockLikeComponent extends MockLikeBase {}''',
       );
 
-      final isMockLike = normalizedComponent.component.analyzedClass.isMockLike;
+      final isMockLike =
+          normalizedComponent.component.analyzedClass?.isMockLike;
       if (nullSafe) {
         expect(isMockLike, false);
       } else {
@@ -72,7 +71,8 @@ void main() {
         class MockLikeComponent extends Object with MockLikeMixin {}''',
       );
 
-      final isMockLike = normalizedComponent.component.analyzedClass.isMockLike;
+      final isMockLike =
+          normalizedComponent.component.analyzedClass?.isMockLike;
       if (nullSafe) {
         expect(isMockLike, false);
       } else {
@@ -92,11 +92,11 @@ void main() {
   test('should not be mock-like', () async {
     final normalizedComponent = await resolveAndFindComponent(
       '''
-      // @dart=2.9
+      
       @Component(selector: 'not-blank')
       class NotMockLikeComponent {}''',
     );
-    expect(normalizedComponent.component.analyzedClass.isMockLike, false);
+    expect(normalizedComponent.component.analyzedClass?.isMockLike, false);
   });
 
   group('Generic type parameter', () {
@@ -107,7 +107,8 @@ void main() {
           @Input()
           T value;
         }''');
-      expect(normalizedComponent.component.inputTypes['value'].name, 'dynamic');
+      expect(
+          normalizedComponent.component.inputTypes['value']?.name, 'dynamic');
     });
 
     test('should resolve to dynamic when unspecified on supertype', () async {
@@ -120,7 +121,8 @@ void main() {
         @Component(selector: 'not-blank')
         class TestComponent extends Base {}
       ''');
-      expect(normalizedComponent.component.inputTypes['value'].name, 'dynamic');
+      expect(
+          normalizedComponent.component.inputTypes['value']?.name, 'dynamic');
     });
 
     test('should resolve bounded type', () async {
@@ -130,7 +132,7 @@ void main() {
           @Input()
           T value;
         }''');
-      expect(normalizedComponent.component.inputTypes['value'].name, 'String');
+      expect(normalizedComponent.component.inputTypes['value']?.name, 'String');
     });
 
     test('should resolve bounded type on supertype', () async {
@@ -143,7 +145,7 @@ void main() {
         @Component(selector: 'not-blank')
         class TestComponent<S extends String> extends Base<S> {}
       ''');
-      expect(normalizedComponent.component.inputTypes['value'].name, 'String');
+      expect(normalizedComponent.component.inputTypes['value']?.name, 'String');
     });
 
     test('should resolve to specified type', () async {
@@ -156,7 +158,7 @@ void main() {
         @Component(selector: 'not-blank')
         class TestComponent extends Base<String> {}
       ''');
-      expect(normalizedComponent.component.inputTypes['value'].name, 'String');
+      expect(normalizedComponent.component.inputTypes['value']?.name, 'String');
     });
   });
 }

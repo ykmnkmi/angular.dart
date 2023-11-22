@@ -1,4 +1,4 @@
-// @dart=2.9
+
 
 import 'package:test/test.dart';
 import 'package:_tests/test_util.dart';
@@ -26,15 +26,15 @@ void main() {
 }
 
 void _runTests(ExpressionParser Function() createParser) {
-  ASTWithSource parseAction(String text, [String location]) {
+  ASTWithSource parseAction(String text, [String? location]) {
     return createParser().parseAction(text, location, []);
   }
 
-  ASTWithSource parseBinding(String text, [String location]) {
+  ASTWithSource parseBinding(String text, [String? location]) {
     return createParser().parseBinding(text, location, []);
   }
 
-  ASTWithSource parseInterpolation(String text, [String location]) {
+  ASTWithSource parseInterpolation(String text, [String? location]) {
     return createParser().parseInterpolation(text, location, []);
   }
 
@@ -42,19 +42,19 @@ void _runTests(ExpressionParser Function() createParser) {
     return Unparser().unparse(ast);
   }
 
-  void checkInterpolation(String exp, [String expected]) {
+  void checkInterpolation(String exp, [String? expected]) {
     var ast = parseInterpolation(exp);
     expected ??= exp;
     expect(unparse(ast), expected);
   }
 
-  void checkBinding(String exp, [String expected]) {
+  void checkBinding(String exp, [String? expected]) {
     var ast = parseBinding(exp);
     expected ??= exp;
     expect(unparse(ast), expected);
   }
 
-  void checkAction(String exp, [String expected]) {
+  void checkAction(String exp, [String? expected]) {
     var ast = parseAction(exp);
     expected ??= exp;
     expect(unparse(ast), expected);

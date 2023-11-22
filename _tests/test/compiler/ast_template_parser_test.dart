@@ -1,4 +1,4 @@
-// @dart=2.9
+
 
 import 'dart:async';
 
@@ -28,8 +28,8 @@ const someModuleUrl = 'package:someModule';
 
 typedef ParseTemplate = List<TemplateAst> Function(
   String template,
-  List<CompileDirectiveMetadata> directives, [
-  List<CompilePipeMetadata> pipes,
+  List<CompileDirectiveMetadata>? directives, [
+  List<CompilePipeMetadata>? pipes,
 ]);
 
 class ArrayConsole {
@@ -77,12 +77,12 @@ void main() {
       type: CompileTypeMetadata(moduleUrl: someModuleUrl, name: 'Root'),
       metadataType: CompileDirectiveMetadataType.component);
 
-  ParseTemplate parseTemplate;
+  late ParseTemplate parseTemplate;
 
   List<TemplateAst> parse(
     String template, [
-    List<CompileDirectiveMetadata> directive,
-    List<CompilePipeMetadata> pipes,
+    List<CompileDirectiveMetadata>? directive,
+    List<CompilePipeMetadata>? pipes,
   ]) {
     return runZoned(() => parseTemplate(template, directive, pipes),
         zoneValues: {
@@ -91,8 +91,8 @@ void main() {
   }
 
   void setUpParser({
-    ElementSchemaRegistry elementSchemaRegistry,
-    CompilerFlags compilerFlags,
+    ElementSchemaRegistry? elementSchemaRegistry,
+    CompilerFlags? compilerFlags,
   }) {
     elementSchemaRegistry ??= MockSchemaRegistry(
       {'invalidProp': false},
@@ -607,7 +607,7 @@ void main() {
       });
 
       group('providers', () {
-        int nextProviderId;
+        late int nextProviderId;
         CompileTokenMetadata createToken(String value) {
           CompileTokenMetadata token;
           if (value.startsWith('type:')) {
@@ -663,8 +663,8 @@ void main() {
         }
 
         CompileDirectiveMetadata createDir(String selector,
-            {List<CompileProviderMetadata> providers,
-            List<CompileProviderMetadata> viewProviders,
+            {List<CompileProviderMetadata>? providers,
+            List<CompileProviderMetadata>? viewProviders,
             List<String> deps = const [],
             List<String> queries = const []}) {
           var isComponent = !selector.startsWith('[');
@@ -905,8 +905,8 @@ void main() {
         test('should change missing @Self() that are optional to nulls', () {
           var dirA = createDir('[dirA]', deps: ['optional:self:provider0']);
           var elAst = parse('<div dirA></div>', [dirA])[0] as ElementAst;
-          expect(elAst.providers[0].providers[0].deps[0].isValue, true);
-          expect(elAst.providers[0].providers[0].deps[0].value, isNull);
+          expect(elAst.providers[0].providers[0].deps?[0]?.isValue, true);
+          expect(elAst.providers[0].providers[0].deps?[0]?.value, isNull);
         });
 
         test('should report missing @Host() deps as errors', () {
@@ -924,8 +924,8 @@ void main() {
         test('should change missing @Host() that are optional to nulls', () {
           var dirA = createDir('[dirA]', deps: ['optional:host:provider0']);
           var elAst = parse('<div dirA></div>', [dirA])[0] as ElementAst;
-          expect(elAst.providers[0].providers[0].deps[0].isValue, true);
-          expect(elAst.providers[0].providers[0].deps[0].value, isNull);
+          expect(elAst.providers[0].providers[0].deps?[0]?.isValue, true);
+          expect(elAst.providers[0].providers[0].deps?[0]?.value, isNull);
         });
 
         test('should report cyclic dependencies as errors', () {
@@ -1734,7 +1734,7 @@ void main() {
     });
 
     group('content projection', () {
-      int compCounter;
+      late int compCounter;
       setUp(() {
         compCounter = 0;
       });
@@ -2622,17 +2622,17 @@ void main() {
 }
 
 CompileDirectiveMetadata createCompileDirectiveMetadata({
-  CompileTypeMetadata type,
+  CompileTypeMetadata? type,
   CompileDirectiveMetadataType metadataType =
       CompileDirectiveMetadataType.directive,
-  String selector,
-  String exportAs,
-  List<String> inputs,
-  List<String> outputs,
+  String? selector,
+  String? exportAs,
+  List<String>? inputs,
+  List<String>? outputs,
   List<CompileProviderMetadata> providers = const [],
   List<CompileProviderMetadata> viewProviders = const [],
   List<CompileQueryMetadata> queries = const [],
-  CompileTemplateMetadata template,
+  CompileTemplateMetadata? template,
 }) {
   final inputsMap = <String, String>{};
   final inputTypeMap = <String, CompileTypeMetadata>{};

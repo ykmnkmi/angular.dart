@@ -1,4 +1,4 @@
-// @dart=2.9
+
 
 import 'dart:async';
 
@@ -40,7 +40,7 @@ class NotifierComponent {
 )
 class MockNotifierComponent implements NotifierComponent {
   @override
-  Object noSuchMethod(Invocation invocation) => null;
+  Object? noSuchMethod(Invocation invocation) => null;
 }
 
 @Component(
@@ -60,7 +60,7 @@ class TestMockNotificationComponent {
 )
 class FakeNotifierComponent extends NotifierComponent {
   @override
-  Stream<String> get notifications => null;
+  Stream<String> get notifications => Stream.empty();
 }
 
 @Component(

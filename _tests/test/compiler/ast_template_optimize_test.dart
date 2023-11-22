@@ -1,4 +1,4 @@
-// @dart=2.9
+
 
 import 'package:test/test.dart';
 import 'package:ngcompiler/v1/cli.dart';
@@ -29,11 +29,11 @@ void main() {
     final componentMetadata = component.component;
     final templateAsts = templateParser.parse(
       componentMetadata,
-      componentMetadata.template.template,
+      componentMetadata.template?.template,
       component.directives,
       [],
       null,
-      componentMetadata.template.templateUrl,
+      componentMetadata.template?.templateUrl,
     );
     return humanizeTplAst(templateAsts);
   }

@@ -1,5 +1,3 @@
-// @dart=2.9
-
 import 'package:test/test.dart';
 import 'package:_tests/compiler.dart';
 import 'package:ngcompiler/v2/context.dart';
