@@ -11,7 +11,7 @@ import 'package:package_config/package_config.dart';
 import 'package:source_gen/source_gen.dart';
 
 // Use custom package config for angular sources if specified
-late final Future<PackageConfig> _packageConfigFuture = () async {
+final Future<PackageConfig> _packageConfigFuture = () async {
   Uri uri;
 
   if (Platform.environment['ANGULAR_PACKAGE_CONFIG_PATH'] case var path?) {
