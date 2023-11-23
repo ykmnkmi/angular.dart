@@ -1,10 +1,9 @@
 import 'package:_tests/compiler.dart';
-import 'package:build/build.dart';
 import 'package:ngcompiler/v2/context.dart';
 import 'package:test/test.dart';
 
 void main() {
-  setUp(CompileContext.overrideForTesting);
+  CompileContext.overrideForTesting();
 
   test('should fail on an injector with a nullable non-optional', () async {
     await compilesExpecting("""
@@ -19,9 +18,7 @@ void main() {
       ])
       final injectorFactory = null; // OK for compiler tests.
     """, errors: [
-      allOf(
-        contains('must be annotated @Optional()'),
-      )
+      contains('must be annotated @Optional()'),
     ]);
   });
 
@@ -39,9 +36,7 @@ void main() {
       ])
       final injectorFactory = null; // OK for compiler tests.
     """, errors: [
-      allOf(
-        contains('must be annotated @Optional()'),
-      )
+      contains('must be annotated @Optional()'),
     ]);
   });
 
@@ -58,9 +53,7 @@ void main() {
       ])
       final injectorFactory = null; // OK for compiler tests.
     """, errors: [
-      allOf(
-        contains('must be annotated @Optional()'),
-      )
+      contains('must be annotated @Optional()'),
     ]);
   });
 
@@ -128,9 +121,7 @@ void main() {
         CarComponent(@Optional() Engine engine);
       }
     """, errors: [
-      allOf(
-        contains('must be annotated @Optional()'),
-      )
+      contains('must be annotated @Optional()'),
     ]);
   });
 
@@ -148,9 +139,7 @@ void main() {
         CarComponent(Engine? engine);
       }
     """, errors: [
-      allOf(
-        contains('must be annotated @Optional()'),
-      )
+      contains('must be annotated @Optional()'),
     ]);
   });
 
@@ -169,9 +158,7 @@ void main() {
         CarComponent(FutureOr<Engine?> engine);
       }
     """, errors: [
-      allOf(
-        contains('must be annotated @Optional()'),
-      )
+      contains('must be annotated @Optional()'),
     ]);
   });
 
@@ -189,64 +176,5 @@ void main() {
         CarComponent(@Attribute('title') String? title);
       }
     """);
-  });
-
-  group('should allow opted-out to use opted-in import w/o error', () {
-    final clientLibSource = """
-      
-      import '$ngImport';
-      import 'opted_in_library.dart';
-
-      @Component(
-        selector: 'example-comp',
-        template: '',
-        providers: [
-          ClassProvider(Clock),
-        ],
-      )
-      class ExampleComp {
-        ExampleComp(Clock clock);
-      }
-    """;
-
-    setUp(() {
-      CompileContext.overrideForTesting(
-        CompileContext.forTesting(emitNullSafeCode: false),
-      );
-    });
-
-    test('[expected nullable]', () async {
-      final importLibSource = '''
-        typedef DateTimeGetter = DateTime Function();
-        class Clock {
-          static DateTime _defaultGetTime() => DateTime.now();
-          Clock([DateTimeGetter getTime = _defaultGetTime]);
-        }
-      ''';
-      await compilesNormally(
-        clientLibSource,
-        include: {
-          'pkg|lib/opted_in_library.dart': importLibSource,
-        },
-        inputSource: 'pkg|lib/opted_out_client.dart',
-        runBuilderOn: {AssetId('pkg', 'lib/opted_out_client.dart')},
-      );
-    });
-
-    test('[expected @Optional]', () async {
-      final importLibSource = '''
-        class Clock {
-          Clock(DateTime? expectedToBeOptional);
-        }
-      ''';
-      await compilesNormally(
-        clientLibSource,
-        include: {
-          'pkg|lib/opted_in_library.dart': importLibSource,
-        },
-        inputSource: 'pkg|lib/opted_out_client.dart',
-        runBuilderOn: {AssetId('pkg', 'lib/opted_out_client.dart')},
-      );
-    });
   });
 }

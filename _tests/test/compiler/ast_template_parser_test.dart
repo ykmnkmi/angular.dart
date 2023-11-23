@@ -3,7 +3,6 @@ import 'dart:async';
 import 'package:_tests/test_util.dart';
 import 'package:logging/logging.dart';
 import 'package:ngcompiler/v1/cli.dart';
-import 'package:ngcompiler/v1/src/compiler/analyzed_class.dart';
 import 'package:ngcompiler/v1/src/compiler/compile_metadata.dart';
 import 'package:ngcompiler/v1/src/compiler/expression_parser/parser.dart';
 import 'package:ngcompiler/v1/src/compiler/identifiers.dart'
@@ -60,10 +59,7 @@ class ArrayConsole {
 
 void main() {
   CompileContext.overrideForTesting();
-
-  setUpAll(() {
-    term_glyph.ascii = true;
-  });
+  term_glyph.ascii = true;
 
   final console = ArrayConsole();
   final ngIf = createCompileDirectiveMetadata(
@@ -661,8 +657,8 @@ void main() {
         }
 
         CompileDirectiveMetadata createDir(String selector,
-            {List<CompileProviderMetadata>? providers,
-            List<CompileProviderMetadata>? viewProviders,
+            {List<CompileProviderMetadata> providers = const [],
+            List<CompileProviderMetadata> viewProviders = const [],
             List<String> deps = const [],
             List<String> queries = const []}) {
           var isComponent = !selector.startsWith('[');
@@ -1341,6 +1337,7 @@ void main() {
 
         test('should internationalize directive property', () {
           final directive = createCompileDirectiveMetadata(
+            type: CompileTypeMetadata(moduleUrl: someModuleUrl, name: 'Comp'),
             selector: 'test',
             inputs: ['input'],
           );
@@ -2315,6 +2312,7 @@ void main() {
 
       test('should report error for invalid internationalized expression', () {
         final directive = createCompileDirectiveMetadata(
+          type: CompileTypeMetadata(moduleUrl: someModuleUrl, name: 'Comp'),
           selector: 'test',
           inputs: ['input'],
         );
@@ -2620,7 +2618,7 @@ void main() {
 }
 
 CompileDirectiveMetadata createCompileDirectiveMetadata({
-  CompileTypeMetadata? type,
+  required CompileTypeMetadata type,
   CompileDirectiveMetadataType metadataType =
       CompileDirectiveMetadataType.directive,
   String? selector,
@@ -2665,7 +2663,6 @@ CompileDirectiveMetadata createCompileDirectiveMetadata({
     viewProviders: viewProviders,
     queries: queries,
     template: template ?? CompileTemplateMetadata(),
-    analyzedClass: AnalyzedClass(null),
   );
 }
 

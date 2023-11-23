@@ -18,10 +18,10 @@ void main() {
       ])
       final example = null;
     ''', errors: [
-      allOf([
+      allOf(
         contains('While attempting to resolve a constant value for a provider'),
         contains('TestClass'),
-      ]),
+      ),
     ]);
   });
 
@@ -65,9 +65,7 @@ void main() {
       ])
       final example = null;
     ''', errors: [
-      allOf([
-        contains('Expected list for \'provide\' field of Module'),
-      ]),
+      contains('Expected list for \'provide\' field of Module'),
     ]);
   });
 }

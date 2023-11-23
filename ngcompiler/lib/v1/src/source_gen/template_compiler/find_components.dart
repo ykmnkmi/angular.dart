@@ -674,8 +674,10 @@ class _ComponentVisitor
         linkInfo != null;
     if (isChangeDetectionLink &&
         !(isComponent && changeDetection == ChangeDetectionStrategy.onPush)) {
-      _exceptionHandler.handle(ErrorMessageForAnnotation(linkInfo,
-          'Only supported on components that use "OnPush" change detection'));
+      _exceptionHandler.handle(ErrorMessageForAnnotation(
+          linkInfo,
+          'Only supported on components that use '
+          '"ChangeDetectionStrategy.onPush" change detection'));
     }
 
     return CompileDirectiveMetadata(

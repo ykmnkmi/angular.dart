@@ -3,7 +3,6 @@ import 'dart:isolate';
 
 import 'package:analyzer/dart/element/element.dart';
 import 'package:build/build.dart';
-import 'package:build/experiments.dart';
 import 'package:build_test/build_test.dart';
 import 'package:ngcompiler/v1/src/compiler/template_compiler.dart';
 import 'package:ngcompiler/v1/src/source_gen/template_compiler/component_visitor_exceptions.dart';
@@ -12,24 +11,28 @@ import 'package:package_config/package_config.dart';
 import 'package:source_gen/source_gen.dart';
 
 // Use custom package config for angular sources if specified
-final _packageConfigFuture = Platform
-            .environment['ANGULAR_PACKAGE_CONFIG_PATH'] !=
-        null
-    ? loadPackageConfigUri(
-        Uri.base.resolve(Platform.environment['ANGULAR_PACKAGE_CONFIG_PATH']))
-    : Isolate.packageConfig.then(loadPackageConfigUri);
+late final Future<PackageConfig> _packageConfigFuture = () async {
+  Uri uri;
 
-Future<LibraryElement> resolve(String source,
-    [PackageConfig? packageConfig]) async {
+  if (Platform.environment['ANGULAR_PACKAGE_CONFIG_PATH'] case var path?) {
+    uri = Uri.base.resolve(path);
+  } else {
+    uri = (await Isolate.packageConfig)!;
+  }
+
+  return loadPackageConfigUri(uri);
+}();
+
+Future<LibraryElement> resolve(
+  String source, [
+  PackageConfig? packageConfig,
+]) async {
   final testAssetId = AssetId('_tests', 'lib/resolve.dart');
-  return await withEnabledExperiments(
-    () => resolveSource(
-      source,
-      (resolver) => resolver.libraryFor(testAssetId),
-      inputId: testAssetId,
-      packageConfig: packageConfig,
-    ),
-    ['non-nullable'],
+  return await resolveSource(
+    source,
+    (resolver) => resolver.libraryFor(testAssetId),
+    inputId: testAssetId,
+    packageConfig: packageConfig,
   );
 }
 

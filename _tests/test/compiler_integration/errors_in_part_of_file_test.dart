@@ -35,7 +35,7 @@ void main() {
         allOf(
           contains('Unsupported extension in styleUrls:'),
           contains('Only ".css" is supported'),
-        )
+        ),
       ],
     );
   });

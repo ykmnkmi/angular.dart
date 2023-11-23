@@ -15,11 +15,11 @@ void main() {
         ])
         final injectorFactory = null; // OK for compiler tests.
       """, errors: [
-        allOf([
+        allOf(
           contains('singleton service provided by the framework that cannot be '
               'overridden or manually provided'),
           containsSourceLocation(6, 15),
-        ]),
+        ),
       ]);
     });
 
@@ -34,11 +34,11 @@ void main() {
         )
         class Foo {}
       """, errors: [
-        allOf([
+        allOf(
           contains('singleton service provided by the framework that cannot be '
               'overridden or manually provided'),
           containsSourceLocation(3, 9),
-        ]),
+        ),
       ]);
     });
   });

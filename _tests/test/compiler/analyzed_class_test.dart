@@ -82,7 +82,7 @@ void main() {
           final int eight = 8;
         }
       ''');
-      var analyzedClass = AnalyzedClass(library.getClass('SubComponent'));
+      var analyzedClass = AnalyzedClass(library.getClass('SubComponent')!);
       final sevenExpr = PropertyRead(ImplicitReceiver(), 'seven');
       final eightExpr = PropertyRead(ImplicitReceiver(), 'eight');
       final someNumberExpr = PropertyRead(ImplicitReceiver(), 'someNumber');
@@ -96,26 +96,26 @@ void main() {
 Future<AnalyzedClass> analyzeClass(String source) async {
   final library = await resolve(source);
   final visitor = AnalyzedClassVisitor();
-  return library.accept(visitor);
+  return library.accept(visitor)!;
 }
 
 class AnalyzedClassVisitor extends RecursiveElementVisitor<AnalyzedClass> {
   @override
-  AnalyzedClass visitClassElement(ClassElement element) {
+  AnalyzedClass? visitClassElement(ClassElement element) {
     return AnalyzedClass(element);
   }
 
   @override
-  AnalyzedClass visitCompilationUnitElement(CompilationUnitElement element) {
+  AnalyzedClass? visitCompilationUnitElement(CompilationUnitElement element) {
     return _visitAll(element.classes);
   }
 
   @override
-  AnalyzedClass visitLibraryElement(LibraryElement element) {
+  AnalyzedClass? visitLibraryElement(LibraryElement element) {
     return _visitAll(element.units);
   }
 
-  AnalyzedClass _visitAll(List<Element> elements) {
+  AnalyzedClass? _visitAll(List<Element> elements) {
     for (var element in elements) {
       final analyzedClass = element.accept(this);
       if (analyzedClass != null) return analyzedClass;

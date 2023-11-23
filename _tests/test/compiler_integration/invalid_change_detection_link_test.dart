@@ -35,12 +35,11 @@ void main() {
         )
         class CheckAlwaysComponent {}
       """, errors: [
-        allOf([
-          contains(
-            'Only supported on components that use "OnPush" change detection',
-          ),
+        allOf(
+          contains('Only supported on components that use '
+              '"ChangeDetectionStrategy.onPush" change detection'),
           containsSourceLocation(4, 9),
-        ]),
+        ),
       ]);
     });
 
@@ -53,12 +52,11 @@ void main() {
         @Directive(selector: '[test]')
         class TestDirective {}
       """, errors: [
-        allOf([
-          contains(
-            'Only supported on components that use "OnPush" change detection',
-          ),
+        allOf(
+          contains('Only supported on components that use '
+              '"ChangeDetectionStrategy.onPush" change detection'),
           containsSourceLocation(4, 9),
-        ]),
+        ),
       ]);
     });
   });

@@ -549,7 +549,7 @@ void main() {
             o.importExpr(
               CompileIdentifierMetadata(name: 'GenericParent'),
               // typeParams: o.importType(CompileIdentifierMetadata(name: 'T'))?.typeParams ?? [],
-              typeParams: o.importType(CompileIdentifierMetadata(name: 'T')),
+              typeParams: [o.importType(CompileIdentifierMetadata(name: 'T'))!],
             ),
             [],
             [],

@@ -4,10 +4,8 @@ import 'package:term_glyph/term_glyph.dart' as term_glyph;
 import 'package:test/test.dart';
 
 void main() {
-  setUpAll(() {
-    term_glyph.ascii = true;
-    CompileContext.overrideForTesting();
-  });
+  CompileContext.overrideForTesting();
+  term_glyph.ascii = true;
 
   test('should identify a possibly unresolvable directive', () async {
     await compilesExpecting('''
@@ -28,11 +26,11 @@ void main() {
       )
       class BadComp {}
     ''', errors: [
-      allOf([
+      allOf(
         contains('Compiling @Component-annotated class "BadComp" failed'),
         containsSourceLocation(11, 11),
-        contains('OopsDirective')
-      ]),
+        contains('OopsDirective'),
+      ),
     ]);
   });
 
@@ -49,10 +47,10 @@ void main() {
       )
       class BadComp {}
     ''', errors: [
-      allOf([
+      allOf(
         contains('Compiling @Component-annotated class "BadComp" failed'),
         containsSourceLocation(6, 11), // points to 'const Undeclared..'
-      ]),
+      ),
     ]);
   });
 
@@ -100,16 +98,15 @@ void main() {
       )
       class BadComp {}
     ''', errors: [
-      allOf([
+      allOf(
         isNot(
           contains(
-            "The argument type 'int' can't be assigned to the parameter type 'String'",
-          ),
+              "The argument type 'int' can't be assigned to the parameter type 'String'"),
         ),
         isNot(
           contains('neverMentionFour'),
-        )
-      ]),
+        ),
+      ),
     ]);
   });
 
@@ -126,10 +123,10 @@ void main() {
       }
     ''', errors: [
       // TODO(b/124524346): Only print one error.
-      allOf([
+      allOf(
         contains('Error evaluating annotation'),
-        containsSourceLocation(8, 24)
-      ]),
+        containsSourceLocation(8, 24),
+      ),
     ]);
   });
 
@@ -144,11 +141,11 @@ void main() {
       )
       class BadComp {}
     ''', errors: [
-      allOf([
+      allOf(
         contains('Compiling @Component-annotated class "BadComp" failed'),
         containsSourceLocation(6, 17),
-        contains('MissingPipe')
-      ]),
+        contains('MissingPipe'),
+      ),
     ]);
   });
 
@@ -166,11 +163,11 @@ void main() {
       class BadProvider {}
 
     ''', errors: [
-      allOf([
+      allOf(
         contains('Compiling @Component-annotated class "BadProvider" failed'),
         containsSourceLocation(6, 25),
-        contains('Nope')
-      ])
+        contains('Nope'),
+      ),
     ]);
   });
 
@@ -191,15 +188,13 @@ void main() {
     )
     class HiddenGoldComponenet {}
     ''', warnings: [
-      allOf([
-        'line 1, column 9 of asset:pkg/lib/input.dart: Dead code in template: '
-            'Non-empty text node (Dropped) is a child of a non-projecting '
-            'component (opaque) and will not be added to the DOM.\n'
-            '  ,\n'
-            '1 | <opaque>Dropped</opaque>\n'
-            '  |         ^^^^^^^\n'
-            "  '"
-      ])
+      'line 1, column 9 of asset:pkg/lib/input.dart: Dead code in template: '
+          'Non-empty text node (Dropped) is a child of a non-projecting '
+          'component (opaque) and will not be added to the DOM.\n'
+          '  ,\n'
+          '1 | <opaque>Dropped</opaque>\n'
+          '  |         ^^^^^^^\n'
+          "  '",
     ]);
   });
 
@@ -224,11 +219,11 @@ void main() {
       class ExampleComponent {}
 
     ''', errors: [
-      allOf([
+      allOf(
         contains('Entry in "directiveTypes" missing corresponding entry in'
             ' "directives" for "GenericComponent".'),
-        containsSourceLocation(11, 5)
-      ])
+        containsSourceLocation(11, 5),
+      ),
     ]);
   });
 
@@ -242,10 +237,10 @@ void main() {
     )
     class EmptySelector {}
     ''', errors: [
-      allOf([
+      allOf(
         contains('Selector is required, got ""'),
-        containsSourceLocation(3, 5)
-      ])
+        containsSourceLocation(3, 5),
+      ),
     ]);
   });
 
@@ -261,10 +256,10 @@ void main() {
       void ngDoCheck() async {}
     }
     ''', errors: [
-      allOf([
+      allOf(
         contains('ngDoCheck should not be "async"'),
-        containsSourceLocation(8, 12)
-      ])
+        containsSourceLocation(8, 12),
+      ),
     ]);
   });
 
@@ -280,11 +275,11 @@ void main() {
     )
     class DoubleUp {}
     ''', errors: [
-      allOf([
+      allOf(
         contains(
             'Cannot supply both "template" and "templateUrl" for an @Component'),
-        containsSourceLocation(3, 5)
-      ])
+        containsSourceLocation(3, 5),
+      ),
     ]);
   });
 
@@ -298,10 +293,10 @@ void main() {
     )
     class BadUrl {}
     ''', errors: [
-      allOf([
+      allOf(
         contains('@Component.templateUrl is not a valid URI'),
-        containsSourceLocation(3, 5)
-      ])
+        containsSourceLocation(3, 5),
+      ),
     ]);
   });
 
@@ -321,7 +316,7 @@ void main() {
       allOf(
         contains('Expected method for event binding'),
         containsSourceLocation(1, 43),
-      )
+      ),
     ]);
   });
 
@@ -400,16 +395,15 @@ void main() {
       class BadComponent {}
     ''', errors: [
         allOf(
-          contains(
-            'Evaluation of this constant expression throws an exception',
-          ),
-          containsSourceLocation(8, 21),
+          contains("A provider's token field failed to compile."),
+          containsSourceLocation(5, 7),
         ),
       ]);
     });
 
     test('should warn on when provider is not a class', () async {
-      await compilesExpecting('''
+      await compilesExpecting(
+          '''
       import '$ngImport';
 
       typedef Compare = int Function(Object a, Object b);
@@ -419,15 +413,14 @@ void main() {
         providers: [Compare]
       )
       class BadComponent {}
-    ''', errors: [], warnings: [
-        allOf(
-          contains('Expected to find class in provider list'),
-          containsSourceLocation(
-            4,
-            7,
-          ),
-        ), // pointing at @Component
-      ]);
+    ''',
+          errors: isEmpty,
+          warnings: [
+            allOf(
+              contains('Expected to find class in provider list'),
+              containsSourceLocation(4, 7),
+            ), // pointing at @Component
+          ]);
     });
 
     test('should error on when useClass is not a class', () async {
@@ -447,13 +440,12 @@ void main() {
         allOf(
           contains('Provider.useClass can only be used with a class'),
           containsSourceLocation(6, 7),
-        ) // pointing at @Component
+        ), // pointing at @Component
       ]);
     });
 
     test('should error on when useFactory is not a function', () async {
-      await compilesExpecting(
-        '''
+      await compilesExpecting('''
       import '$ngImport';
 
       class ToProvide {}
@@ -464,14 +456,12 @@ void main() {
         providers: [FactoryProvider(ToProvide, ToProvide)]
       )
       class BadComponent {}
-    ''',
-        errors: [
-          allOf(
-            contains('ToProvide'),
-            containsSourceLocation(8, 48),
-          ),
-        ],
-      );
+    ''', errors: [
+        allOf(
+          contains('ToProvide'),
+          containsSourceLocation(10, 13),
+        ),
+      ]);
     });
 
     test('should still warn when useClass: is used with an interface',

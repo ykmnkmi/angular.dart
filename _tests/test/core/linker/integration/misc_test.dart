@@ -148,9 +148,7 @@ class DynamicViewport {
 
   DynamicViewport(ViewContainerRef vc) {
     final myService = MyService()..greeting = 'dynamic greet';
-    final injector = Injector.map({
-      MyService: myService,
-    }, vc.injector);
+    final injector = Injector.map({MyService: myService}, vc.injector);
     final factoryFuture = Future.value(
       ng.createChildCompUsingServiceFactory(),
     );

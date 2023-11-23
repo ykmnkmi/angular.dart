@@ -6,8 +6,7 @@ void main() {
   setUp(CompileContext.overrideForTesting);
 
   test('should require integer value for "tabindex"', () async {
-    await compilesExpecting(
-      '''
+    await compilesExpecting('''
       import '$ngImport';
 
       @Component(
@@ -15,10 +14,8 @@ void main() {
         template: '<div tabindex="foo"></div>',
       )
       class TestComponent {}
-    ''',
-      errors: [
-        contains('The "tabindex" attribute expects an integer value'),
-      ],
-    );
+    ''', errors: [
+      contains('The "tabindex" attribute expects an integer value'),
+    ]);
   });
 }

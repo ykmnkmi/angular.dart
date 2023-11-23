@@ -20,17 +20,24 @@ class OptimizeTemplateAstVisitor
     context!;
     _typeNgForLocals(context, ast.directives, ast.variables);
 
+    AnalyzedClass? analyzedClass;
+
+    if (context.analyzedClass case var contextAnalyzedClass?) {
+      analyzedClass = AnalyzedClass.from(
+        contextAnalyzedClass,
+        additionalLocals: {
+          for (var v in ast.variables)
+            if (v.dartType != null) v.name: v.dartType!,
+        },
+      );
+    }
+
     // Add the local variables to the [CompileDirectiveMetadata] used in
     // children embedded templates.
-    var scoped = CompileDirectiveMetadata.from(context,
-        analyzedClass: AnalyzedClass.from(
-          context.analyzedClass!,
-          additionalLocals: {
-            for (var v in ast.variables)
-              if (v.dartType != null) v.name: v.dartType!,
-          },
-        ));
-
+    var scoped = CompileDirectiveMetadata.from(
+      context,
+      analyzedClass: analyzedClass,
+    );
     return super.visitEmbeddedTemplate(ast, scoped);
   }
 }
