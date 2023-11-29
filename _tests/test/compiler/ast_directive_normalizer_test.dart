@@ -1,13 +1,11 @@
-// @dart=2.9
-
 import 'package:build_test/build_test.dart';
 import 'package:logging/logging.dart';
-import 'package:test/test.dart';
-import 'package:ngdart/src/meta.dart';
 import 'package:ngcompiler/v1/angular_compiler.dart';
 import 'package:ngcompiler/v1/src/compiler/ast_directive_normalizer.dart';
 import 'package:ngcompiler/v1/src/compiler/compile_metadata.dart';
 import 'package:ngcompiler/v2/context.dart';
+import 'package:ngdart/src/meta.dart';
+import 'package:test/test.dart';
 
 void main() {
   CompileDirectiveMetadata metadata;
@@ -18,6 +16,7 @@ void main() {
     reader = const FakeAssetReader();
     normalizer = AstDirectiveNormalizer(reader);
     metadata = CompileDirectiveMetadata(
+      type: CompileTypeMetadata(name: 'test-type'),
       metadataType: CompileDirectiveMetadataType.directive,
     );
 
@@ -108,7 +107,7 @@ void main() {
       ),
     );
     metadata = await normalizer.normalizeDirective(metadata);
-    expect(metadata.template.ngContentSelectors, [
+    expect(metadata.template?.ngContentSelectors, [
       '*',
       '.left',
       '.right',
@@ -154,7 +153,7 @@ void main() {
     );
     metadata = await normalizer.normalizeDirective(metadata);
     expect(
-      metadata.template.styleUrls,
+      metadata.template?.styleUrls,
       orderedEquals([
         'package:a/1.css',
         'package:a/2.css',
@@ -174,7 +173,7 @@ void main() {
       ),
     );
     metadata = await normalizer.normalizeDirective(metadata);
-    expect(metadata.template.encapsulation, ViewEncapsulation.none);
+    expect(metadata.template?.encapsulation, ViewEncapsulation.none);
   });
 
   test('should resolve inline stylesheets', () async {
@@ -205,9 +204,9 @@ void main() {
       ),
     );
     metadata = await normalizer.normalizeDirective(metadata);
-    expect(metadata.template.encapsulation, ViewEncapsulation.emulated);
+    expect(metadata.template?.encapsulation, ViewEncapsulation.emulated);
     expect(
-      metadata.template.styles,
+      metadata.template?.styles,
       [
         contains(':host { margin: 10px; }'),
       ],

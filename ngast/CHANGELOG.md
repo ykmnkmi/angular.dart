@@ -1,11 +1,15 @@
+## 3.0.0-dev.1
+
+- Migrate to Analyzer v6 and bump minimum SDK to 3.0
+
 ## 3.0.0-dev.0
 
- - Migrate to Analyzer v5 and bump minimum SDK to 2.18
+- Migrate to Analyzer v5 and bump minimum SDK to 2.18
 
 ## 2.1.4
 
- - **FIX**: bring back original import file for compatibility.
- - **DOCS**: add notices to improve pub score.
+- **FIX**: bring back original import file for compatibility.
+- **DOCS**: add notices to improve pub score.
 
 ## 2.1.3
 

@@ -1,10 +1,10 @@
 import 'dart:async';
 
-import 'package:test/test.dart';
 import 'package:ngdart/angular.dart';
 import 'package:ngrouter/ngrouter.dart';
 import 'package:ngrouter/testing.dart';
 import 'package:ngtest/angular_test.dart';
+import 'package:test/test.dart';
 
 // ignore: uri_has_not_been_generated
 import 'navigation_queue_test.template.dart' as ng;
@@ -103,15 +103,15 @@ abstract class DelayedActivation implements CanActivate {
 
 @Component(selector: 'first', template: 'First')
 class FirstComponent extends DelayedActivation {
-  FirstComponent(@firstToken Future<void> future) : super(future);
+  FirstComponent(@firstToken super.future);
 }
 
 @Component(selector: 'second', template: 'Second')
 class SecondComponent extends DelayedActivation {
-  SecondComponent(@secondToken Future<void> future) : super(future);
+  SecondComponent(@secondToken super.future);
 }
 
 @Component(selector: 'third', template: 'Third')
 class ThirdComponent extends DelayedActivation {
-  ThirdComponent(@thirdToken Future<void> future) : super(future);
+  ThirdComponent(@thirdToken super.future);
 }

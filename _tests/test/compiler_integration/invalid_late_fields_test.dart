@@ -1,8 +1,6 @@
-// @dart=2.9
-
-import 'package:test/test.dart';
 import 'package:_tests/compiler.dart';
 import 'package:ngcompiler/v2/context.dart';
+import 'package:test/test.dart';
 
 void main() {
   CompileContext.overrideForTesting();
@@ -20,9 +18,7 @@ void main() {
         late final String name;
       }
     """, errors: [
-      allOf(
-        contains('Inputs cannot be "late final"'),
-      )
+      contains('Inputs cannot be "late final"'),
     ]);
   });
 
@@ -40,9 +36,7 @@ void main() {
         set div(Element div) {}
       }
     """, errors: [
-      allOf(
-        contains('queries must be nullable'),
-      )
+      contains('queries must be nullable'),
     ]);
   });
 
@@ -60,9 +54,7 @@ void main() {
         late Element? div;
       }
     """, errors: [
-      allOf(
-        contains('View and content queries cannot be "late"'),
-      )
+      contains('View and content queries cannot be "late"'),
     ]);
   });
 
@@ -80,9 +72,7 @@ void main() {
         late List<Element> div;
       }
     """, errors: [
-      allOf(
-        contains('View and content queries cannot be "late"'),
-      )
+      contains('View and content queries cannot be "late"'),
     ]);
   });
 

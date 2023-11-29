@@ -178,17 +178,12 @@ class ComponentRouteDefinition extends RouteDefinition {
   final ComponentFactory<Object>? component;
 
   ComponentRouteDefinition._({
-    String? path,
+    super.path,
     this.component,
-    bool? useAsDefault,
-    dynamic additionalData,
-    RoutePath? routePath,
-  }) : super._(
-          path: path,
-          useAsDefault: useAsDefault,
-          additionalData: additionalData,
-          routePath: routePath,
-        );
+    super.useAsDefault,
+    super.additionalData,
+    super.routePath,
+  }) : super._();
 
   @override
   void assertValid() {
@@ -211,17 +206,13 @@ class DeferredRouteDefinition extends RouteDefinition {
   final FutureOr<void> Function(RouterState)? prefetcher;
 
   DeferredRouteDefinition._({
-    String? path,
+    super.path,
     required this.loader,
     this.prefetcher,
-    bool? useAsDefault,
-    dynamic additionalData,
-    RoutePath? routePath,
-  }) : super._(
-            path: path,
-            useAsDefault: useAsDefault,
-            additionalData: additionalData,
-            routePath: routePath);
+    super.useAsDefault,
+    super.additionalData,
+    super.routePath,
+  }) : super._();
 }
 
 class RedirectRouteDefinition extends RouteDefinition {
@@ -229,16 +220,12 @@ class RedirectRouteDefinition extends RouteDefinition {
   final String redirectTo;
 
   RedirectRouteDefinition._({
-    String? path,
+    super.path,
     required this.redirectTo,
-    bool? useAsDefault,
-    dynamic additionalData,
-    RoutePath? routePath,
-  }) : super._(
-            path: path,
-            useAsDefault: useAsDefault,
-            additionalData: additionalData,
-            routePath: routePath);
+    super.useAsDefault,
+    super.additionalData,
+    super.routePath,
+  }) : super._();
 
   @override
   void assertValid() {

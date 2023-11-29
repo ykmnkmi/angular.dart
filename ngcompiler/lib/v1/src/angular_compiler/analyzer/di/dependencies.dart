@@ -3,10 +3,10 @@ import 'package:analyzer/dart/element/element.dart';
 import 'package:analyzer/dart/element/type.dart';
 import 'package:collection/collection.dart';
 import 'package:meta/meta.dart';
-import 'package:source_gen/source_gen.dart';
 import 'package:ngcompiler/v1/cli.dart';
 import 'package:ngcompiler/v2/analyzer.dart';
 import 'package:ngcompiler/v2/context.dart';
+import 'package:source_gen/source_gen.dart';
 
 import '../common.dart';
 import '../types.dart';
@@ -140,10 +140,6 @@ class DependencyReader {
     DartType type, {
     required bool isOptional,
   }) {
-    if (!CompileContext.current.emitNullSafeCode) {
-      // Do not run this check for libraries not opted-in to null safety.
-      return;
-    }
     if (type.isExplicitlyNonNullable) {
       // Must *NOT* be @Optional()
       if (isOptional) {

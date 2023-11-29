@@ -1,8 +1,6 @@
-// @dart=2.9
-
-import 'package:test/test.dart';
 import 'package:ngcompiler/v1/src/compiler/output/abstract_emitter.dart'
     show escapeSingleQuoteString;
+import 'package:test/test.dart';
 
 void main() {
   group('AbstractEmitter', () {

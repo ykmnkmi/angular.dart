@@ -1,7 +1,7 @@
-import 'package:test/test.dart';
 import 'package:_tests/query_tests.dart';
 import 'package:ngdart/angular.dart';
 import 'package:ngtest/angular_test.dart';
+import 'package:test/test.dart';
 
 import 'query_content_test.template.dart' as ng;
 

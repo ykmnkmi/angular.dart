@@ -1,5 +1,5 @@
-import 'package:test/test.dart';
 import 'package:ngrouter/src/url.dart';
+import 'package:test/test.dart';
 
 void main() {
   group('$Url', () {

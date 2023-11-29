@@ -1,8 +1,8 @@
 library angular2.test.core.directive_lifecycle_integration_test;
 
-import 'package:test/test.dart';
 import 'package:ngdart/angular.dart';
 import 'package:ngtest/angular_test.dart';
+import 'package:test/test.dart';
 
 import 'directive_lifecycle_integration_test.template.dart' as ng;
 

@@ -1,13 +1,13 @@
 name: examples_hello_world
 
 environment:
-  sdk: ">=2.18.0 <3.0.0"
+  sdk: ">=3.0.0 <4.0.0"
 
 dependencies:
   # No strict dependencies, we always use dependency_overrides.
-  ngdart:
+  ngdart: any
 
 dev_dependencies:
-  build_runner: ^2.3.3
-  build_web_compilers: ^3.2.7
-  lints: ^2.0.1
+  build_runner: ^2.4.6
+  build_web_compilers: ^4.0.4
+  lints: ^3.0.0

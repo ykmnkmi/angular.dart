@@ -5,13 +5,13 @@ import '../ast.dart';
 import '../token/tokens.dart';
 import '../visitor.dart';
 
-const _listEquals = ListEquality<dynamic>();
+const _listEquals = ListEquality();
 
 /// Represents an event listener `(eventName.reductions)="expression"` on an
 /// element.
 ///
 /// Clients should not extend, implement, or mix-in this class.
-abstract class EventAst implements TemplateAst {
+abstract mixin class EventAst implements TemplateAst {
   /// Create a new synthetic [EventAst] listening to [name].
   factory EventAst(
     String name,
@@ -172,9 +172,9 @@ class _SyntheticEventAst extends SyntheticTemplateAst with EventAst {
   ]);
 
   _SyntheticEventAst.from(
-    TemplateAst origin,
+    TemplateAst super.origin,
     this.name,
     this.value, [
     this.reductions = const [],
-  ]) : super.from(origin);
+  ]) : super.from();
 }

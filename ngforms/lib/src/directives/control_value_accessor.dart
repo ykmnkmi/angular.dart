@@ -1,5 +1,7 @@
 import 'package:ngdart/angular.dart';
 
+import 'default_value_accessor.dart';
+
 /// A bridge between a control and a native element.
 ///
 /// A `ControlValueAccessor` abstracts the operations of writing a new value to a
@@ -56,7 +58,7 @@ typedef TouchFunction = dynamic Function();
 /// A mixin to add touch support to a [ControlValueAccessor].
 ///
 /// **NOTE**: This will add a [HostListener] on the `blur` event.
-class TouchHandler {
+mixin class TouchHandler {
   // TODO(alorenzen): Make this private.
   // ignore: prefer_function_declarations_over_variables
   TouchFunction onTouched = () {};
@@ -76,7 +78,7 @@ class TouchHandler {
 ///
 /// **NOTE**: It is expected that all subclasses will implement their own
 /// [HostListener] to actually call the [onChange] callback..
-class ChangeHandler<T> {
+mixin class ChangeHandler<T> {
   // ignore: prefer_function_declarations_over_variables
   ChangeFunction<T> onChange = (T _, {String? rawValue}) {};
 

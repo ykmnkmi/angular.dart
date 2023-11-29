@@ -2,9 +2,9 @@ import 'package:ngdart/di.dart' show Injectable;
 
 import 'package:ngdart/src/utilities.dart';
 import 'html_sanitizer.dart';
+import 'sanitization_service.dart';
 import 'style_sanitizer.dart';
 import 'url_sanitizer.dart';
-import 'sanitization_service.dart';
 
 abstract class SafeValue {
   /// Named this way to allow security teams to
@@ -18,23 +18,19 @@ abstract class SafeValue {
 }
 
 class SafeHtml extends SafeValue {
-  SafeHtml(String changingThisWillBypassSecurityTrust)
-      : super(changingThisWillBypassSecurityTrust);
+  SafeHtml(super.changingThisWillBypassSecurityTrust);
 }
 
 class SafeStyle extends SafeValue {
-  SafeStyle(String changingThisWillBypassSecurityTrust)
-      : super(changingThisWillBypassSecurityTrust);
+  SafeStyle(super.changingThisWillBypassSecurityTrust);
 }
 
 class SafeUrl extends SafeValue {
-  SafeUrl(String changingThisWillBypassSecurityTrust)
-      : super(changingThisWillBypassSecurityTrust);
+  SafeUrl(super.changingThisWillBypassSecurityTrust);
 }
 
 class SafeResourceUrl extends SafeValue {
-  SafeResourceUrl(String changingThisWillBypassSecurityTrust)
-      : super(changingThisWillBypassSecurityTrust);
+  SafeResourceUrl(super.changingThisWillBypassSecurityTrust);
 }
 
 /// DomSanitizationService helps preventing Cross Site Scripting Security bugs

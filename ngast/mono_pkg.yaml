@@ -1,10 +1,16 @@
 sdk:
-  - 2.19.6
   - pubspec
+  - dev
 
 stages:
   - analyze:
-      - format
-      - analyze: --fatal-infos
+      - format:
+        sdk:
+          - pubspec
+      - analyze: --fatal-infos .
   - unit_test:
-      - command: dart test -P ci
+      - test: -P ci
+
+cache:
+  directories:
+    - .dart_tool/build

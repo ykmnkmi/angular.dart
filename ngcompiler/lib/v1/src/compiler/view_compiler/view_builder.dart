@@ -1,5 +1,4 @@
 import 'package:collection/collection.dart' show IterableExtension;
-import 'package:ngdart/src/meta.dart';
 import 'package:ngcompiler/v1/cli.dart';
 import 'package:ngcompiler/v1/src/compiler/analyzed_class.dart';
 import 'package:ngcompiler/v1/src/compiler/compile_metadata.dart'
@@ -21,6 +20,7 @@ import 'package:ngcompiler/v1/src/compiler/view_compiler/bound_value_converter.d
 import 'package:ngcompiler/v1/src/compiler/view_compiler/update_statement_visitor.dart';
 import 'package:ngcompiler/v1/src/compiler/view_type.dart';
 import 'package:ngcompiler/v2/context.dart';
+import 'package:ngdart/src/meta.dart';
 
 import 'compile_element.dart' show CompileElement, CompileNode;
 import 'compile_view.dart';
@@ -926,18 +926,7 @@ o.Expression _maybeFilterSubscriptions(CompileView view) {
   if (view.subscriptions.isEmpty) {
     return o.nullExpr;
   }
-  final subscriptionsExpr = o.literalArr(view.subscriptions);
-  if (view.subscribesToMockLike) {
-    // Mock-like directives may have null subscriptions which must be
-    // filtered out to prevent an exception when they are later cancelled.
-    return subscriptionsExpr.callMethod('where', [
-      o.FunctionExpr(
-        [o.FnParam('i')],
-        [o.ReturnStatement(o.variable('i').notEquals(o.nullExpr))],
-      )
-    ]).callMethod('toList', []);
-  }
-  return subscriptionsExpr;
+  return o.literalArr(view.subscriptions);
 }
 
 /// Writes shared event handler wiring for events that are directly defined

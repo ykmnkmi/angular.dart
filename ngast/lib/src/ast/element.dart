@@ -5,12 +5,12 @@ import '../ast.dart';
 import '../token/tokens.dart';
 import '../visitor.dart';
 
-const _listEquals = ListEquality<dynamic>();
+const _listEquals = ListEquality();
 
 /// Represents a DOM element that was parsed, that could be upgraded.
 ///
 /// Clients should not extend, implement, or mix-in this class.
-abstract class ElementAst implements StandaloneTemplateAst {
+abstract mixin class ElementAst implements StandaloneTemplateAst {
   /// Create a synthetic element AST.
   factory ElementAst(
     String name,
@@ -270,7 +270,7 @@ class _SyntheticElementAst extends SyntheticTemplateAst with ElementAst {
   });
 
   _SyntheticElementAst.from(
-    TemplateAst origin,
+    TemplateAst super.origin,
     this.name,
     this.closeComplement, {
     this.attributes = const [],
@@ -281,7 +281,7 @@ class _SyntheticElementAst extends SyntheticTemplateAst with ElementAst {
     this.bananas = const [],
     this.stars = const [],
     this.annotations = const [],
-  }) : super.from(origin);
+  }) : super.from();
 
   @override
   final String name;

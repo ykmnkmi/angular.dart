@@ -1,6 +1,3 @@
-// @dart=2.9
-
-import 'package:test/test.dart';
 import 'package:ngcompiler/v1/cli.dart';
 import 'package:ngcompiler/v1/src/compiler/expression_parser/parser.dart';
 import 'package:ngcompiler/v1/src/compiler/schema/dom_element_schema_registry.dart';
@@ -8,6 +5,7 @@ import 'package:ngcompiler/v1/src/compiler/template_ast.dart';
 import 'package:ngcompiler/v1/src/compiler/template_compiler.dart';
 import 'package:ngcompiler/v1/src/compiler/template_parser/ast_template_parser.dart';
 import 'package:ngcompiler/v2/context.dart';
+import 'package:test/test.dart';
 
 import '../resolve_util.dart';
 import 'template_humanizer_util.dart';
@@ -23,17 +21,17 @@ void main() {
     CompilerFlags(),
   );
 
-  List<Object> getHumanizedTemplate(
+  List<dynamic> getHumanizedTemplate(
     NormalizedComponentWithViewDirectives component,
   ) {
     final componentMetadata = component.component;
     final templateAsts = templateParser.parse(
       componentMetadata,
-      componentMetadata.template.template,
+      componentMetadata.template!.template ?? '',
       component.directives,
       [],
-      null,
-      componentMetadata.template.templateUrl,
+      '',
+      componentMetadata.template!.templateUrl ?? '',
     );
     return humanizeTplAst(templateAsts);
   }

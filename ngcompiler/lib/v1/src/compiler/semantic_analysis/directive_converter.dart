@@ -1,4 +1,3 @@
-import 'package:source_span/source_span.dart';
 import 'package:ngcompiler/v1/src/compiler/compile_metadata.dart';
 import 'package:ngcompiler/v1/src/compiler/expression_parser/ast.dart' as ast;
 import 'package:ngcompiler/v1/src/compiler/ir/model.dart' as ir;
@@ -6,6 +5,7 @@ import 'package:ngcompiler/v1/src/compiler/schema/element_schema_registry.dart';
 import 'package:ngcompiler/v1/src/compiler/semantic_analysis/binding_converter.dart';
 import 'package:ngcompiler/v1/src/compiler/template_ast.dart' as ast;
 import 'package:ngcompiler/v1/src/compiler/template_parser.dart';
+import 'package:source_span/source_span.dart';
 
 /// Converts [CompileDirectiveMetadata] objects into
 /// [ir.Directive] instances.

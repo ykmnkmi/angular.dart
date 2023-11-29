@@ -1,9 +1,9 @@
 @TestOn('browser')
 
-import 'package:ngtest/angular_test.dart';
-import 'package:test/test.dart';
 import 'package:ngdart/angular.dart';
 import 'package:ngdart/security.dart';
+import 'package:ngtest/angular_test.dart';
+import 'package:test/test.dart';
 
 import 'safe_inner_html_test.template.dart' as ng;
 

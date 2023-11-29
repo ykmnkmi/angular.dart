@@ -9,7 +9,7 @@ import '../visitor.dart';
 /// Embedded content is _like_ an `ElementAst`, but only contains children.
 ///
 /// Clients should not extend, implement, or mix-in this class.
-abstract class EmbeddedContentAst implements StandaloneTemplateAst {
+abstract mixin class EmbeddedContentAst implements StandaloneTemplateAst {
   /// Create a synthetic embedded content AST.
   factory EmbeddedContentAst([
     String selector,
@@ -148,11 +148,11 @@ class _SyntheticEmbeddedContentAst extends SyntheticTemplateAst
   }
 
   _SyntheticEmbeddedContentAst.from(
-    TemplateAst origin, [
+    TemplateAst super.origin, [
     this.selector = '*',
     this.ngProjectAs,
     this.reference,
-  ]) : super.from(origin) {
+  ]) : super.from() {
     closeComplement = CloseElementAst('ng-content');
   }
 }

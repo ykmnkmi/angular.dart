@@ -10,7 +10,7 @@ import '../../visitor.dart';
 /// useful for tooling, but not useful for compilers).
 ///
 /// Clients should not extend, implement, or mix-in this class.
-abstract class StarAst implements TemplateAst {
+abstract mixin class StarAst implements TemplateAst {
   /// Create a new synthetic [StarAst] assigned to [name].
   factory StarAst(
     String name, [
@@ -137,10 +137,10 @@ class _SyntheticStarAst extends SyntheticTemplateAst with StarAst {
   ]);
 
   _SyntheticStarAst.from(
-    TemplateAst origin,
+    TemplateAst super.origin,
     this.name, [
     this.value,
-  ]) : super.from(origin);
+  ]) : super.from();
 
   @override
   final String name;

@@ -1,8 +1,6 @@
-// @dart=2.9
-
-import 'package:test/test.dart';
 import 'package:_tests/compiler.dart';
 import 'package:ngcompiler/v2/context.dart';
+import 'package:test/test.dart';
 
 void main() {
   CompileContext.overrideForTesting();
@@ -29,12 +27,11 @@ void main() {
       )
       class TestComponent {}
     """, warnings: [
-      allOf([
+      allOf(
+        contains('"DefaultComponent" doesn\'t use '
+            '"ChangeDetectionStrategy.onPush"'),
         contains('<default>'),
-        contains(
-          '"DefaultComponent" doesn\'t use "ChangeDetectionStrategy.onPush"',
-        ),
-      ]),
+      ),
     ]);
   });
 
@@ -77,10 +74,10 @@ void main() {
           )
           class TestComponent {}
         """, errors: [
-          allOf([
+          allOf(
             contains('@skipOnPushValidation'),
             contains('Can only be applied to a component element'),
-          ]),
+          ),
         ]);
       });
 
@@ -105,13 +102,11 @@ void main() {
           )
           class TestComponent {}
         """, errors: [
-          allOf([
+          allOf(
             contains('@skipOnPushValidation'),
-            contains(
-              'Can only be applied to a component using '
-              '"ChangeDetectionStrategy.checkAlways"',
-            ),
-          ]),
+            contains('Can only be applied to a component using '
+                '"ChangeDetectionStrategy.checkAlways"'),
+          ),
         ]);
       });
 
@@ -134,13 +129,11 @@ void main() {
           )
           class TestComponent {}
         """, errors: [
-          allOf([
+          allOf(
             contains('@skipOnPushValidation'),
-            contains(
-              'Can only be used in the template of a component using '
-              '"ChangeDetectionStrategy.onPush"',
-            ),
-          ]),
+            contains('Can only be used in the template of a component using '
+                '"ChangeDetectionStrategy.onPush"'),
+          ),
         ]);
       });
     });

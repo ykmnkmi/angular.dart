@@ -1,4 +1,3 @@
-import 'package:source_span/source_span.dart';
 import 'package:ngcompiler/v1/src/compiler/analyzed_class.dart';
 import 'package:ngcompiler/v1/src/compiler/compile_metadata.dart';
 import 'package:ngcompiler/v1/src/compiler/expression_parser/ast.dart'
@@ -14,6 +13,7 @@ import 'package:ngcompiler/v1/src/compiler/view_compiler/ir/provider_source.dart
 import 'package:ngcompiler/v1/src/compiler/view_compiler/parse_utils.dart'
     show HandlerType, handlerTypeFromExpression;
 import 'package:ngcompiler/v2/context.dart';
+import 'package:source_span/source_span.dart';
 
 /// Converts a list of [ast.TemplateAst] nodes into [ir.Binding] instances.
 ///
@@ -204,8 +204,7 @@ class _ToBindingVisitor
       ir.Binding(
         source:
             _handlerFor(ast.templateName, ast.handler, ast.sourceSpan, context),
-        target: ir.DirectiveOutput(
-            ast.memberName, context.directive!.analyzedClass!.isMockLike),
+        target: ir.DirectiveOutput(ast.memberName),
       );
 
   @override

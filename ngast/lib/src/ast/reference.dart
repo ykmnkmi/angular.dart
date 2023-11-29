@@ -7,7 +7,7 @@ import '../visitor.dart';
 /// Represents a reference to an element or exported directive instance.
 ///
 /// Clients should not extend, implement, or mix-in this class.
-abstract class ReferenceAst implements TemplateAst {
+abstract mixin class ReferenceAst implements TemplateAst {
   /// Create a new synthetic reference of [variable].
   factory ReferenceAst(
     String variable, [
@@ -138,10 +138,10 @@ class _SyntheticReferenceAst extends SyntheticTemplateAst with ReferenceAst {
   _SyntheticReferenceAst(this.variable, [this.identifier]);
 
   _SyntheticReferenceAst.from(
-    TemplateAst origin,
+    TemplateAst super.origin,
     this.variable, [
     this.identifier,
-  ]) : super.from(origin);
+  ]) : super.from();
 
   @override
   final String? identifier;

@@ -5,6 +5,9 @@ import 'package:ngdart/angular.dart';
 import 'package:ngforms/src/directives/shared.dart' show setElementDisabled;
 
 import 'control_value_accessor.dart';
+import 'ng_control_name.dart';
+import 'ng_form_control.dart';
+import 'ng_model.dart';
 
 const defaultValueAccessor = ExistingProvider.forToken(
   ngValueAccessor,

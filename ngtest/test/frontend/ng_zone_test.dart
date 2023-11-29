@@ -1,10 +1,10 @@
 import 'dart:async';
 
-import 'package:test/test.dart';
 import 'package:ngdart/angular.dart';
 import 'package:ngtest/src/frontend/ng_zone/fake_time_stabilizer.dart';
 import 'package:ngtest/src/frontend/ng_zone/real_time_stabilizer.dart';
 import 'package:ngtest/src/frontend/ng_zone/timer_hook_zone.dart';
+import 'package:test/test.dart';
 
 void main() {
   group('FakeTimeNgZoneStabilizer', () {
@@ -14,7 +14,7 @@ void main() {
 
     setUp(() {
       timerZone = TimerHookZone();
-      ngZone = timerZone.run(() => NgZone());
+      ngZone = timerZone.run(NgZone.new);
       stabilizer = FakeTimeNgZoneStabilizer(timerZone, ngZone);
     });
 
@@ -266,7 +266,7 @@ void main() {
 
     setUp(() {
       final timerZone = TimerHookZone();
-      ngZone = timerZone.run(() => NgZone());
+      ngZone = timerZone.run(NgZone.new);
       stabilizer = RealTimeNgZoneStabilizer(timerZone, ngZone);
     });
 

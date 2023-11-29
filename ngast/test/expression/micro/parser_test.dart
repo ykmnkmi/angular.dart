@@ -1,7 +1,7 @@
-import 'package:test/test.dart';
 import 'package:ngast/ngast.dart';
 import 'package:ngast/src/expression/micro/ast.dart';
 import 'package:ngast/src/expression/micro/parser.dart';
+import 'package:test/test.dart';
 
 void main() {
   NgMicroAst parse(String directive, String expression, int offset) {

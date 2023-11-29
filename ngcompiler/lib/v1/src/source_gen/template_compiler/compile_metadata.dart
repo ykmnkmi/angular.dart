@@ -6,7 +6,6 @@ import 'package:analyzer/dart/element/visitor.dart';
 import 'package:analyzer/src/dart/constant/value.dart';
 import 'package:analyzer/src/dart/element/element.dart';
 import 'package:analyzer/src/generated/utilities_dart.dart';
-import 'package:ngdart/src/meta.dart';
 import 'package:ngcompiler/v1/angular_compiler.dart';
 import 'package:ngcompiler/v1/cli.dart';
 import 'package:ngcompiler/v1/src/compiler/compile_metadata.dart';
@@ -15,6 +14,7 @@ import 'package:ngcompiler/v1/src/compiler/output/output_ast.dart' as o;
 import 'package:ngcompiler/v1/src/source_gen/common/url_resolver.dart';
 import 'package:ngcompiler/v2/analyzer.dart';
 import 'package:ngcompiler/v2/context.dart';
+import 'package:ngdart/src/meta.dart';
 import 'package:source_gen/source_gen.dart';
 
 import 'component_visitor_exceptions.dart';
@@ -138,10 +138,6 @@ class CompileTypeMetadataVisitor
     DartType type, {
     required bool isOptional,
   }) {
-    if (!CompileContext.current.emitNullSafeCode) {
-      // Do not run this check for libraries not opted-in to null safety.
-      return;
-    }
     if (type.isExplicitlyNonNullable) {
       // Must *NOT* be @Optional()
       if (isOptional) {

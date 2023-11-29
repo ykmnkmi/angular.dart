@@ -420,8 +420,7 @@ class Control<T> extends AbstractControl<T> {
   Function? _onChange;
   String? _rawValue;
 
-  Control([dynamic value, ValidatorFn? validator])
-      : super(validator, value: value);
+  Control([dynamic value, super.validator]) : super(value: value);
 
   /// Set the value of the control to `value`.
   ///
@@ -488,8 +487,7 @@ class Control<T> extends AbstractControl<T> {
 /// define forms in Angular, along with [Control] and [ControlArray].
 /// [ControlArray] can also contain other controls, but is of variable length.
 class ControlGroup extends AbstractControlGroup<Map<String?, dynamic>> {
-  ControlGroup(Map<String?, AbstractControl> controls, [ValidatorFn? validator])
-      : super(controls, validator);
+  ControlGroup(super.controls, [super.validator]);
 
   @override
   void updateValue(Map<String?, dynamic>? value,

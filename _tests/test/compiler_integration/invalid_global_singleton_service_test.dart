@@ -1,8 +1,6 @@
-// @dart=2.9
-
-import 'package:test/test.dart';
 import 'package:_tests/compiler.dart';
 import 'package:ngcompiler/v2/context.dart';
+import 'package:test/test.dart';
 
 void main() {
   CompileContext.overrideForTesting();
@@ -17,11 +15,11 @@ void main() {
         ])
         final injectorFactory = null; // OK for compiler tests.
       """, errors: [
-        allOf([
+        allOf(
           contains('singleton service provided by the framework that cannot be '
               'overridden or manually provided'),
           containsSourceLocation(6, 15),
-        ]),
+        ),
       ]);
     });
 
@@ -36,11 +34,11 @@ void main() {
         )
         class Foo {}
       """, errors: [
-        allOf([
+        allOf(
           contains('singleton service provided by the framework that cannot be '
               'overridden or manually provided'),
           containsSourceLocation(3, 9),
-        ]),
+        ),
       ]);
     });
   });

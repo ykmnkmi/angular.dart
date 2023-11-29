@@ -1,8 +1,8 @@
 import 'package:collection/collection.dart';
-import 'package:ngcompiler/v1/src/compiler/template_ast.dart';
-import 'package:ngdart/src/meta.dart';
 import 'package:ngcompiler/v1/cli.dart';
+import 'package:ngcompiler/v1/src/compiler/template_ast.dart';
 import 'package:ngcompiler/v2/context.dart';
+import 'package:ngdart/src/meta.dart';
 
 import 'analyzed_class.dart';
 import 'expression_parser/ast.dart' as ast;

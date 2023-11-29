@@ -1,8 +1,6 @@
-// @dart=2.9
-
-import 'package:test/test.dart';
 import 'package:_tests/compiler.dart';
 import 'package:ngcompiler/v2/context.dart';
+import 'package:test/test.dart';
 
 void main() {
   CompileContext.overrideForTesting();
@@ -20,10 +18,10 @@ void main() {
       ])
       final example = null;
     ''', errors: [
-      allOf([
+      allOf(
         contains('While attempting to resolve a constant value for a provider'),
         contains('TestClass'),
-      ]),
+      ),
     ]);
   });
 
@@ -67,9 +65,7 @@ void main() {
       ])
       final example = null;
     ''', errors: [
-      allOf([
-        contains('Expected list for \'provide\' field of Module'),
-      ]),
+      contains('Expected list for \'provide\' field of Module'),
     ]);
   });
 }

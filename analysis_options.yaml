@@ -13,12 +13,12 @@ analyzer:
 
     # Permanent exclusions: Unlikely to removed.
     # =====================
-    # Allow importing .template.dart files without an [explicit] analyzer error.
-    uri_has_not_been_generated: ignore
     # Ignore our own deprecated symbols (too noisy).
     deprecated_member_use_from_same_package: ignore
     # Allow having TODOs in the code (too noisy).
     todo: ignore
+    # Allow importing .template.dart files without an [explicit] analyzer error.
+    uri_has_not_been_generated: ignore
 
     # Security exclusions: We are security reviewed separate from these lints.
     # =====================
@@ -28,16 +28,12 @@ analyzer:
     # =====================
     # Re-enable once we no longer have 200+ analyzer related deprecations.
     deprecated_member_use: ignore
-    # Re-enable this once unused parameters are exempted (e.g. callback(_) {}).
-    inference_failure_on_untyped_parameter: ignore
 
 linter:
   rules:
-    - iterable_contains_unrelated_type
-    - list_remove_unrelated_type
     - always_declare_return_types
     - prefer_single_quotes
-    - sort_child_properties_last
+    - directives_ordering
     - unawaited_futures
     - unsafe_html
-    - use_full_hex_values_for_flutter_colors
+    - use_super_parameters

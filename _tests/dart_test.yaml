@@ -26,4 +26,5 @@ presets:
     paths:
       - test/compiler
       - test/compiler_integration
+      - test/source_gen
     add_presets: [ci]

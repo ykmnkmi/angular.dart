@@ -3,24 +3,30 @@ description: Tests for AngularDart.
 publish_to: none
 
 environment:
-  sdk: ">=2.18.0 <3.0.0"
+  sdk: ">=3.1.0 <4.0.0"
 
 dependencies:
-  build_resolvers: ^2.1.0
-  build_test: ^2.1.6
-  collection: ^1.17.0
-  ngdart: ^8.0.0-dev.1
-  ngtest: ^5.0.0-dev.1
-  test: ^1.22.2
+  build: ^2.4.1
+  build_resolvers: ^2.4.1
+  build_test: ^2.2.1
+  collection: ^1.18.0
+  glob: ^2.1.2
+  js: ^0.6.7
+  logging: ^1.2.0
+  ngcompiler: ^3.0.0-dev.2
+  ngdart: ^8.0.0-dev.3
+  ngtest: ^5.0.0-dev.2
+  source_gen: ^1.4.0
+  test: ^1.24.4
 
 dev_dependencies:
-  analyzer: ^5.4.0
-  build_runner: ^2.3.3
-  build_web_compilers: ^3.2.7
-  csslib: 0.17.2
-  lints: ^2.0.1
-  meta: ^1.8.0
-  mockito: ^5.3.2
+  analyzer: ^6.0.0
+  build_runner: ^2.4.6
+  build_web_compilers: ^4.0.4
+  csslib: ^1.0.0
+  lints: ^2.1.0
+  meta: ^1.11.0
+  mockito: ^5.4.3
   package_config: ^2.1.0
-  source_span: ^1.9.1
+  source_span: ^1.10.0
   term_glyph: ^1.2.1

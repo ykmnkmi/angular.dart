@@ -42,14 +42,11 @@ class SafeInnerHtmlDirective {
 
   @Input()
   set safeInnerHtml(safeInnerHtml) {
-    // print('Setting inner html as $safeInnerHtml');
     if (safeInnerHtml is SafeHtml) {
       _element.setInnerHtml(
         safeInnerHtml.changingThisWillBypassSecurityTrust,
         treeSanitizer: NodeTreeSanitizer.trusted,
       );
-      // print('$safeInnerHtml is SafeHtml!');
-      // print(_element.innerHtml);
     } else if (safeInnerHtml == null) {
       _element.setInnerHtml('');
     } else {
@@ -59,9 +56,7 @@ class SafeInnerHtmlDirective {
       // origin instead of passing a primitive string through layers
       // of code which could introduce mutations making security auditing
       // hard.
-      throw UnsupportedError(
-        'SafeHtml required (got $safeInnerHtml)',
-      );
+      throw UnsupportedError('SafeHtml required (got $safeInnerHtml)');
     }
   }
 }

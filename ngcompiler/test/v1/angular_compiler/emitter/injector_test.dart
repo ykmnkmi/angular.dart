@@ -1,7 +1,7 @@
 import 'package:code_builder/code_builder.dart';
 import 'package:dart_style/dart_style.dart';
-import 'package:test/test.dart';
 import 'package:ngcompiler/v1/angular_compiler.dart';
+import 'package:test/test.dart';
 
 void main() {
   final dartfmt = DartFormatter();
@@ -72,6 +72,7 @@ void main() {
             this.get(Dep1),
             this.get(Dep2),
           );
+
           @override
           Object injectFromSelfOptional(
             Object token, [
@@ -104,6 +105,7 @@ void main() {
           FooInjector._(Injector parent) : super(parent);
 
           Foo _getExisting$0() => this.get(Foo);
+
           @override
           Object injectFromSelfOptional(
             Object token, [
@@ -145,6 +147,7 @@ void main() {
             this.get(Dep1),
             this.get(Dep2),
           );
+
           @override
           Object injectFromSelfOptional(
             Object token, [
@@ -177,6 +180,7 @@ void main() {
           FooInjector._(Injector parent) : super(parent);
 
           Foo _getFoo$0() => const Foo();
+
           @override
           Object injectFromSelfOptional(
             Object token, [
@@ -226,7 +230,9 @@ void main() {
           FooInjector._(Injector parent) : super(parent);
 
           int _getint$0() => 1;
+
           int _getint$1() => 2;
+
           @override
           Object injectFromSelfOptional(
             Object token, [

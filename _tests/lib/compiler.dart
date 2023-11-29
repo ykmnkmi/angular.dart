@@ -6,9 +6,9 @@ import 'package:build_resolvers/build_resolvers.dart';
 import 'package:build_test/build_test.dart' hide testBuilder;
 import 'package:glob/glob.dart';
 import 'package:logging/logging.dart';
-import 'package:test/test.dart';
-import 'package:ngdart/src/build.dart';
 import 'package:ngcompiler/v2/context.dart';
+import 'package:ngdart/src/build.dart';
+import 'package:test/test.dart';
 
 /// A 'test' build process (similar to the normal one).
 final Builder _testAngularBuilder = MultiplexingBuilder([
@@ -150,9 +150,7 @@ Future<void> compilesExpecting(
   include ??= const {};
 
   // Complete list of input sources.
-  final sources = <String, String>{
-    inputSource: input,
-  }..addAll(include);
+  final sources = <String, String>{inputSource: input, ...include};
 
   // Run the builder.
   final records = <Level, List<LogRecord>>{};
@@ -168,21 +166,24 @@ Future<void> compilesExpecting(
   expectLogRecords(records[Level.SEVERE], errors, 'Errors');
   expectLogRecords(records[Level.WARNING], warnings, 'Warnings');
   expectLogRecords(records[Level.INFO], notices, 'Notices');
-
-  if (outputs != null) {
-    // TODO: Add an output verification or consider a golden file mechanism.
-    throw UnimplementedError();
-  }
 }
 
-void expectLogRecords(List<LogRecord>? logs, matcher, String reasonPrefix) {
+void expectLogRecords(
+  List<LogRecord>? logs,
+  Object? matcher,
+  String reasonPrefix,
+) {
   if (matcher == null) {
     return;
   }
   logs ??= [];
-  expect(logs.map(formattedLogMessage), matcher,
-      reason:
-          '$reasonPrefix: \n${logs.map((l) => '${formattedLogMessage(l)} at:\n ${l.stackTrace}')}');
+  expect(
+    logs.map(formattedLogMessage),
+    matcher is Iterable ? containsAllInOrder(matcher) : matcher,
+    reason: '$reasonPrefix: \n${logs.map((l) {
+      return '${formattedLogMessage(l)} at:\n ${l.stackTrace}';
+    })}',
+  );
 }
 
 String formattedLogMessage(LogRecord record) {
@@ -201,17 +202,17 @@ Future<void> compilesNormally(
   String? inputSource,
   Map<String, String>? include,
   Set<AssetId>? runBuilderOn,
-}) =>
-    compilesExpecting(
-      input,
-      inputSource: inputSource,
-      runBuilderOn: runBuilderOn,
-      include: include,
-      errors: isEmpty,
-      warnings: isEmpty,
-    );
+}) {
+  return compilesExpecting(
+    input,
+    inputSource: inputSource,
+    runBuilderOn: runBuilderOn,
+    include: include,
+  );
+}
 
 /// Match for a source location, but don't require tests to manage package
 /// names.
-Matcher containsSourceLocation(int line, int column) =>
-    contains('line $line, column $column of ');
+Matcher containsSourceLocation(int line, int column) {
+  return contains('line $line, column $column of ');
+}

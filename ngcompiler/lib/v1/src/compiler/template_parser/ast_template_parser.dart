@@ -1,5 +1,4 @@
 import 'package:collection/collection.dart' show IterableExtension;
-import 'package:source_span/source_span.dart';
 import 'package:ngast/ngast.dart' as ast;
 import 'package:ngcompiler/v1/cli.dart';
 import 'package:ngcompiler/v1/src/compiler/chars.dart';
@@ -19,6 +18,7 @@ import 'package:ngcompiler/v1/src/compiler/template_ast.dart' as ng;
 import 'package:ngcompiler/v1/src/compiler/template_optimize.dart';
 import 'package:ngcompiler/v1/src/compiler/template_parser.dart';
 import 'package:ngcompiler/v2/context.dart';
+import 'package:source_span/source_span.dart';
 
 import 'missing_directives_validator.dart';
 import 'recursive_template_visitor.dart';

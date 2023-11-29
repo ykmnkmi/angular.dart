@@ -2,9 +2,9 @@ import 'dart:core';
 import 'dart:io';
 import 'dart:math';
 
-import 'package:path/path.dart' as p;
 import 'package:ngast/ngast.dart';
 import 'package:ngast/src/token/tokens.dart';
+import 'package:path/path.dart' as p;
 
 final int generationCount = 10000;
 final int iterationCount = 100;

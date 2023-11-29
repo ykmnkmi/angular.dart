@@ -3,7 +3,7 @@ import 'package:meta/meta.dart';
 
 import '../../ast.dart';
 
-final _listEquals = const ListEquality<dynamic>();
+final _listEquals = const ListEquality();
 
 /// A de-sugared form of longer pseudo expression.
 class NgMicroAst {

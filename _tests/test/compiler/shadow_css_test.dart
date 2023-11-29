@@ -1,10 +1,8 @@
-// @dart=2.9
-
 import 'dart:async';
 
 import 'package:logging/logging.dart';
-import 'package:test/test.dart';
 import 'package:ngcompiler/v1/src/compiler/stylesheet_compiler/shadow_css.dart';
+import 'package:test/test.dart';
 
 const content = 'content';
 const host = 'host';
@@ -55,7 +53,7 @@ String normalizeCSS(String css) {
 
 /// Shims [css] and compares to the [expected] output for both current and
 /// legacy encapsulation.
-void shimAndExpect(String css, String expected, {String expectedLegacy}) {
+void shimAndExpect(String css, String expected, {String? expectedLegacy}) {
   runZoned(() {
     var actual = shimShadowCss(css, content, host);
     var actualLegacy =
@@ -412,7 +410,7 @@ void main() {
 
   test('should shim rules after @import', () {
     var css = '@import url("a"); div {}';
-    shimAndExpect(css, '@import url("a");div.$content {}');
+    shimAndExpect(css, '@import url("a"); div.$content {}');
   });
 
   test('should leave calc() unchanged', () {

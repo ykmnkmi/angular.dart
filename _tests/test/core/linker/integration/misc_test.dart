@@ -1,6 +1,6 @@
-import 'package:test/test.dart';
 import 'package:ngdart/angular.dart';
 import 'package:ngtest/angular_test.dart';
+import 'package:test/test.dart';
 
 import 'misc_test.template.dart' as ng;
 
@@ -148,9 +148,7 @@ class DynamicViewport {
 
   DynamicViewport(ViewContainerRef vc) {
     final myService = MyService()..greeting = 'dynamic greet';
-    final injector = Injector.map({
-      MyService: myService,
-    }, vc.injector);
+    final injector = Injector.map({MyService: myService}, vc.injector);
     final factoryFuture = Future.value(
       ng.createChildCompUsingServiceFactory(),
     );

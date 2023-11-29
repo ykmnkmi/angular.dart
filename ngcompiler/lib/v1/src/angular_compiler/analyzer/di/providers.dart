@@ -1,8 +1,8 @@
 import 'package:analyzer/dart/constant/value.dart';
 import 'package:analyzer/dart/element/element.dart';
 import 'package:analyzer/dart/element/type.dart';
-import 'package:ngcompiler/v2/context.dart';
 import 'package:meta/meta.dart';
+import 'package:ngcompiler/v2/context.dart';
 import 'package:source_gen/source_gen.dart';
 
 import '../common.dart';
@@ -238,11 +238,11 @@ class UseClassProviderElement extends ProviderElement {
 
   @visibleForTesting
   const UseClassProviderElement(
-    TokenElement e,
-    TypeLink? providerType,
+    super.e,
+    super.providerType,
     this.useClass, {
     required this.dependencies,
-  }) : super._(e, providerType);
+  }) : super._();
 
   @override
   bool operator ==(Object other) =>
@@ -268,10 +268,10 @@ class UseExistingProviderElement extends ProviderElement {
   final TokenElement redirect;
 
   const UseExistingProviderElement(
-    TokenElement e,
-    TypeLink providerType,
+    super.e,
+    TypeLink super.providerType,
     this.redirect,
-  ) : super._(e, providerType);
+  ) : super._();
 
   @override
   bool operator ==(Object other) =>
@@ -299,14 +299,11 @@ class UseFactoryProviderElement extends ProviderElement {
 
   @visibleForTesting
   const UseFactoryProviderElement(
-    TokenElement e,
-    TypeLink? providerType,
+    super.e,
+    super.providerType,
     this.useFactory, {
     required this.dependencies,
-  }) : super._(
-          e,
-          providerType,
-        );
+  }) : super._();
 
   @override
   bool operator ==(Object other) =>
@@ -334,13 +331,10 @@ class UseValueProviderElement extends ProviderElement {
 
   // Not visible for testing because its impractical to create one.
   const UseValueProviderElement._(
-    TokenElement e,
-    TypeLink providerType,
+    super.e,
+    TypeLink super.providerType,
     this.useValue,
-  ) : super._(
-          e,
-          providerType,
-        );
+  ) : super._();
 }
 
 /// Thrown when a value of `null` is read for a provider token.

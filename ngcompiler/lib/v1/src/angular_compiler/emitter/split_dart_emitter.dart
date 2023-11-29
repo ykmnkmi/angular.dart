@@ -10,13 +10,8 @@ class SplitDartEmitter extends DartEmitter {
 
   SplitDartEmitter(
     this._writeImports, {
-    Allocator allocator = Allocator.none,
-    bool emitNullSafeSyntax = false,
-  }) : super(
-          allocator: allocator,
-          orderDirectives: false,
-          useNullSafetySyntax: emitNullSafeSyntax,
-        );
+    super.allocator,
+  }) : super(orderDirectives: false, useNullSafetySyntax: true);
 
   @override
   StringSink visitDirective(Directive spec, [StringSink? output]) {

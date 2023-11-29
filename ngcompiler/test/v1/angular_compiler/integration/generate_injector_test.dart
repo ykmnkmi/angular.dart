@@ -1,8 +1,8 @@
 import 'package:code_builder/code_builder.dart';
 import 'package:dart_style/dart_style.dart';
-import 'package:test/test.dart';
 import 'package:ngcompiler/v1/angular_compiler.dart';
 import 'package:ngcompiler/v2/context.dart';
+import 'package:test/test.dart';
 
 import '../src/resolve.dart';
 
@@ -21,7 +21,6 @@ void main() {
 
     setUpAll(() async {
       final library = await resolveLibrary(r'''
-        // @dart=2.9
         @GenerateInjector([
           FactoryProvider(Foo, createFooDynamicDependency),
         ])
@@ -48,7 +47,9 @@ void main() {
             Object _field0;
 
             Object _getObject$0() => _field0 ??= createFooDynamicDependency(this.get(dynamic));
+
             Injector _getInjector$1() => this;
+
             @override
             Object injectFromSelfOptional(
               Object token, [
@@ -78,7 +79,6 @@ void main() {
 
     setUpAll(() async {
       final library = await resolveLibrary(r'''
-        // @dart=2.9
         @GenerateInjector([
           ValueProvider(Foo, Foo(Foo)),
         ])
@@ -100,7 +100,7 @@ void main() {
               e.toString(),
               allOf([
                 contains('Reviving Types is not supported'),
-                contains('line 8, column 25 of')
+                contains('line 7, column 25 of')
               ]));
           rethrow;
         }

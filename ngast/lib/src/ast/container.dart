@@ -12,7 +12,7 @@ const _listEquals = ListEquality();
 /// This is a logical container that has no effect on layout in the DOM.
 ///
 /// Clients should not extend, implement, or mix-in this class.
-abstract class ContainerAst implements StandaloneTemplateAst {
+abstract mixin class ContainerAst implements StandaloneTemplateAst {
   factory ContainerAst({
     List<AnnotationAst> annotations,
     List<StandaloneTemplateAst> childNodes,
@@ -126,12 +126,12 @@ class _SyntheticContainerAst extends SyntheticTemplateAst with ContainerAst {
   }) : closeComplement = CloseElementAst('ng-container');
 
   _SyntheticContainerAst.from(
-    TemplateAst origin, {
+    TemplateAst super.origin, {
     this.annotations = const [],
     this.childNodes = const [],
     this.stars = const [],
   })  : closeComplement = CloseElementAst('ng-container'),
-        super.from(origin);
+        super.from();
 
   @override
   CloseElementAst closeComplement;

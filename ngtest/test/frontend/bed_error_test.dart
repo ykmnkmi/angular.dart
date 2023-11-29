@@ -1,45 +1,37 @@
 import 'dart:async';
 
-import 'package:test/test.dart';
 import 'package:ngdart/angular.dart';
 import 'package:ngtest/angular_test.dart';
+import 'package:test/test.dart';
 
 import 'bed_error_test.template.dart' as ng;
 
 void main() {
   tearDown(disposeAnyRunningTest);
 
-  test('should be able to catch errors that occur synchronously', () {
-    return CatchSynchronousErrors._runTest();
-  });
+  test('should be able to catch errors that occur synchronously',
+      CatchSynchronousErrors._runTest);
 
-  test('should be able to catch errors that occur asynchronously', () {
-    return CatchAsynchronousErrors._runTest();
-  });
+  test('should be able to catch errors that occur asynchronously',
+      CatchAsynchronousErrors._runTest);
 
-  test('should be able to catch errors that occur in the constructor', () {
-    return CatchConstructorErrors._runTest();
-  });
+  test('should be able to catch errors that occur in the constructor',
+      CatchConstructorErrors._runTest);
 
-  test('should be able to catch errors asynchronously in constructor', () {
-    return CatchConstructorAsyncErrors._runTest();
-  });
+  test('should be able to catch errors asynchronously in constructor',
+      CatchConstructorAsyncErrors._runTest);
 
-  test('should be able to catch asynchronous errors from a native event', () {
-    return CatchNativeEventAsynchronousErrors._runTest();
-  });
+  test('should be able to catch asynchronous errors from a native event',
+      CatchNativeEventAsynchronousErrors._runTest);
 
-  test('should be able to catch synchronously errors from a native event', () {
-    return CatchNativeEventSynchronousErrors._runTest();
-  });
+  test('should be able to catch synchronously errors from a native event',
+      CatchNativeEventSynchronousErrors._runTest);
 
-  test('should be able to catch errors that occur in `ngOnInit`', () {
-    return CatchOnInitErrors._runTest();
-  });
+  test('should be able to catch errors that occur in `ngOnInit`',
+      CatchOnInitErrors._runTest);
 
-  test('should be able to catch errors that occur in change detection', () {
-    return CatchInChangeDetection._runTest();
-  });
+  test('should be able to catch errors that occur in change detection',
+      CatchInChangeDetection._runTest);
 
   test('should not have uncaught errors silenty passed', () async {
     await NoExceptionsSwallowedTest._runTest();
@@ -72,7 +64,7 @@ class CatchAsynchronousErrors {
       ng.createCatchAsynchronousErrorsFactory(),
     ).create();
     expect(
-      fixture.update((_) => Future.error(StateError('Test'))),
+      fixture.update((_) => Future<void>.error(StateError('Test'))),
       throwsA(isStateError),
     );
   }
@@ -159,7 +151,7 @@ class CatchNativeEventAsynchronousErrors {
     );
   }
 
-  void throwError() async {
+  Future<void> throwError() async {
     throw StateError('Test');
   }
 }

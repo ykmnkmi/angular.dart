@@ -1,11 +1,11 @@
 import 'dart:async';
 
-import 'package:test/test.dart';
 import 'package:ngdart/angular.dart';
 import 'package:ngrouter/ngrouter.dart';
-import 'package:ngrouter/testing.dart';
 import 'package:ngrouter/src/location/testing/mock_location_strategy.dart'; // by some cause it is not visilble by ngrouter/testing.dart above
+import 'package:ngrouter/testing.dart';
 import 'package:ngtest/angular_test.dart';
+import 'package:test/test.dart';
 
 import 'router_link_active_directive_test.template.dart' as ng;
 

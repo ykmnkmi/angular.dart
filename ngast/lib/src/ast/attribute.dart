@@ -5,12 +5,12 @@ import '../ast.dart';
 import '../token/tokens.dart';
 import '../visitor.dart';
 
-const _listEquals = ListEquality<dynamic>();
+const _listEquals = ListEquality();
 
 /// Represents a static attribute assignment (i.e. not bound to an expression).
 ///
 /// Clients should not extend, implement, or mix-in this class.
-abstract class AttributeAst implements TemplateAst {
+abstract mixin class AttributeAst implements TemplateAst {
   /// Create a new synthetic [AttributeAst] with a string [value].
   factory AttributeAst(
     String name, [
@@ -167,9 +167,9 @@ class _SyntheticAttributeAst extends SyntheticTemplateAst with AttributeAst {
   _SyntheticAttributeAst(this.name, [this.value, this.mustaches]);
 
   _SyntheticAttributeAst.from(
-    TemplateAst origin,
+    TemplateAst super.origin,
     this.name, [
     this.value,
     this.mustaches,
-  ]) : super.from(origin);
+  ]) : super.from();
 }

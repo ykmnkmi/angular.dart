@@ -2,10 +2,10 @@
 
 import 'dart:html';
 
-import 'package:ngtest/angular_test.dart';
-import 'package:ngdart/src/security/dom_sanitization_service.dart';
-import 'package:test/test.dart';
 import 'package:ngdart/angular.dart';
+import 'package:ngdart/src/security/dom_sanitization_service.dart';
+import 'package:ngtest/angular_test.dart';
+import 'package:test/test.dart';
 
 import 'security_integration_test.template.dart' as ng;
 
@@ -14,7 +14,8 @@ void main() {
 
   test('should escape unsafe attributes', () async {
     const unsafeUrl = 'javascript:alert(1)';
-    final testBed = NgTestBed(ng.createUnsafeAttributeComponentFactory());
+    final testBed = NgTestBed<UnsafeAttributeComponent>(
+        ng.createUnsafeAttributeComponentFactory());
     final testFixture = await testBed.create();
     final a = testFixture.rootElement.querySelector('a') as AnchorElement;
     expect(a.href, matches(r'.*/hello$'));
@@ -25,19 +26,22 @@ void main() {
   });
 
   test('should not escape values marked as trusted', () async {
-    final testBed = NgTestBed(ng.createTrustedValueComponentFactory());
+    final testBed = NgTestBed<TrustedValueComponent>(
+        ng.createTrustedValueComponentFactory());
     final testFixture = await testBed.create();
     final a = testFixture.rootElement.querySelector('a') as AnchorElement;
     expect(a.href, 'javascript:alert(1)');
   });
 
   test('should throw error when using the wrong trusted value', () async {
-    final testBed = NgTestBed(ng.createWrongTrustedValueComponentFactory());
+    final testBed = NgTestBed<WrongTrustedValueComponent>(
+        ng.createWrongTrustedValueComponentFactory());
     expect(testBed.create(), throwsA(isUnsupportedError));
   });
 
   test('should escape unsafe styles', () async {
-    final testBed = NgTestBed(ng.createUnsafeStyleComponentFactory());
+    final testBed =
+        NgTestBed<UnsafeStyleComponent>(ng.createUnsafeStyleComponentFactory());
     final testFixture = await testBed.create();
     final div = testFixture.rootElement.querySelector('div');
     expect(div?.style.background, matches('red'));
@@ -48,7 +52,8 @@ void main() {
   });
 
   test('should escape unsafe HTML', () async {
-    final testBed = NgTestBed(ng.createUnsafeHtmlComponentFactory());
+    final testBed =
+        NgTestBed<UnsafeHtmlComponent>(ng.createUnsafeHtmlComponentFactory());
     final testFixture = await testBed.create();
     final div = testFixture.rootElement.querySelector('div');
     expect(div?.innerHtml, 'some <p>text</p>');

@@ -8,7 +8,7 @@ import '../visitor.dart';
 /// element.
 ///
 /// Clients should not extend, implement, or mix-in this class.
-abstract class PropertyAst implements TemplateAst {
+abstract mixin class PropertyAst implements TemplateAst {
   /// Create a new synthetic [PropertyAst] assigned to [name].
   factory PropertyAst(
     String name, [
@@ -188,12 +188,12 @@ class _SyntheticPropertyAst extends SyntheticTemplateAst with PropertyAst {
   ]);
 
   _SyntheticPropertyAst.from(
-    TemplateAst? origin,
+    super.origin,
     this.name, [
     this.value,
     this.postfix,
     this.unit,
-  ]) : super.from(origin);
+  ]) : super.from();
 
   @override
   final String name;

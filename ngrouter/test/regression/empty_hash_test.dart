@@ -1,17 +1,19 @@
-// @dart=2.9
-
+import 'package:mockito/annotations.dart';
 import 'package:mockito/mockito.dart';
-import 'package:test/test.dart';
 import 'package:ngrouter/ngrouter.dart';
+import 'package:test/test.dart';
 
-class MockPlatformLocation extends Mock implements PlatformLocation {}
+@GenerateMocks([PlatformLocation])
+import 'empty_hash_test.mocks.dart'; // ignore: uri_does_not_exist
 
 void main() {
-  LocationStrategy locationStrategy;
-  MockPlatformLocation platformLocation;
+  late LocationStrategy locationStrategy;
+  // ignore: undefined_class
+  late MockPlatformLocation platformLocation;
 
   group("empty URL doesn't overwrite query parameters", () {
     setUp(() {
+      // ignore: undefined_function
       platformLocation = MockPlatformLocation();
       locationStrategy = HashLocationStrategy(platformLocation, null);
       when(platformLocation.pathname).thenReturn('/foo');
@@ -19,13 +21,13 @@ void main() {
     });
 
     test('on push', () {
-      locationStrategy.pushState(null, null, '', '');
-      verify(platformLocation.pushState(null, null, '/foo?bar=baz'));
+      locationStrategy.pushState(null, '', '', '');
+      verify(platformLocation.pushState(null, '', '/foo?bar=baz'));
     });
 
     test('on replace', () {
-      locationStrategy.replaceState(null, null, '', '');
-      verify(platformLocation.replaceState(null, null, '/foo?bar=baz'));
+      locationStrategy.replaceState(null, '', '', '');
+      verify(platformLocation.replaceState(null, '', '/foo?bar=baz'));
     });
   });
 }

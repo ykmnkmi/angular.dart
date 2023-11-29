@@ -3,16 +3,17 @@ description: Goldens for AngularDart.
 publish_to: none
 
 environment:
-  sdk: ">=2.18.0 <3.0.0"
+  sdk: ">=3.1.0 <4.0.0"
 
 dependencies:
-  js: ^0.6.5
-  ngdart: ^8.0.0-dev.1
+  js: ^0.6.7
+  meta: ^1.11.0
+  ngdart: ^8.0.0-dev.3
 
 dev_dependencies:
-  build_runner: ^2.3.3
-  build_web_compilers: ^3.2.7
-  dart_style: ^2.3.0
-  glob: ^2.1.1
-  lints: ^2.0.1
+  build_runner: ^2.4.6
+  build_web_compilers: ^4.0.4
+  dart_style: ^2.3.3
+  glob: ^2.1.2
+  lints: ^3.0.0
   path: ^1.8.3

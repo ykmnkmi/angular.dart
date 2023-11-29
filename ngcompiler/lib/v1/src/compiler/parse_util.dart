@@ -1,6 +1,6 @@
-import 'package:source_span/source_span.dart';
 import 'package:ngast/ngast.dart';
 import 'package:ngcompiler/v2/context.dart';
+import 'package:source_span/source_span.dart';
 
 /// Collects parsing exceptions from `ngast`, converting to [BuildError].
 ///

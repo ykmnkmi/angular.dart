@@ -7,7 +7,7 @@ import '../visitor.dart';
 /// Represents a comment block of static text.
 ///
 /// Clients should not extend, implement, or mix-in this class.
-abstract class CommentAst implements StandaloneTemplateAst {
+abstract mixin class CommentAst implements StandaloneTemplateAst {
   /// Create a new synthetic [CommentAst] with a string [value].
   factory CommentAst(String value) = _SyntheticCommentAst;
 
@@ -70,7 +70,7 @@ class _SyntheticCommentAst extends SyntheticTemplateAst with CommentAst {
   _SyntheticCommentAst(this.value);
 
   _SyntheticCommentAst.from(
-    TemplateAst origin,
+    TemplateAst super.origin,
     this.value,
-  ) : super.from(origin);
+  ) : super.from();
 }

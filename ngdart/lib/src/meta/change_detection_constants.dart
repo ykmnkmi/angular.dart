@@ -43,7 +43,7 @@ enum ChangeDetectionStrategy {
   ///
   /// **WARNING**: It is currently _undefined behavior_ to have a [checkAlways]
   /// configured component as a child (or directive) of a component that is
-  /// using [OnPush]. We hope to introduce more guidance here in the future.
+  /// using [onPush]. We hope to introduce more guidance here in the future.
   onPush,
 }
 
