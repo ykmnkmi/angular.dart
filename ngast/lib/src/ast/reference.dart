@@ -31,7 +31,7 @@ abstract mixin class ReferenceAst implements TemplateAst {
   ]) = ParsedReferenceAst;
 
   @override
-  bool operator ==(Object? other) {
+  bool operator ==(Object other) {
     return other is ReferenceAst &&
         identifier == other.identifier &&
         variable == other.variable;

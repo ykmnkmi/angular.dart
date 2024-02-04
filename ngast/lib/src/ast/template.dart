@@ -88,7 +88,7 @@ abstract mixin class EmbeddedTemplateAst implements StandaloneTemplateAst {
   set closeComplement(CloseElementAst? closeComplement);
 
   @override
-  bool operator ==(Object? other) {
+  bool operator ==(Object other) {
     return other is EmbeddedTemplateAst &&
         closeComplement == other.closeComplement &&
         _listEquals.equals(annotations, other.annotations) &&

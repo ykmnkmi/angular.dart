@@ -52,7 +52,7 @@ abstract mixin class ContainerAst implements StandaloneTemplateAst {
   }
 
   @override
-  bool operator ==(Object? other) {
+  bool operator ==(Object other) {
     return other is ContainerAst &&
         _listEquals.equals(childNodes, other.childNodes) &&
         _listEquals.equals(stars, other.stars) &&

@@ -53,7 +53,7 @@ class NgMicroToken {
   const NgMicroToken._(this.type, this.lexeme, this.offset);
 
   @override
-  bool operator ==(Object? other) {
+  bool operator ==(Object other) {
     return other is NgMicroToken &&
         other.offset == offset &&
         other.type == type;

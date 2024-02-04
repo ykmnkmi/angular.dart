@@ -40,7 +40,7 @@ abstract mixin class BananaAst implements TemplateAst {
   }
 
   @override
-  bool operator ==(Object? other) {
+  bool operator ==(Object other) {
     return other is BananaAst && name == other.name && value == other.value;
   }
 

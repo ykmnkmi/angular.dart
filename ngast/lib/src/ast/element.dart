@@ -58,7 +58,7 @@ abstract mixin class ElementAst implements StandaloneTemplateAst {
   }) = ParsedElementAst;
 
   @override
-  bool operator ==(Object? other) {
+  bool operator ==(Object other) {
     return other is ElementAst &&
         name == other.name &&
         closeComplement == other.closeComplement &&

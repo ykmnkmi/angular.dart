@@ -24,7 +24,7 @@ abstract mixin class TextAst implements StandaloneTemplateAst {
   ) = _ParsedTextAst;
 
   @override
-  bool operator ==(Object? other) {
+  bool operator ==(Object other) {
     return other is TextAst && value == other.value;
   }
 

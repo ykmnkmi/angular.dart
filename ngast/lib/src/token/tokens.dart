@@ -153,7 +153,7 @@ class NgSimpleToken implements NgBaseToken<NgSimpleTokenType> {
   );
 
   @override
-  bool operator ==(Object? other) {
+  bool operator ==(Object other) {
     return other is NgSimpleToken &&
         other.offset == offset &&
         other.type == type;
@@ -224,7 +224,7 @@ class NgSimpleQuoteToken extends _LexemeNgSimpleToken {
         );
 
   @override
-  bool operator ==(Object? other) {
+  bool operator ==(Object other) {
     return other is NgSimpleQuoteToken &&
         other.offset == offset &&
         other.type == type &&
@@ -405,7 +405,7 @@ class NgToken implements NgBaseToken<NgTokenType> {
   });
 
   @override
-  bool operator ==(Object? other) {
+  bool operator ==(Object other) {
     return other is NgToken &&
         (errorSynthetic || other.errorSynthetic
             ? other.offset == offset && other.type == type
@@ -478,7 +478,7 @@ class NgAttributeValueToken extends NgToken {
         );
 
   @override
-  bool operator ==(Object? other) {
+  bool operator ==(Object other) {
     return other is NgAttributeValueToken &&
         leftQuote == other.leftQuote &&
         rightQuote == other.rightQuote &&

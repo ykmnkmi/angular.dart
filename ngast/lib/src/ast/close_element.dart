@@ -29,7 +29,7 @@ abstract mixin class CloseElementAst implements TemplateAst {
   }) = ParsedCloseElementAst;
 
   @override
-  bool operator ==(Object? other) {
+  bool operator ==(Object other) {
     return other is CloseElementAst && name == other.name;
   }
 
