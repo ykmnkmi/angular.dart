@@ -1,3 +1,10 @@
+## 3.0.0-dev.3
+
+ - **REFACTOR**(ngast,ngcompiler): reduce dynamic usage in i18n.
+ - **REFACTOR**(all): update to Dart 3 ([#68](https://github.com/angulardart-community/angular/issues/68)).
+ - **REFACTOR**(ngcompiler): fix all static warnings ([#50](https://github.com/angulardart-community/angular/issues/50)).
+ - **DOCS**(all): update to new workflow badge.
+
 ## 3.0.0-dev.1
 
 > Note: This release has breaking changes.
