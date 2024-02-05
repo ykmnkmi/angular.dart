@@ -3,6 +3,44 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 2024-02-04
+
+### Changes
+
+---
+
+Packages with breaking changes:
+
+ - There are no breaking changes in this release.
+
+Packages with other changes:
+
+ - [`ngast` - `v3.0.0-dev.2`](#ngast---v300-dev2)
+ - [`ngcompiler` - `v3.0.0-dev.3`](#ngcompiler---v300-dev3)
+ - [`ngdart` - `v8.0.0-dev.4`](#ngdart---v800-dev4)
+ - [`ngrouter` - `v4.0.0-dev.3`](#ngrouter---v400-dev3)
+ - [`ngforms` - `v5.0.0-dev.3`](#ngforms---v500-dev3)
+ - [`ngtest` - `v5.0.0-dev.3`](#ngtest---v500-dev3)
+
+Packages with dependency updates only:
+
+> Packages listed below depend on other packages in this workspace that have had changes. Their versions have been incremented to bump the minimum dependency versions of the packages they depend upon in this project.
+
+ - `ngcompiler` - `v3.0.0-dev.3`
+ - `ngdart` - `v8.0.0-dev.4`
+ - `ngrouter` - `v4.0.0-dev.3`
+ - `ngforms` - `v5.0.0-dev.3`
+ - `ngtest` - `v5.0.0-dev.3`
+
+---
+
+#### `ngast` - `v3.0.0-dev.2`
+
+ - **REFACTOR**(ngast,ngcompiler): reduce dynamic usage in i18n.
+ - **REFACTOR**(all): update to Dart 3 ([#68](https://github.com/angulardart-community/angular/issues/68)).
+ - **DOCS**(all): update to new workflow badge.
+
+
 ## 2023-04-21
 
 ### Changes

@@ -19,7 +19,7 @@ dependencies:
   dart_style: ^2.3.2
   logging: ^1.2.0
   meta: ^1.11.0
-  ngast: ^3.0.0-dev.1
+  ngast: ^3.0.0-dev.2
   ngdart: ^8.0.0-dev.3
   path: ^1.8.3
   source_gen: ^1.4.0
