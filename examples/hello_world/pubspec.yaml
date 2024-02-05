@@ -5,7 +5,7 @@ environment:
 
 dependencies:
   # No strict dependencies, we always use dependency_overrides.
-  ngdart: ^8.0.0-dev.3
+  ngdart: ^8.0.0-dev.4
 
 dev_dependencies:
   build_runner: ^2.4.6
