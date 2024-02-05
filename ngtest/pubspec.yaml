@@ -2,7 +2,7 @@ name: ngtest
 description: >
   Testing runner and library for AngularDart.
   This package is necessary to write component tests for AngularDart components.
-version: 5.0.0-dev.2
+version: 5.0.0-dev.3
 repository: https://github.com/angulardart-community/angular
 
 environment:

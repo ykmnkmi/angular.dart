@@ -11,6 +11,29 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 Packages with breaking changes:
 
+ - [`ngtest` - `v5.0.0-dev.3`](#ngtest---v500-dev3)
+
+Packages with other changes:
+
+ - There are no other changes in this release.
+
+---
+
+#### `ngtest` - `v5.0.0-dev.3`
+
+ - **REFACTOR**(all): update to Dart 3 ([#68](https://github.com/angulardart-community/angular/issues/68)).
+ - **DOCS**(all): update to new workflow badge.
+ - **BREAKING** **REFACTOR**(ngrouter): remove createDynamicFixture & fix all static warnings ([#56](https://github.com/angulardart-community/angular/issues/56)).
+
+
+## 2024-02-04
+
+### Changes
+
+---
+
+Packages with breaking changes:
+
  - There are no breaking changes in this release.
 
 Packages with other changes:
