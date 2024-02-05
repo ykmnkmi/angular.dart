@@ -31,7 +31,7 @@ abstract mixin class CommentAst implements StandaloneTemplateAst {
   }
 
   @override
-  bool operator ==(Object? other) {
+  bool operator ==(Object other) {
     return other is CommentAst && value == other.value;
   }
 

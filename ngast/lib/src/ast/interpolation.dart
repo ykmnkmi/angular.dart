@@ -36,7 +36,7 @@ abstract mixin class InterpolationAst implements StandaloneTemplateAst {
   String get value;
 
   @override
-  bool operator ==(Object? other) {
+  bool operator ==(Object other) {
     return other is InterpolationAst && other.value == value;
   }
 

@@ -37,7 +37,7 @@ abstract mixin class PropertyAst implements TemplateAst {
   ]) = ParsedPropertyAst;
 
   @override
-  bool operator ==(Object? other) {
+  bool operator ==(Object other) {
     return other is PropertyAst &&
         name == other.name &&
         postfix == other.postfix &&

@@ -38,7 +38,7 @@ abstract mixin class LetBindingAst implements TemplateAst {
   ]) = ParsedLetBindingAst;
 
   @override
-  bool operator ==(Object? other) {
+  bool operator ==(Object other) {
     return other is LetBindingAst && name == other.name && value == other.value;
   }
 

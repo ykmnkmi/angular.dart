@@ -63,7 +63,7 @@ abstract mixin class EmbeddedContentAst implements StandaloneTemplateAst {
   set closeComplement(CloseElementAst closeComplement);
 
   @override
-  bool operator ==(Object? other) {
+  bool operator ==(Object other) {
     return other is EmbeddedContentAst &&
         other.selector == selector &&
         other.ngProjectAs == ngProjectAs &&

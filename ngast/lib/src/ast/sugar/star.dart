@@ -39,7 +39,7 @@ abstract mixin class StarAst implements TemplateAst {
   }
 
   @override
-  bool operator ==(Object? other) {
+  bool operator ==(Object other) {
     return other is PropertyAst && value == other.value && name == other.name;
   }
 

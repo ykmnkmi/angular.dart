@@ -35,7 +35,7 @@ abstract mixin class AnnotationAst implements TemplateAst {
   }
 
   @override
-  bool operator ==(Object? other) {
+  bool operator ==(Object other) {
     return other is AnnotationAst && name == other.name && value == other.value;
   }
 
