@@ -2,7 +2,7 @@ name: ngforms
 description: >
   Forms framework for AngularDart.
   Easily create forms to accept input from users.
-version: 5.0.0-dev.2
+version: 5.0.0-dev.3
 repository: https://github.com/angulardart-community/angular
 
 environment:
