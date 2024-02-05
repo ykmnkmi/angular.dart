@@ -15,6 +15,29 @@ Packages with breaking changes:
 
 Packages with other changes:
 
+ - [`ngrouter` - `v4.0.0-dev.3`](#ngrouter---v400-dev3)
+
+---
+
+#### `ngrouter` - `v4.0.0-dev.3`
+
+ - **REFACTOR**(all): update to Dart 3 ([#68](https://github.com/angulardart-community/angular/issues/68)).
+ - **REFACTOR**(ngrouter): fix all static warnings ([#55](https://github.com/angulardart-community/angular/issues/55)).
+ - **DOCS**(all): update to new workflow badge.
+
+
+## 2024-02-04
+
+### Changes
+
+---
+
+Packages with breaking changes:
+
+ - There are no breaking changes in this release.
+
+Packages with other changes:
+
  - [`ngdart` - `v8.0.0-dev.4`](#ngdart---v800-dev4)
  - [`ngrouter` - `v4.0.0-dev.3`](#ngrouter---v400-dev3)
  - [`ngforms` - `v5.0.0-dev.3`](#ngforms---v500-dev3)

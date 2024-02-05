@@ -1,3 +1,9 @@
+## 4.0.0-dev.3
+
+ - **REFACTOR**(all): update to Dart 3 ([#68](https://github.com/angulardart-community/angular/issues/68)).
+ - **REFACTOR**(ngrouter): fix all static warnings ([#55](https://github.com/angulardart-community/angular/issues/55)).
+ - **DOCS**(all): update to new workflow badge.
+
 ## 4.0.0-dev.1
 
  - Update a dependency to the latest release.

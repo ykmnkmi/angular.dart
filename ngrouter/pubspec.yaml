@@ -2,7 +2,7 @@ name: ngrouter
 description: >
   Router for AngularDart.
   It enables navigation from one view to the next as users perform tasks.
-version: 4.0.0-dev.2
+version: 4.0.0-dev.3
 repository: https://github.com/angulardart-community/angular
 
 environment:
