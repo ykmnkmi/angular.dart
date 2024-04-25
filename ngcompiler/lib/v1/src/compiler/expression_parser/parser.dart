@@ -223,6 +223,7 @@ class ExpressionParser extends ExpressionParserImpl {
   /// Override to implement [parseInterpolation].
   ///
   /// Basic validation is already performed that [input] is seemingly valid.
+  @override
   AST? parseInterpolationImpl(
     String input,
     String location,
