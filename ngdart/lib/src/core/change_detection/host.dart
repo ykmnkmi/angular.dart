@@ -94,7 +94,7 @@ abstract class ChangeDetectionHost {
     }
   }
 
-  /// Runs [AppView.detectChanges] on all top-level components/views.
+  /// Runs [DeprecatedDetectChanges.detectChanges] on all top-level components/views.
   void _runTick() {
     final detectors = _changeDetectors;
     final length = detectors.length;
@@ -111,7 +111,7 @@ abstract class ChangeDetectionHost {
     }
   }
 
-  /// Runs [AppView.detectChanges] for all top-level components/views.
+  /// Runs [DeprecatedDetectChanges.detectChanges] for all top-level components/views.
   ///
   /// Unlike [_runTick], this enters a guarded mode that checks a view tree for
   /// exceptions, trying to find the leaf-most node that throws during change

@@ -50,8 +50,8 @@ final _observableStrategy = _ObservableStrategy();
 /// class AsyncGreeterPipe {
 ///   static const _delay = const Duration(seconds: 2);
 ///
-///   Future<String> greeting;
-///   bool done;
+///   late Future<String> greeting;
+///   late bool done;
 ///
 ///   AsyncGreeterPipe() {
 ///     tryAgain();
@@ -64,17 +64,16 @@ final _observableStrategy = _ObservableStrategy();
 ///
 ///   void tryAgain() {
 ///     done = false;
-///     greeting = new Future<String>.delayed(_delay, greet);
+///     greeting = Future<String>.delayed(_delay, greet);
 ///   }
 /// }
 ///
 /// @Component(
 ///     selector: 'async-time',
-///     template: "<p>Time: {{ $pipe.date($pipe.async(time), 'mediumTime') }}</p>") //
+///     template: "<p>Time: {{ $pipe.date($pipe.async(time), 'mediumTime') }}</p>")
 /// class AsyncTimePipe {
 ///   static const _delay = const Duration(seconds: 1);
-///   final Stream<DateTime> time =
-///       new Stream.periodic(_delay, (_) => new DateTime.now());
+///   final Stream<DateTime> time = Stream.periodic(_delay, (_) =>DateTime.now());
 /// }
 /// ```
 ///
@@ -82,7 +81,7 @@ final _observableStrategy = _ObservableStrategy();
 class AsyncPipe implements OnDestroy {
   Object? _latestValue;
   Object? _subscription;
-  dynamic /* Stream | Future | EventEmitter */ _obj;
+  dynamic /* Stream | Future */ _obj;
   dynamic _strategy;
   final ChangeDetectorRef _ref;
 
@@ -95,7 +94,7 @@ class AsyncPipe implements OnDestroy {
     }
   }
 
-  dynamic transform(dynamic /* Stream | Future | EventEmitter */ obj) {
+  dynamic transform(dynamic /* Stream | Future */ obj) {
     if (_obj == null) {
       if (obj != null) {
         _subscribe(obj);
@@ -107,14 +106,14 @@ class AsyncPipe implements OnDestroy {
     return _latestValue;
   }
 
-  void _subscribe(dynamic /* Stream | Future | EventEmitter */ obj) {
+  void _subscribe(dynamic /* Stream | Future */ obj) {
     _obj = obj;
     _strategy = _selectStrategy(obj);
     _subscription = _strategy.createSubscription(
         obj, (Object? value) => _updateLatestValue(obj, value));
   }
 
-  dynamic _selectStrategy(dynamic /* Stream | Future | EventEmitter */ obj) {
+  dynamic _selectStrategy(dynamic /* Stream | Future */ obj) {
     if (obj is Future<Object?>) {
       return _promiseStrategy;
     } else if (obj is Stream<Object?>) {

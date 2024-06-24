@@ -13,10 +13,10 @@ import 'package:meta/meta_meta.dart';
 ///   Car(@Inject("MyEngine") this.engine);
 /// }
 ///
-/// var engine = new Engine();
+/// var engine = Engine();
 ///
 /// var injector = Injector.resolveAndCreate([
-///  new Provider("MyEngine", useValue: engine),
+///  Provider("MyEngine", useValue: engine),
 ///  Car
 /// ]);
 ///
@@ -37,7 +37,7 @@ import 'package:meta/meta_meta.dart';
 /// }
 ///
 /// var injector = Injector.resolveAndCreate([Engine, Car]);
-/// expect(injector.get(Car).engine, new isInstanceOf<Engine>());
+/// expect(injector.get(Car).engine, isInstanceOf<Engine>());
 /// ```
 @Target({TargetKind.parameter})
 class Inject {

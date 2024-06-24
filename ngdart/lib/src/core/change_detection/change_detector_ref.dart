@@ -31,7 +31,7 @@ abstract class ChangeDetectorRef {
   ///   changeDetection: ChangeDetectionStrategy.onPush,
   /// )
   /// class OnPushExample implements OnDestroy {
-  ///   Timer timer;
+  ///   late Timer timer;
   ///
   ///   var ticks = 0;
   ///

@@ -32,8 +32,8 @@ import 'visibility.dart';
 ///
 /// See also:
 ///
-/// * [Attribute Directives](https://webdev.dartlang.org/angular/guide/attribute-directives)
-/// * [Lifecycle Hooks](https://webdev.dartlang.org/angular/guide/lifecycle-hooks)
+/// * [Attribute Directives](https://angulardart.xyz/guide/attribute-directives)
+/// * [Lifecycle Hooks](https://angulardart.xyz/guide/lifecycle-hooks)
 ///
 @Target({TargetKind.classType})
 class Directive {
@@ -146,7 +146,7 @@ class Directive {
 /// the callbacks are called by the change detection at defined points in time
 /// during the life of the component.
 ///
-/// [LCH]: https://webdev.dartlang.org/angular/guide/lifecycle-hooks
+/// [LCH]: https://angulardart.xyz/guide/lifecycle-hooks
 @Target({TargetKind.classType})
 class Component extends Directive {
   /// Defines the used change detection strategy.
@@ -688,11 +688,11 @@ class Input {
 /// ```dart
 /// @Directive(selector: 'interval-dir')
 /// class IntervalDir {
-///   final _everySecond = new StreamController<String>();
+///   final _everySecond = StreamController<String>();
 ///   @Output()
 ///   final get everySecond => _everySecond.stream;
 ///
-///   final _every5Secs = new StreamController<void>();
+///   final _every5Secs = StreamController<void>();
 ///   @Output('everyFiveSeconds')
 ///   final get every5Secs => _every5Secs.stream;
 ///
