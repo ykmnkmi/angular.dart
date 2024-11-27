@@ -20,7 +20,7 @@ abstract class ChangeDetectionHost {
   /// **INTERNAL ONLY**: Whether a crash was detected during the last `tick()`.
   static bool get checkForCrashes => _current?._lastGuardedView != null;
 
-  /// **INTERNAL ONLY**: Register a crash during [view.detectCrash].
+  /// **INTERNAL ONLY**: Register a crash during [View.detectCrash].
   static void handleCrash(View view, Object error, StackTrace trace) {
     final current = _current!;
     current
@@ -138,8 +138,6 @@ abstract class ChangeDetectionHost {
     return _checkForChangeDetectionError();
   }
 
-  static const _isSoundNullSafety = <Object?>[] is! List<Object>;
-
   /// Checks for any uncaught exception that occurred during change detection.
   @dart2js.noInline
   bool _checkForChangeDetectionError() {
@@ -152,9 +150,7 @@ abstract class ChangeDetectionHost {
         // the value being null part of the explicit contract. By changing this
         // to `_lastCaughtException!` and running our test cases multiple tests
         // start failing!
-        _isSoundNullSafety
-            ? _lastCaughtException ?? Error()
-            : _lastCaughtException as Object,
+        _lastCaughtException!,
         _lastCaughtTrace,
       );
       _resetViewErrors();
@@ -168,7 +164,7 @@ abstract class ChangeDetectionHost {
     _lastGuardedView = _lastCaughtException = _lastCaughtTrace = null;
   }
 
-  /// Disables the [view] as an error, and forwards to [reportException].
+  /// Disables the [view] as an error, and forwards to [handleUncaughtException].
   @dart2js.noInline
   void reportViewException(
     View view,

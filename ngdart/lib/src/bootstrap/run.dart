@@ -101,6 +101,7 @@ Injector _identityInjector(Injector parent) => parent;
 /// ```dart
 /// // Assume this file is "main.dart".
 /// import 'package:ngdart/angular.dart';
+///
 /// import 'main.template.dart' as ng;
 ///
 /// @Component(
@@ -123,6 +124,7 @@ Injector _identityInjector(Injector parent) => parent;
 /// Optionally may supply a [createInjector] function in order to provide
 /// services to the root of the application:
 ///
+/// ```dart
 /// // Assume this file is "main.dart".
 /// import 'package:ngdart/angular.dart';
 /// import 'main.template.dart' as ng;
@@ -147,9 +149,7 @@ Injector _identityInjector(Injector parent) => parent;
 ///   runApp(ng.HelloWorldNgFactory, createInjector: helloInjector);
 /// }
 ///
-/// @GenerateInjector(const [
-///   const ClassProvider(HelloService),
-/// ])
+/// @GenerateInjector(const [ClassProvider(HelloService)])
 /// final InjectorFactory helloInjector = ng.helloInjector$Injector;
 /// ```
 ///

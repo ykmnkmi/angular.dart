@@ -36,7 +36,7 @@ abstract class ChangeDetectorRef {
   ///   var ticks = 0;
   ///
   ///   OnPushExample(ChangeDetectorRef changeDetector) {
-  ///     timer = Timer.periodic(Duration(seconds: 1), () {
+  ///     timer = Timer.periodic(const Duration(seconds: 1), () {
   ///       ticks++;
   ///       changeDetector.markForCheck();
   ///     });
