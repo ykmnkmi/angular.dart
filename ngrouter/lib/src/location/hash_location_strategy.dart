@@ -22,7 +22,7 @@ import 'platform_location.dart' show PlatformLocation;
 ///
 /// @Component(
 ///   // Should only be provided at the root.
-///   providers: const [routerProvidersHash],
+///   providers: [routerProvidersHash],
 /// )
 /// class AppComponent {
 ///   AppComponent(Location location) {

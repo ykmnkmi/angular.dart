@@ -14,7 +14,7 @@ import 'router/router_impl.dart';
 /// ```
 /// @Component(
 ///   selector: 'my-app',
-///   directives: const [routerDirectives]
+///   directives: [routerDirectives]
 ///   template: '<router-outlet></router-outlet>'
 /// )
 /// class MyApp {}

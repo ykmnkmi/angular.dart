@@ -10,7 +10,7 @@ import 'package:ngdart/src/meta.dart';
 ///
 /// import 'main.template.dart' as ng;
 ///
-/// @GenerateInjector(const [
+/// @GenerateInjector([
 ///   ValueProvider.forToken(appId, 'my-unique-id')
 /// ])
 /// final InjectorFactory appInjector = appInjector$Injector;

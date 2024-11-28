@@ -20,7 +20,7 @@ import 'validators.dart' show ValidatorFn;
 /// ```
 /// @Component(
 ///   selector: 'my-app',
-///   directives: const [formDirectives],
+///   directives: [formDirectives],
 ///   template: '''
 ///     <div>
 ///       <h2>Angular Control &amp; AbstractControlGroup Example</h2>

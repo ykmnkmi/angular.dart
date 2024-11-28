@@ -25,7 +25,7 @@ import 'shared.dart' show controlPath;
 /// ```
 /// @Component(
 ///   selector: 'login-comp',
-///   directives: const [coreDirectives, formDirectives],
+///   directives: [coreDirectives, formDirectives],
 ///   template: '''
 ///     <form #f="ngForm" (submit)="onLogIn(f.value)">
 ///       Login <input type="text" ngControl="login" #l="ngForm">
@@ -48,7 +48,7 @@ import 'shared.dart' show controlPath;
 /// ```
 /// @Component(
 ///   selector: 'login-comp',
-///   directives: const [formDirectives],
+///   directives: [formDirectives],
 ///   template: '''
 ///     <form (submit)="onLogIn()">
 ///       Login <input type="text" ngControl="login" [(ngModel)]="login">

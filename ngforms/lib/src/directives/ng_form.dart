@@ -36,7 +36,7 @@ import 'shared.dart' show setUpControl, setUpControlGroup, composeValidators;
 /// ```
 /// @Component(
 ///   selector: 'my-app',
-///   directives: const [coreDirectives, formDirectives],
+///   directives: [coreDirectives, formDirectives],
 ///   template: '''
 ///     <div>
 ///       <p>Submit the form to see the data object Angular builds</p>

@@ -10,8 +10,8 @@ import '../validators.dart' show Validators, ngValidators;
 /// ```
 /// @Directive(
 ///   selector: '[custom-validator]',
-///   providers: const [
-///     const ExistingProvider.forToken(
+///   providers: [
+///     ExistingProvider.forToken(
 ///       ngValidators,
 ///       CustomValidatorDirective,
 ///     ),

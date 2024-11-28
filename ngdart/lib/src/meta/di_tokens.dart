@@ -9,7 +9,7 @@ import 'package:ngdart/src/utilities.dart';
 ///
 /// @Component(
 ///   selector: 'dashboard',
-///   providers: const [
+///   providers: [
 ///     ValueProvider.forToken(loginUrl, 'https://someurl.com'),
 ///   ],
 /// )
@@ -32,7 +32,7 @@ import 'package:ngdart/src/utilities.dart';
 ///
 /// @Component(
 ///   selector: 'dashboard',
-///   providers: const [
+///   providers: [
 ///     ValueProvider.forToken(loginUrl, 'https://someurl.com'),
 ///   ],
 /// )
@@ -64,7 +64,7 @@ class OpaqueToken<T extends Object> {
 ///
 /// @Component(
 ///   selector: 'presidents-list',
-///   providers: const [
+///   providers: [
 ///     ValueProvider.forToken(usPresidents, 'George Washington'),
 ///     ValueProvider.forToken(usPresidents, 'Abraham Lincoln'),
 ///   ],
@@ -94,7 +94,7 @@ class OpaqueToken<T extends Object> {
 ///
 /// @Component(
 ///   selector: 'presidents-list',
-///   providers: const [
+///   providers: [
 ///     ValueProvider.forToken(usPresidents, 'George Washington'),
 ///     ValueProvider.forToken(usPresidents, 'Abraham Lincoln'),
 ///   ],

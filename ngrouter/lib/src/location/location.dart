@@ -29,7 +29,7 @@ import 'location_strategy.dart' show LocationStrategy;
 ///
 /// @Component(
 ///   // Should only be provided at the root.
-///   providers: const [routerProviders],
+///   providers: [routerProviders],
 /// )
 /// class AppComponent {
 ///   AppComponent(Location location) {

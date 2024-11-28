@@ -10,7 +10,7 @@ enum Visibility {
   /// ```
   /// @Component(
   ///   selector: 'parent',
-  ///   directives: const [Child],
+  ///   directives: [Child],
   ///   template: '<child></child>',
   ///
   ///   // The default, but here explicitly for clarity.
@@ -51,7 +51,7 @@ enum Visibility {
   ///
   /// @Component(
   ///   selector: 'app',
-  ///   directives: const [Child, Parent],
+  ///   directives: [Child, Parent],
   ///   template: '''
   ///     <parent>
   ///       <child></child>
@@ -71,8 +71,8 @@ enum Visibility {
   ///
   /// @Component(
   ///   selector: 'parent',
-  ///   directives: const [Child],
-  ///   providers: const [
+  ///   directives: [Child],
+  ///   providers: [
   ///     ExistingProvider(Example, useExisting: Parent),
   ///   ],
   ///   template: '<child></child>',
@@ -90,7 +90,7 @@ enum Visibility {
   /// }
   /// ```
   ///
-  /// ... like all uses of `providers: const [ ... ]`, this increases the cost
+  /// ... like all uses of `providers: [ ... ]`, this increases the cost
   /// of the component or directive, and should only be added when injection
   /// is truly needed, similar to [Visibility.all].
   ///
@@ -104,7 +104,7 @@ enum Visibility {
   /// ```
   /// @Component(
   ///   selector: 'parent',
-  ///   directives: const [Child],
+  ///   directives: [Child],
   ///   template: '<child></child>',
   ///   visibility: Visibility.all,
   /// )

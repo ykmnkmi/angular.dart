@@ -63,7 +63,7 @@ export 'directives/validators.dart'
 /// ```
 /// @Component(
 ///   selector: 'my-app',
-///   directives: const [formDirectives]
+///   directives: [formDirectives]
 /// )
 /// class MyApp {}
 /// ```

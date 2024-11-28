@@ -100,7 +100,7 @@ class Inject {
 ///
 /// ```
 /// // Could be put anywhere DI providers are allowed.
-/// const Provide(MyService, useFactory: createMyService);
+/// const FactoryProvider(MyService, createMyService);
 ///
 /// // A `Provide` may now use `createMyService` via `useFactory`.
 /// @Injectable()
@@ -229,21 +229,21 @@ class SkipSelf {
 ///
 /// @Component(
 ///   selector: 'parent-cmp',
-///   providers: const [HostService],
+///   providers: [HostService],
 ///   template: '''
 ///     Dir: <child-directive></child-directive>
 ///   ''',
-///   directives: const [ChildDirective]
+///   directives: [ChildDirective]
 /// )
 /// class ParentCmp {}
 ///
 /// @Component(
 ///   selector: 'app',
-///   providers: const [OtherService],
+///   providers: [OtherService],
 ///   template: '''
 ///     Parent: <parent-cmp></parent-cmp>
 ///   ''',
-///   directives: const [ParentCmp]
+///   directives: [ParentCmp]
 /// )
 /// class App {}
 ///

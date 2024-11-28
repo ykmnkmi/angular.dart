@@ -21,7 +21,7 @@ export 'src/route_definition.dart'
 /// ```
 /// @Component(
 ///   selector: '...',
-///   providers: const [routerProvidersTest],
+///   providers: [routerProvidersTest],
 /// )
 /// class TestComponent {}
 /// ```

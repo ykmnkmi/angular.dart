@@ -32,7 +32,7 @@ abstract class AfterChanges {
 /// ```
 /// @Component(
 ///   selector: 'user-panel',
-///   directives: const [NgFor],
+///   directives: [NgFor],
 ///   template: '''
 ///     <li *ngFor="let user of users">
 ///       {{user}}

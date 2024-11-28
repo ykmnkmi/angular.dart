@@ -146,7 +146,7 @@ Injector _identityInjector(Injector parent) => parent;
 ///   }
 /// }
 ///
-/// @GenerateInjector(const [ClassProvider(HelloService)])
+/// @GenerateInjector([ClassProvider(HelloService)])
 /// final InjectorFactory helloInjector = ng.helloInjector$Injector;
 ///
 /// void main() {

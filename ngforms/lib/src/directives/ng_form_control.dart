@@ -19,7 +19,7 @@ import 'shared.dart' show setUpControl;
 /// ```
 /// @Component(
 ///   selector: 'my-app',
-///   directives: const [coreDirectives, formDirectives]
+///   directives: [coreDirectives, formDirectives]
 ///   template: '''
 ///     <div>
 ///       <h2>NgFormControl Example</h2>
@@ -46,7 +46,7 @@ import 'shared.dart' show setUpControl;
 /// ```
 /// @Component(
 ///   selector: 'login-comp',
-///   directives: const [formDirectives],
+///   directives: [formDirectives],
 ///   template: '''
 ///     <input type="text" [ngFormControl]="loginControl" [(ngModel)]="login">
 ///   ''',

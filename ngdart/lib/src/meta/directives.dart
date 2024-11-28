@@ -82,7 +82,8 @@ class Directive {
   ///
   /// @Directive(
   ///   selector: 'greet',
-  ///   providers: const [ Greeter])
+  ///   providers: [Greeter],
+  /// )
   /// class HelloWorld {
   ///   final Greeter greeter;
   ///
@@ -106,7 +107,7 @@ class Directive {
   /// @Component(
   ///   selector: 'main',
   ///   template: `<child-dir #c="child"></child-dir>`,
-  ///   directives: const [ChildDir],
+  ///   directives: [ChildDir],
   /// )
   /// class MainComponent {}
   /// ```
@@ -182,9 +183,9 @@ class Component extends Directive {
   ///
   /// @Component(
   ///   selector: 'greet',
-  ///   viewProviders: const [Greeter],
+  ///   viewProviders: [Greeter],
   ///   template: '<needs-greeter></needs-greeter>',
-  ///   directives: const [NeedsGreeter]
+  ///   directives: [NeedsGreeter]
   /// )
   /// class HelloWorld {
   /// }
@@ -201,7 +202,7 @@ class Component extends Directive {
   ///
   /// @Component(
   ///   selector: 'example',
-  ///   exports: const [MyEnum],
+  ///   exports: [MyEnum],
   ///   template: '<p>{{MyEnum.bar}}</p>',
   /// )
   /// class Example {}
@@ -327,7 +328,7 @@ abstract class _Query {
 /// ```
 /// @Component(
 ///   selector: 'root-comp',
-///   directives: const [TabPanelComponent, TabComponent],
+///   directives: [TabPanelComponent, TabComponent],
 ///   template: '''
 ///     <tab-panel>
 ///       <tab-comp></tab-comp>
@@ -450,16 +451,16 @@ abstract class _ViewQuery extends _Query {
 ///     <child-cmp></child-cmp>
 ///     <child-cmp></child-cmp>
 ///   ''',
-///   directives: const [ChildCmp],
+///   directives: [ChildCmp],
 /// )
 /// class SomeCmp implements AfterViewInit {
 ///   @ViewChildren(ChildCmp)
-///   List<ChildCmp> children;
+///   List<ChildCmp>? children;
 ///
 ///   @override
 ///   void ngAfterViewInit() {
 ///     // children are set
-///     for (var child in children) {
+///     for (var child in children!) {
 ///       child.doSomething();
 ///     }
 ///   }
@@ -484,16 +485,16 @@ abstract class _ViewQuery extends _Query {
 ///     <child-cmp #child2></child-cmp>
 ///     <child-cmp #child3></child-cmp>
 ///   ''',
-///   directives: const [ChildCmp],
+///   directives: [ChildCmp],
 /// )
 /// class SomeCmp implements AfterViewInit {
 ///   @ViewChildren('child1, child2, child3')
-///   List<ChildCmp> children;
+///   List<ChildCmp>? children;
 ///
 ///   @override
 ///   void ngAfterViewInit() {
 ///     // Initial children are set
-///     for (var child in children) {
+///     for (var child in children!) {
 ///       child.doSomething();
 ///     }
 ///   }
@@ -518,7 +519,7 @@ abstract class _ViewQuery extends _Query {
 ///     <child-cmp *ngIf="condition2" #child2></child-cmp>
 ///     <child-cmp *ngIf="condition3" #child3></child-cmp>
 ///   ''',
-///   directives: const [ChildCmp],
+///   directives: [ChildCmp],
 /// )
 /// class SomeCmp {
 ///   @Input()
@@ -561,11 +562,11 @@ abstract class _ViewQuery extends _Query {
 ///     <child-cmp #child2></child-cmp>
 ///     <child-cmp #child3></child-cmp>
 ///   ''',
-///   directives: const [ChildCmp],
+///   directives: [ChildCmp],
 /// )
 /// class SomeCmp {
 ///   @ViewChildren('child1, child2, child3', read: Element)
-///   List<Element> children;
+///   List<Element>? children;
 /// }
 /// ```
 ///
@@ -606,11 +607,11 @@ class ViewChildren extends _ViewQuery {
 /// @Component(
 ///   selector: 'some-cmp',
 ///   template: '<child-cmp></child-cmp>',
-///   directives: const [ChildCmp],
+///   directives: [ChildCmp],
 /// )
 /// class SomeCmp {
 ///   @ViewChild(ChildCmp)
-///   ChildCmp child;
+///   ChildCmp? child;
 /// }
 /// ```
 ///
@@ -662,7 +663,7 @@ class ViewChild extends _ViewQuery {
 ///   template: '''
 ///     <bank-account bank-name="RBC" account-id="4747"></bank-account>
 ///   ''',
-///   directives: const [BankAccount],
+///   directives: [BankAccount],
 /// )
 /// class App {}
 /// ```
@@ -712,7 +713,7 @@ class Input {
 ///         (everyFiveSeconds)="everyFiveSeconds()">
 ///     </interval-dir>
 ///   ''',
-///   directives: const [IntervalDir])
+///   directives: [IntervalDir])
 /// class App {
 ///   void everySecond() {
 ///     print('second');
@@ -803,7 +804,7 @@ class HostBinding {
 ///   template: 'CLICK ME',
 /// )
 /// class ButtonLikeComponent {
-///   @HostListener('click') // == @HostListener('click', const ['\$event'])
+///   @HostListener('click') // == @HostListener('click', ['\$event'])
 ///   void onClick(MouseEvent e) {}
 /// }
 /// ```

@@ -6,8 +6,8 @@ import 'model.dart';
 /// ```
 /// @Component(
 ///   selector: 'my-app',
-///   directives: const [formDirectives],
-///   viewProviders: const [formBindings],
+///   directives: [formDirectives],
+///   viewProviders: [formBindings],
 ///   template: '''
 ///     <form [ngFormModel]="loginForm">
 ///       <p>Login <input ngControl="login"></p>

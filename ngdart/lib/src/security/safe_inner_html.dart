@@ -22,7 +22,7 @@ import 'dom_sanitization_service.dart' show SafeHtml;
 /// ```
 /// @Component(
 ///   selector: 'my-component',
-///   directives: const [SafeInnerHtmlDirective],
+///   directives: [SafeInnerHtmlDirective],
 ///   template: '''
 ///     <div [safeInnerHtml]="trustedHtml"></div>
 ///   ''',

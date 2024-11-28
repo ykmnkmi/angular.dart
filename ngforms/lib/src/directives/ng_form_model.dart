@@ -19,7 +19,7 @@ import 'validators.dart' show ValidatorFn;
 /// ```
 /// @Component(
 ///   selector: 'my-app',
-///   directives: const [formDirectives],
+///   directives: [formDirectives],
 ///   template: '''
 ///     <div>
 ///       <h2>NgFormModel Example</h2>
@@ -49,7 +49,7 @@ import 'validators.dart' show ValidatorFn;
 /// ```
 /// @Component(
 ///   selector: 'login-comp',
-///   directives: const [formDirectives],
+///   directives: [formDirectives],
 ///   template: '''
 ///     <form [ngFormModel]="loginForm">
 ///       Login <input type="text" ngControl="login" [(ngModel)]="login">
