@@ -5,7 +5,7 @@ import 'package:ngdart/src/meta.dart';
 ///
 /// ### Examples
 ///
-/// ```dart
+/// ```
 /// @Component(
 ///   selector: 'example',
 ///   template: '''

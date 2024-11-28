@@ -33,7 +33,7 @@ import 'shared.dart' show setUpControl, setUpControlGroup, composeValidators;
 ///
 /// ### Example
 ///
-/// ```dart
+/// ```
 /// @Component(
 ///   selector: 'my-app',
 ///   directives: const [coreDirectives, formDirectives],

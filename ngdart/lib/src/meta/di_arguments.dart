@@ -1,10 +1,12 @@
 import 'package:meta/meta_meta.dart';
 
+import '../di/injector.dart';
+
 /// A parameter metadata that specifies a dependency.
 ///
 /// ## Example
 ///
-/// ```dart
+/// ```
 /// class Engine {}
 ///
 /// @Injectable()
@@ -28,12 +30,12 @@ import 'package:meta/meta_meta.dart';
 ///
 /// ## Example
 ///
-/// ```dart
+/// ```
 /// class Engine {}
 ///
 /// @Injectable()
 /// class Car {
-///   Car(Engine engine) {} //same as Car(@Inject(Engine) Engine engine)
+///   Car(Engine engine) {} // same as Car(@Inject(Engine) Engine engine)
 /// }
 ///
 /// var injector = Injector.resolveAndCreate([Engine, Car]);
@@ -69,7 +71,7 @@ class Inject {
 ///
 /// ### Example
 ///
-/// ```dart
+/// ```
 /// // Use the default constructor to create a new instance of MyService.
 /// @Injectable()
 /// class MyService {}
@@ -96,7 +98,7 @@ class Inject {
 ///
 /// ### Example
 ///
-/// ```dart
+/// ```
 /// // Could be put anywhere DI providers are allowed.
 /// const Provide(MyService, useFactory: createMyService);
 ///
@@ -123,7 +125,7 @@ class Injectable {
 ///
 /// ## Example
 ///
-/// ```dart
+/// ```
 /// class Engine {}
 ///
 /// @Injectable()
@@ -144,7 +146,7 @@ class Optional {
 ///
 /// ## Example
 ///
-/// ```dart
+/// ```
 /// class Dependency {}
 ///
 /// @Injectable()
@@ -172,7 +174,7 @@ class Self {
 ///
 /// ## Example
 ///
-/// ```dart
+/// ```
 /// class Dependency {}
 ///
 /// @Injectable()

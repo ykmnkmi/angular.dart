@@ -3,7 +3,7 @@ import 'model.dart';
 
 /// Creates a form object from a user-specified configuration.
 ///
-/// ```dart
+/// ```
 /// @Component(
 ///   selector: 'my-app',
 ///   directives: const [formDirectives],

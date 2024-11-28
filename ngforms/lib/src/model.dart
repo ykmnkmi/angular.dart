@@ -270,7 +270,7 @@ abstract class AbstractControl<T> {
   ///
   /// ## Usage
   ///
-  /// ```dart
+  /// ```
   /// Control login = Control("someLogin");
   /// login.setErrors({"notUnique": true});
   ///

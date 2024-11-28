@@ -77,10 +77,10 @@ class Typed<T extends Object> {
   ///
   /// @Component(
   ///   ...
-  ///   directives: [
+  ///   directives: const [
   ///     GenericComponent,
   ///   ],
-  ///   directiveTypes: [
+  ///   directiveTypes: const [
   ///     Typed<GenericComponent<String, List<int>>>(),
   ///   ],
   /// )

@@ -31,7 +31,7 @@ import 'package:ngdart/src/utilities.dart';
 /// ```
 ///
 /// <?code-excerpt "docs/template-syntax/lib/app_component.dart (setClasses)"?>
-/// ```dart
+/// ```
 /// Map<String, bool> currentClasses = <String, bool>{};
 /// void setCurrentClasses() {
 ///   currentClasses = <String, bool>{

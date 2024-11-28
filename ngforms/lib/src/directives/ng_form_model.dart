@@ -16,7 +16,7 @@ import 'validators.dart' show ValidatorFn;
 /// In this example, we bind the control group to the form element, and we bind
 /// the login and password controls to the login and password elements.
 ///
-/// ```dart
+/// ```
 /// @Component(
 ///   selector: 'my-app',
 ///   directives: const [formDirectives],
@@ -46,7 +46,7 @@ import 'validators.dart' show ValidatorFn;
 ///
 /// We can also use ngModel to bind a domain model to the form.
 ///
-/// ```dart
+/// ```
 /// @Component(
 ///   selector: 'login-comp',
 ///   directives: const [formDirectives],

@@ -19,7 +19,7 @@ NgTestFixture<void>? activeTest;
 ///
 /// This function is meant to be used within
 /// the `tearDown` function of `package:test`:
-/// ```dart
+/// ```
 /// tearDown(() => disposeAnyRunningTest());
 /// ```
 Future<void> disposeAnyRunningTest() async {
@@ -32,7 +32,7 @@ Future<void> disposeAnyRunningTest() async {
 /// root application component you would create normally with `bootstrap`.
 ///
 /// For a simple test:
-/// ```dart
+/// ```
 /// group('$HelloWorldComponent', () {
 ///   tearDown(() => disposeAnyRunningTest());
 ///
@@ -45,7 +45,7 @@ Future<void> disposeAnyRunningTest() async {
 /// ```
 ///
 /// New behavior and features can be added in a hierarchy of tests:
-/// ```dart
+/// ```
 /// group('My tests', () {
 ///   NgTestBed<HelloWorldComponent> bed;
 ///   NgTestFixture<HelloWorldComponent> fixture;
@@ -113,7 +113,7 @@ class NgTestBed<T extends Object> {
   ///   additional services. In most cases just [rootInjector] is enough, and
   ///   you could re-use providers via [GenerateInjector].
   ///
-  /// ```dart
+  /// ```
   /// void main() {
   ///   final ngTestBed = NgTestBed(
   ///     SomeComponentNgFactory,

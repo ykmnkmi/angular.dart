@@ -55,12 +55,12 @@ class ComponentStyles {
   ///
   /// ```
   /// @Component(
-  ///   styleUrls: ['shared.css'],
+  ///   styleUrls: const ['shared.css'],
   /// )
   /// class A {}
   ///
   /// @Component(
-  ///   styleUrls: ['shared.css'],
+  ///   styleUrls: const ['shared.css'],
   /// )
   /// class B {}
   /// ```

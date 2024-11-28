@@ -10,7 +10,7 @@ import 'di_modules.dart';
 /// component or directive that injector is generated ahead of time, during
 /// compilation:
 ///
-/// ```dart
+/// ```
 /// import 'my_file.template.dart' as ng;
 ///
 /// @GenerateInjector(const [ClassProvider(A, APrime)])

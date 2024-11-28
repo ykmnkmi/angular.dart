@@ -7,7 +7,7 @@ import '../validators.dart' show Validators, ngValidators;
 ///
 /// ## Usage
 ///
-/// ```dart
+/// ```
 /// @Directive(
 ///   selector: '[custom-validator]',
 ///   providers: const [

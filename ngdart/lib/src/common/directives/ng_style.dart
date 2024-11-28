@@ -31,7 +31,7 @@ import '../../core/change_detection/differs/default_keyvalue_differ.dart';
 /// ```
 ///
 /// <?code-excerpt "docs/template-syntax/lib/app_component.dart (setStyles)"?>
-/// ```dart
+/// ```
 /// Map<String, String> currentStyles = <String, String>{};
 /// void setCurrentStyles() {
 ///   currentStyles = <String, String>{

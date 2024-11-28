@@ -17,7 +17,7 @@ import 'validators.dart' show ValidatorFn;
 ///
 /// ### Example:
 ///
-/// ```dart
+/// ```
 /// @Component(
 ///   selector: 'my-app',
 ///   directives: const [formDirectives],

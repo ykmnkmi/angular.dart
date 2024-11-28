@@ -39,14 +39,16 @@ final _observableStrategy = _ObservableStrategy();
 /// ### Example
 ///
 /// <?code-excerpt "common/pipes/lib/async_pipe.dart (AsyncPipe)"?>
-/// ```dart
+/// ```
 /// @Component(
-///     selector: 'async-greeter',
-///     template: '''
-///       <div>
-///         <p>Wait for it ... {{ $pipe.async(greeting) }}</p>
-///         <button [disabled]="!done" (click)="tryAgain()">Try Again!</button>
-///       </div>''')
+///   selector: 'async-greeter',
+///   template: '''
+///     <div>
+///       <p>Wait for it ... {{ $pipe.async(greeting) }}</p>
+///       <button [disabled]="!done" (click)="tryAgain()">Try Again!</button>
+///     </div>
+///   ''',
+/// )
 /// class AsyncGreeterPipe {
 ///   static const _delay = const Duration(seconds: 2);
 ///
@@ -69,8 +71,9 @@ final _observableStrategy = _ObservableStrategy();
 /// }
 ///
 /// @Component(
-///     selector: 'async-time',
-///     template: "<p>Time: {{ $pipe.date($pipe.async(time), 'mediumTime') }}</p>")
+///   selector: 'async-time',
+///   template: "<p>Time: {{ $pipe.date($pipe.async(time), 'mediumTime') }}</p>",
+/// )
 /// class AsyncTimePipe {
 ///   static const _delay = const Duration(seconds: 1);
 ///   final Stream<DateTime> time = Stream.periodic(_delay, (_) =>DateTime.now());

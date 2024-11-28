@@ -63,7 +63,7 @@ export 'src/validators.dart' show ngValidators, Validators;
 ///
 /// ### Example
 ///
-/// ```dart
+/// ```
 /// @GenerateInjector(formProviders)
 /// final InjectorFactory injector = ng.injector$Injector;
 ///

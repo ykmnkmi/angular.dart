@@ -1,3 +1,5 @@
+import '../meta.dart';
+
 /// Options for configuring whether a directive class can be injected.
 ///
 /// See [Directive.visibility] for details including the default behavior.
@@ -5,7 +7,7 @@ enum Visibility {
   /// The directive can only be injected "locally"; i.e. not from another view.
   ///
   /// For example, the following code will fail at runtime:
-  /// ```dart
+  /// ```
   /// @Component(
   ///   selector: 'parent',
   ///   directives: const [Child],
@@ -28,7 +30,7 @@ enum Visibility {
   ///
   /// However, if the `Parent` and `Child` components are in the same view, the
   /// example works:
-  /// ```dart
+  /// ```
   /// @Component(
   ///   selector: 'parent',
   ///   template: '',
@@ -63,7 +65,7 @@ enum Visibility {
   /// each other regardless of visibility.
   ///
   /// Furthermore, it is possible to provide another interface to children:
-  /// ```dart
+  /// ```
   /// // An interface that will be provided by the Parent class.
   /// abstract class Example {}
   ///
@@ -71,7 +73,7 @@ enum Visibility {
   ///   selector: 'parent',
   ///   directives: const [Child],
   ///   providers: const [
-  ///     const ExistingProvider(Example, useExisting: Parent),
+  ///     ExistingProvider(Example, useExisting: Parent),
   ///   ],
   ///   template: '<child></child>',
   /// )
@@ -99,7 +101,7 @@ enum Visibility {
 
   /// The directive can be injected anywhere in the sub tree.
   ///
-  /// ```dart
+  /// ```
   /// @Component(
   ///   selector: 'parent',
   ///   directives: const [Child],

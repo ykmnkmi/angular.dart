@@ -32,7 +32,7 @@ abstract class LocationStrategy {
 /// The [appBaseHref] token represents the base HREF to be used for the router.
 ///
 /// For example, if your site is at `/my/app` on your host:
-/// ```dart
+/// ```
 /// const ValueProvider.forToken(appBaseHref, '/my/app');
 /// ```
 const appBaseHref = OpaqueToken<String>('appBaseHref');

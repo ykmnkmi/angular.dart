@@ -22,7 +22,7 @@ import 'shared.dart' show controlPath;
 /// We can work with each control separately: check its validity, get its value, listen to its
 /// changes.
 ///
-/// ```dart
+/// ```
 /// @Component(
 ///   selector: 'login-comp',
 ///   directives: const [coreDirectives, formDirectives],
@@ -38,14 +38,14 @@ import 'shared.dart' show controlPath;
 /// )
 /// class LoginComp {
 ///  void onLogIn(value) {
-///    // value === {'login': 'some login', 'password': 'some password'}
+///    // value == {'login': 'some login', 'password': 'some password'}
 ///  }
 /// }
 /// ```
 ///
 /// We can also use ngModel to bind a domain model to the form.
 ///
-/// ```dart
+/// ```
 /// @Component(
 ///   selector: 'login-comp',
 ///   directives: const [formDirectives],
@@ -58,14 +58,14 @@ import 'shared.dart' show controlPath;
 ///     </form>
 ///   ''')
 /// class LoginComp {
-///  String? login;
+///   String? login;
 ///
-///  String? password;
+///   String? password;
 ///
-///  onLogIn(): void {
-///    // credentials.login === "some login"
-///    // credentials.password === "some password"
-///  }
+///   void onLogIn() {
+///     // login == 'some login'
+///     // password == some password'
+///   }
 /// }
 /// ```
 @Directive(

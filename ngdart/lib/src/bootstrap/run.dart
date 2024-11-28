@@ -98,7 +98,7 @@ Injector _identityInjector(Injector parent) => parent;
 
 /// Starts a new AngularDart application with [componentFactory] as the root.
 ///
-/// ```dart
+/// ```
 /// // Assume this file is "main.dart".
 /// import 'package:ngdart/angular.dart';
 ///
@@ -124,9 +124,10 @@ Injector _identityInjector(Injector parent) => parent;
 /// Optionally may supply a [createInjector] function in order to provide
 /// services to the root of the application:
 ///
-/// ```dart
+/// ```
 /// // Assume this file is "main.dart".
 /// import 'package:ngdart/angular.dart';
+///
 /// import 'main.template.dart' as ng;
 ///
 /// @Component(
@@ -145,12 +146,12 @@ Injector _identityInjector(Injector parent) => parent;
 ///   }
 /// }
 ///
+/// @GenerateInjector(const [ClassProvider(HelloService)])
+/// final InjectorFactory helloInjector = ng.helloInjector$Injector;
+///
 /// void main() {
 ///   runApp(ng.HelloWorldNgFactory, createInjector: helloInjector);
 /// }
-///
-/// @GenerateInjector(const [ClassProvider(HelloService)])
-/// final InjectorFactory helloInjector = ng.helloInjector$Injector;
 /// ```
 ///
 /// See [InjectorFactory] for more examples.

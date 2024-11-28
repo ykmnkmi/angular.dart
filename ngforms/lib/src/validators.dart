@@ -16,7 +16,7 @@ const ngValidators = MultiToken<Object>('NgValidators');
 ///
 ///  ### Example
 ///
-/// ```dart
+/// ```
 /// Control loginControl = Control("", Validators.required)
 /// ```
 class Validators {
