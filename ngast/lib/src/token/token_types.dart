@@ -1,4 +1,4 @@
-part of ngast.src.token.tokens;
+part of 'tokens.dart';
 
 /// The types of tokens that can be returned by the NgStringTokenizer
 enum NgSimpleTokenType {

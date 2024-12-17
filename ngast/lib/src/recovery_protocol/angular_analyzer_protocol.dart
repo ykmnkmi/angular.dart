@@ -1,4 +1,4 @@
-part of angular_ast.src.recovery_protocol.recovery_protocol;
+part of 'recovery_protocol.dart';
 
 class NgAnalyzerRecoveryProtocol extends RecoveryProtocol {
   @override

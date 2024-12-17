@@ -1,5 +1,5 @@
 @JS()
-library angular.src.testability;
+library;
 
 import 'dart:async';
 import 'dart:html' show Element;

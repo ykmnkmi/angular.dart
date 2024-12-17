@@ -4,7 +4,7 @@
 /// `ngtest.dart` for any new code or for new users of this package. APIs
 /// may change at _any time_ without adhering strictly to sem-ver.
 @experimental
-library angular_test.compatibility;
+library;
 
 import 'package:meta/meta.dart';
 

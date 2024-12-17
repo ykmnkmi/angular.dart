@@ -7,7 +7,7 @@
 /// - `afterViewInit`,
 /// - `afterViewChecked`,
 /// - `onDestroy` (at the very end before destruction)
-library lifecycle_hooks;
+library;
 
 /// Implement this interface to get notified when any data-bound property of
 /// your directive is changed by the Angular framework.

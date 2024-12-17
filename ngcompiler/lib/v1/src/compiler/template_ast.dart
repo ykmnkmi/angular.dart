@@ -254,7 +254,7 @@ class ElementAst implements TemplateAst {
       visitor.visitElement(this, context);
 }
 
-/// A <ng-container> element which serves as a logical container for grouping.
+/// A `<ng-container>` element which serves as a logical container for grouping.
 class NgContainerAst implements TemplateAst {
   final List<TemplateAst> children;
   @override
@@ -499,7 +499,7 @@ enum ProviderAstType {
   builtin
 }
 
-/// Position where content is to be projected (instance of <ng-content> in
+/// Position where content is to be projected (instance of `<ng-content>` in
 /// a template).
 class NgContentAst implements TemplateAst {
   final int index;

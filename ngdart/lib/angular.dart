@@ -15,7 +15,7 @@
 /// [AngularDart guide]: https://webdev.dartlang.org/angular/guide
 /// [cheatsheet]: https://webdev.dartlang.org/angular/cheatsheet
 
-library angular;
+library;
 
 export 'src/bootstrap/run.dart' show runApp, runAppAsync;
 export 'src/common/directives.dart';

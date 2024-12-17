@@ -2,7 +2,7 @@
 /// imports `dart:html` and `runtime.dart` is currently used on libraries
 /// that expect to only run on the command-line VM.
 @JS()
-library angular.src.runtime.dom_helpers;
+library;
 
 import 'dart:html' hide document;
 

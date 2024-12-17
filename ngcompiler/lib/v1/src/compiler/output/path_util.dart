@@ -1,6 +1,6 @@
 import 'dart:math' as math;
 
-/// Matches asset:<package-name>/<realm>/<path-to-module>
+/// Matches `asset:<package-name>/<realm>/<path-to-module>`
 final _assetUrlRe = RegExp(r'asset:([^\/]+)\/([^\/]+)\/(.+)');
 const _pathSep = '/';
 final _pathSepRe = RegExp(r'\/');
