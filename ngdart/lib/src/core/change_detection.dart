@@ -1,4 +1,5 @@
 /// Change detection enables data binding in Angular.
+library;
 
 export 'change_detection/change_detection.dart'
     show

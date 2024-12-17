@@ -5,7 +5,7 @@
 ///
 /// This module is not included in the `angular` module; you must import the
 /// forms module explicitly.
-library ngforms; // name the library so we can run dartdoc on it by name.
+library; // name the library so we can run dartdoc on it by name.
 
 import 'src/directives/radio_control_value_accessor.dart'
     show RadioControlRegistry;

@@ -6,7 +6,7 @@
 ///
 /// **Warning:** No API exposed as part of this package is considered stable.
 @experimental
-library angular.experimental;
+library;
 
 import 'package:meta/meta.dart';
 import 'package:ngdart/angular.dart';

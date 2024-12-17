@@ -144,9 +144,9 @@ class NgClass implements DoCheck, OnDestroy {
     }
   }
 
-  /// If [rawClassVal] is an Iterable, it should only contain string values,
-  /// but it is OK if the Iterable itself is Iterable<dynamic> or
-  /// Iterable<Object> since we need to walk it in this method anyway.
+  /// If [rawClassVal] is an `Iterable`, it should only contain string values,
+  /// but it is OK if the `Iterable` itself is [Iterable<dynamic>] or
+  /// `Iterable<Object?>` since we need to walk it in this method anyway.
   ///
   /// Likewise, if [rawClassVal] is a Map, its keys should all be strings.
   void _applyClasses(Object? /* Iterable | Map */ rawClassVal, bool isCleanup) {

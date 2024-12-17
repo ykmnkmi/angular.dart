@@ -26,7 +26,7 @@ extension NullableDartType on DartType? {
     return type.nullabilitySuffix == NullabilitySuffix.question;
   }
 
-  /// A FutureOr<String?> can still be assigned null.
+  /// A `FutureOr<String?>` can still be assigned null.
   bool get _isFutureOrWithExplicitlyNullableValue =>
       this!.isDartAsyncFutureOr &&
       (this as ParameterizedType).typeArguments.first.isExplicitlyNullable;

@@ -1,5 +1,3 @@
-library ngast.src.token.tokens;
-
 part 'lexeme.dart';
 part 'token_types.dart';
 

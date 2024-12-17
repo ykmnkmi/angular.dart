@@ -1,5 +1,5 @@
 @JS()
-library angular.src.devtools;
+library;
 
 import 'dart:html' as html;
 
