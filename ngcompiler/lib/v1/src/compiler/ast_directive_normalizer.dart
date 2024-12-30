@@ -186,7 +186,7 @@ class AstDirectiveNormalizer {
     ];
   }
 
-  /// Parse the template, and visit to find <ng-content>.
+  /// Parse the template, and visit to find `<ng-content>`.
   List<String> _parseTemplate(
     String template,
     CompileTypeMetadata directiveType,

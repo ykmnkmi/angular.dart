@@ -46,7 +46,7 @@ abstract mixin class EmbeddedContentAst implements StandaloneTemplateAst {
   ///
   /// May be null if and only if decorator 'select' is defined,
   /// but no value is assigned.
-  /// If 'select' is not defined at all (simple <ng-content>), then the value
+  /// If 'select' is not defined at all (simple `<ng-content>`), then the value
   /// will default to '*'.
   String? get selector;
 
@@ -58,7 +58,7 @@ abstract mixin class EmbeddedContentAst implements StandaloneTemplateAst {
   /// Reference assignment.
   ReferenceAst? get reference;
 
-  /// </ng-content> that is paired to this <ng-content>.
+  /// `</ng-content>` that is paired to this `<ng-content>`.
   CloseElementAst get closeComplement;
   set closeComplement(CloseElementAst closeComplement);
 

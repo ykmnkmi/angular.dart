@@ -241,36 +241,37 @@ class _TypeResolver extends ast.AstVisitor<DartType, dynamic> {
         _implicitReceiverType = classElement.thisType;
 
   @override
-  DartType visitBinary(ast.Binary ast, _) {
+  DartType visitBinary(ast.Binary ast, dynamic context) {
     // Special case for adding two strings together.
     if (ast.operator == '+' &&
-        ast.left.visit(this, _) == _stringType &&
-        ast.right.visit(this, _) == _stringType) {
+        ast.left.visit(this, context) == _stringType &&
+        ast.right.visit(this, context) == _stringType) {
       return _stringType;
     }
     return _dynamicType;
   }
 
   @override
-  DartType visitConditional(ast.Conditional ast, _) => _dynamicType;
+  DartType visitConditional(ast.Conditional ast, context) => _dynamicType;
 
   @override
-  DartType visitEmptyExpr(ast.EmptyExpr ast, _) => _dynamicType;
+  DartType visitEmptyExpr(ast.EmptyExpr ast, dynamic context) => _dynamicType;
 
   @override
-  DartType visitFunctionCall(ast.FunctionCall ast, _) => _dynamicType;
+  DartType visitFunctionCall(ast.FunctionCall ast, dynamic context) =>
+      _dynamicType;
 
   @override
-  DartType visitIfNull(ast.IfNull ast, _) => _dynamicType;
+  DartType visitIfNull(ast.IfNull ast, dynamic context) => _dynamicType;
 
   @override
-  DartType visitImplicitReceiver(ast.ImplicitReceiver ast, _) =>
+  DartType visitImplicitReceiver(ast.ImplicitReceiver ast, dynamic context) =>
       _implicitReceiverType;
 
   @override
-  DartType visitInterpolation(ast.Interpolation ast, _) {
+  DartType visitInterpolation(ast.Interpolation ast, dynamic context) {
     if (ast.expressions.length == 1) {
-      final type = ast.expressions[0].visit(this, _);
+      final type = ast.expressions[0].visit(this, context);
       if (_isPrimitive(type)) {
         return type;
       }
@@ -280,36 +281,37 @@ class _TypeResolver extends ast.AstVisitor<DartType, dynamic> {
   }
 
   @override
-  DartType visitKeyedRead(ast.KeyedRead ast, _) => _dynamicType;
+  DartType visitKeyedRead(ast.KeyedRead ast, dynamic context) => _dynamicType;
 
   @override
-  DartType visitKeyedWrite(ast.KeyedWrite ast, _) => _dynamicType;
+  DartType visitKeyedWrite(ast.KeyedWrite ast, dynamic context) => _dynamicType;
 
   @override
-  DartType visitLiteralPrimitive(ast.LiteralPrimitive ast, _) =>
+  DartType visitLiteralPrimitive(ast.LiteralPrimitive ast, dynamic context) =>
       ast.value is String ? _stringType : _dynamicType;
 
   @override
-  DartType visitMethodCall(ast.MethodCall ast, _) {
-    var receiverType = ast.receiver.visit(this, _);
+  DartType visitMethodCall(ast.MethodCall ast, dynamic context) {
+    var receiverType = ast.receiver.visit(this, context);
     return _lookupMethodReturnType(receiverType, ast.name);
   }
 
   @override
-  DartType visitNamedExpr(ast.NamedExpr ast, _) => _dynamicType;
+  DartType visitNamedExpr(ast.NamedExpr ast, dynamic context) => _dynamicType;
 
   @override
-  DartType visitPipe(ast.BindingPipe ast, _) => _dynamicType;
+  DartType visitPipe(ast.BindingPipe ast, dynamic context) => _dynamicType;
 
   @override
-  DartType visitPrefixNot(ast.PrefixNot ast, _) => _dynamicType;
+  DartType visitPrefixNot(ast.PrefixNot ast, dynamic context) => _dynamicType;
 
   @override
-  DartType visitPostfixNotNull(ast.PostfixNotNull ast, _) => _dynamicType;
+  DartType visitPostfixNotNull(ast.PostfixNotNull ast, dynamic context) =>
+      _dynamicType;
 
   @override
-  DartType visitPropertyRead(ast.PropertyRead ast, _) {
-    var receiverType = ast.receiver.visit(this, _);
+  DartType visitPropertyRead(ast.PropertyRead ast, dynamic context) {
+    var receiverType = ast.receiver.visit(this, context);
     if (identical(receiverType, _implicitReceiverType)) {
       // This may be a local variable.
       for (var variableName in _variables.keys) {
@@ -322,28 +324,30 @@ class _TypeResolver extends ast.AstVisitor<DartType, dynamic> {
   }
 
   @override
-  DartType visitPropertyWrite(ast.PropertyWrite ast, _) => _dynamicType;
+  DartType visitPropertyWrite(ast.PropertyWrite ast, dynamic context) =>
+      _dynamicType;
 
   @override
-  DartType visitSafeMethodCall(ast.SafeMethodCall ast, _) {
-    var receiverType = ast.receiver.visit(this, _);
+  DartType visitSafeMethodCall(ast.SafeMethodCall ast, dynamic context) {
+    var receiverType = ast.receiver.visit(this, context);
     return _lookupMethodReturnType(receiverType, ast.name);
   }
 
   @override
-  DartType visitSafePropertyRead(ast.SafePropertyRead ast, _) {
-    var receiverType = ast.receiver.visit(this, _);
+  DartType visitSafePropertyRead(ast.SafePropertyRead ast, dynamic context) {
+    var receiverType = ast.receiver.visit(this, context);
     return _lookupGetterReturnType(receiverType, ast.name);
   }
 
   @override
-  DartType visitStaticRead(ast.StaticRead ast, _) =>
+  DartType visitStaticRead(ast.StaticRead ast, dynamic context) =>
       ast.id.analyzedClass == null
           ? _dynamicType
           : ast.id.analyzedClass!.classElement.thisType;
 
   @override
-  DartType visitVariableRead(ast.VariableRead ast, _) => _dynamicType;
+  DartType visitVariableRead(ast.VariableRead ast, dynamic context) =>
+      _dynamicType;
 
   /// Returns the return type of [getterName] on [receiverType], if it exists.
   ///

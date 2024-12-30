@@ -1,4 +1,4 @@
-library angular_test; // name the library so we can run dartdoc on it by name.
+library; // name the library so we can run dartdoc on it by name.
 
 export 'src/errors.dart' show TestAlreadyRunningError;
 export 'src/frontend.dart'

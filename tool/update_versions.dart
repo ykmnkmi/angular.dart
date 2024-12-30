@@ -1,7 +1,5 @@
 import 'dart:io';
 
-final packageFolderRe = RegExp('(_|ng)');
-
 final packageEntryRe = RegExp('^  (\\w+): (.+)\$', multiLine: true);
 
 void main() {
@@ -24,19 +22,18 @@ void main() {
     return '  ${match[1]}: ${versions[match[1]]}';
   }
 
-  var offset = Directory.current.path.length + 1;
+  void update(Directory directory) {
+    var pubspecFile = File.fromUri(directory.uri.resolve('pubspec.yaml'));
 
-  Directory.current.listSync().whereType<Directory>().forEach((directory) {
-    var directoryName = directory.path.substring(offset);
-
-    if (directoryName.startsWith(packageFolderRe)) {
-      var pubspecFile = File.fromUri(directory.uri.resolve('pubspec.yaml'));
-
-      if (pubspecFile.existsSync()) {
-        var oldPubspec = pubspecFile.readAsStringSync();
-        var newContent = oldPubspec.replaceAllMapped(packageEntryRe, replace);
-        pubspecFile.writeAsStringSync(newContent);
-      }
+    if (pubspecFile.existsSync()) {
+      var oldPubspec = pubspecFile.readAsStringSync();
+      var newContent = oldPubspec.replaceAllMapped(packageEntryRe, replace);
+      pubspecFile.writeAsStringSync(newContent);
     }
-  });
+  }
+
+  Directory.current
+      .listSync(recursive: true)
+      .whereType<Directory>()
+      .forEach(update);
 }

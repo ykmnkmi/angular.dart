@@ -1,5 +1,5 @@
 @JS()
-library angular.src.testability.js_api;
+library;
 
 import 'dart:html';
 
